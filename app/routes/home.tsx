@@ -6,7 +6,7 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan - Mengembangkan teknologi elektronika yang inovatif dan berkelanjutan" },
   ];
 }
-
+// ini command
 export default function Home() {
   return (
     <div className="min-h-screen pt-20">
