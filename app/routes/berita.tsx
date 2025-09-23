@@ -116,7 +116,7 @@ export default function News() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-900 via-emerald-800 to-teal-700 text-white py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-green-900 via-emerald-800 to-teal-700 text-white py-16 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="absolute top-10 left-10 w-32 h-32 bg-green-400 rounded-full opacity-10 animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-24 h-24 bg-emerald-300 rounded-full opacity-15 animate-bounce"></div>
@@ -124,10 +124,10 @@ export default function News() {
           <div className="text-center">
             <div className="inline-block mb-6">
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
               Berita & Pengumuman
             </h1>
-            <p className="text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
               Informasi terbaru seputar penelitian, inovasi, dan pengumuman 
               Kelompok Riset SELEB
             </p>
@@ -136,40 +136,40 @@ export default function News() {
       </section>
 
       {/* Recent News & Announcements */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Recent News */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Berita Terbaru
               </h2>
               
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {recentNews.map((news) => (
-                  <article key={news.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-xl">{news.image}</span>
+                  <article key={news.id} className="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-lg sm:text-xl">{news.image}</span>
                       </div>
                       
                       <div className="flex-grow">
-                        <div className="flex items-center mb-2">
-                          <span className="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-medium mr-2">
+                        <div className="flex flex-col sm:flex-row sm:items-center mb-2 space-y-1 sm:space-y-0">
+                          <span className="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-medium sm:mr-2">
                             {news.category}
                           </span>
-                          <span className="text-sm text-gray-500">{news.date}</span>
+                          <span className="text-xs sm:text-sm text-gray-500">{news.date}</span>
                         </div>
                         
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-green-600 cursor-pointer">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 hover:text-green-600 cursor-pointer">
                           {news.title}
                         </h3>
                         
-                        <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3">
                           {news.excerpt}
                         </p>
                         
-                        <button className="text-green-600 text-sm font-medium hover:text-green-800 transition-colors">
+                        <button className="text-green-600 text-xs sm:text-sm font-medium hover:text-green-800 transition-colors">
                           Baca Selengkapnya →
                         </button>
                       </div>
@@ -178,8 +178,8 @@ export default function News() {
                 ))}
               </div>
               
-              <div className="text-center mt-8">
-                <button className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors">
+              <div className="text-center mt-6 sm:mt-8">
+                <button className="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-green-700 transition-colors text-sm sm:text-base">
                   Lihat Semua Berita
                 </button>
               </div>
@@ -187,27 +187,27 @@ export default function News() {
 
             {/* Announcements Sidebar */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Pengumuman
               </h2>
               
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
+                <div className="space-y-3 sm:space-y-4">
                   {announcements.map((announcement) => (
-                    <div key={announcement.id} className={`p-4 rounded-lg border-l-4 ${
+                    <div key={announcement.id} className={`p-3 sm:p-4 rounded-lg border-l-4 ${
                       announcement.urgent 
                         ? 'border-red-500 bg-red-50' 
                         : 'border-green-500 bg-green-50'
                     }`}>
                       <div className="flex items-start justify-between">
                         <div className="flex-grow">
-                          <h4 className="font-medium text-gray-900 text-sm mb-1">
+                          <h4 className="font-medium text-gray-900 text-xs sm:text-sm mb-1">
                             {announcement.title}
                           </h4>
                           <p className="text-xs text-gray-500">{announcement.date}</p>
                         </div>
                         {announcement.urgent && (
-                          <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full font-medium ml-2">
+                          <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full font-medium ml-2 flex-shrink-0">
                             Penting
                           </span>
                         )}
@@ -216,38 +216,38 @@ export default function News() {
                   ))}
                 </div>
                 
-                <div className="mt-6 pt-4 border-t border-gray-200">
-                  <button className="w-full text-green-600 text-sm font-medium hover:text-green-800 transition-colors">
+                <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200">
+                  <button className="w-full text-green-600 text-xs sm:text-sm font-medium hover:text-green-800 transition-colors">
                     Lihat Semua Pengumuman →
                   </button>
                 </div>
               </div>
 
               {/* Quick Links */}
-              <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mt-4 sm:mt-6">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
                   Tautan Cepat
                 </h3>
                 
-                <div className="space-y-3">
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                <div className="space-y-2 sm:space-y-3">
+                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
                     Portal Penelitian
                   </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
                     Database Publikasi
                   </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
                     Kolaborasi Riset
                   </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
                     Lab Virtual
                   </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
                     Repositori Data
                   </a>
                 </div>
