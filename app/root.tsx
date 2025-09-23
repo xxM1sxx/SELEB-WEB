@@ -36,8 +36,8 @@ function Navigation() {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="flex-shrink-0">
               <img
-                className="h-10 w-10 sm:h-12 sm:w-12"
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ffffff'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-family='Arial' font-size='30' font-weight='bold' fill='%23059669'%3ESELEB%3C/text%3E%3C/svg%3E"
+                className="h-10 w-auto sm:h-12 sm:w-auto"
+                src="/SELEB Logo.svg"
                 alt="SELEB Logo"
               />
             </div>
@@ -269,8 +269,12 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-sm">SELEB</span>
+              <div className="mr-3">
+                <img
+                  className="h-10 w-auto sm:h-12 sm:w-auto"
+                  src="/SELEB Logo.svg"
+                  alt="SELEB Logo"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-bold">SELEB</h3>
