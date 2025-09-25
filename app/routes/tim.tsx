@@ -63,25 +63,25 @@ export default function Faculty() {
 
   const studentMembers = [
     {
-      name: "Nama",
-      position: "Posisi",
-      specialization: "Keahlian",
-      education: "Pendidikan",
-      supervisor: "Pembimbing",
+      name: "Fatih Nurrobi Alanshori",
+      position: "MBKM",
+      topik_riset: "Penerapan Artificial Intelligence untuk Kontrol Suhu dan Kelembapan pada cooler box berbasis Internet of Things",
+      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia",
+      supervisor: "Nanda Nagara, S.T.,M.Eng",
       image: "👨‍🎓"
     },
     {
-      name: "Nama",
-      position: "Posisi",
-      specialization: "Keahlian",
-      education: "Pendidikan",
-      supervisor: "Pembimbing",
+      name: "Muhammad Bilal Mardhiyyano Azizi",
+      position: "MBKM",
+      topik_riset: "Penerapan Artificial Intelligence untuk Kontrol Suhu dan Kelembapan pada cooler box berbasis Internet of Things",
+      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia",
+      supervisor: "Nanda Nagara, S.T.,M.Eng",
       image: "👩‍🎓"
     },
     {
       name: "Nama",
       position: "Posisi",
-      specialization: "Keahlian",
+      topik_riset: "Keahlian", 
       education: "Pendidikan",
       supervisor: "Pembimbing",
       image: "👨‍🎓"
@@ -227,7 +227,7 @@ export default function Faculty() {
                   <div className="space-y-2 text-xs sm:text-sm">
                     <div>
                       <span className="font-medium text-gray-700">Topik Penelitian:</span>
-                      <p className="text-gray-600">{student.specialization}</p>
+                      <p className="text-gray-600">{student.topik_riset}</p>
                     </div>
                     <div>
                       <span className="font-medium text-gray-700">Program Studi:</span>

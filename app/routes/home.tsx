@@ -31,7 +31,7 @@ export default function Home() {
     setCurrentSlide(index);
   };
   return (
-    <div className="min-h-screen pt-10">
+    <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Image Slider Background */}
@@ -60,12 +60,12 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           {/* Navigation Dots */}
-          <div className="flex justify-center space-x-2">
+          <div className="flex justify-center space-x-2 mb-6 pt-4 sm:pt-8 md:pt-12">
             {sliderImages.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${
                   index === currentSlide 
                     ? 'bg-green-400 scale-125' 
                     : 'bg-white/50 hover:bg-white/70'
@@ -74,35 +74,38 @@ export default function Home() {
               />
             ))}
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
             Sistem Elektronika Cerdas
             <span className="block text-green-400">Berkelanjutan</span>
           </h1>
-          <div className="inline-block bg-green-500 px-6 py-3 rounded-full mb-8 shadow-lg">
-            <span className="text-lg sm:text-xl md:text-2xl font-medium text-white italic tracking-wide">
+          <div className="inline-block bg-green-500 px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 rounded-full mb-6 sm:mb-8 shadow-lg mx-2">
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-white italic tracking-wide leading-tight">
               "SELEB – Making Sustainable Intelligent Electronics a Global Star."
             </span>
           </div>
-          <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 px-2">
             Kelompok Riset SELEB mengembangkan teknologi elektronika inovatif 
             yang cerdas, berkelanjutan, dan ramah lingkungan untuk masa depan yang lebih baik.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+            <button className="bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto max-w-xs sm:max-w-none">
               Jelajahi Penelitian
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 w-full sm:w-auto">
+            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 w-full sm:w-auto max-w-xs sm:max-w-none">
               Hubungi Kami
             </button>
           </div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          {/* Scroll Indicator */}
+          <div className="flex justify-center mt-8 sm:mt-12 md:mt-16">
+            <div className="animate-bounce">
+              <div className="w-4 h-6 sm:w-5 sm:h-8 md:w-6 md:h-10 border-2 border-white rounded-full flex justify-center">
+                <div className="w-0.5 h-2 sm:w-0.5 sm:h-2.5 md:w-1 md:h-3 bg-white rounded-full mt-1 sm:mt-1.5 md:mt-2"></div>
+              </div>
+            </div>
           </div>
         </div>
+
       </section>
 
       {/* About Section */}
