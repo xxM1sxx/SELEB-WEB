@@ -57,18 +57,18 @@ export default function Programs() {
             {/* Research Card 1 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-green-700 transition-colors">
-                Sistem IoT untuk Monitoring Kualitas Air Berbasis Machine Learning
+                JUDUL
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Ahmad Rizki Pratama</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
                 </div>
                 
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Dr. Sari Wijayanti, M.T.</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
                 </div>
               </div>
             </div>
@@ -76,18 +76,18 @@ export default function Programs() {
             {/* Research Card 2 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-blue-700 transition-colors">
-                Pengembangan Chatbot Cerdas untuk Layanan Akademik Menggunakan NLP
+                JUDUL
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Siti Nurhaliza</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
                 </div>
                 
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Prof. Dr. Budi Santoso, M.Kom.</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
                 </div>
               </div>
             </div>
@@ -95,18 +95,18 @@ export default function Programs() {
             {/* Research Card 3 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-purple-700 transition-colors">
-                Implementasi Blockchain untuk Keamanan Data Mahasiswa
+                JUDUL
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Muhammad Fajar Sidiq</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
                 </div>
                 
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Dr. Indra Kurniawan, M.T.</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p> 
                 </div>
               </div>
             </div>
@@ -114,18 +114,18 @@ export default function Programs() {
             {/* Research Card 4 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-orange-700 transition-colors">
-                Aplikasi Mobile AR untuk Pembelajaran Interaktif Teknik Komputer
+                JUDUL
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Rina Kartika Sari</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
                 </div>
                 
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Dr. Andi Suryanto, M.Kom.</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
                 </div>
               </div>
             </div>
@@ -133,18 +133,18 @@ export default function Programs() {
             {/* Research Card 5 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-teal-700 transition-colors">
-                Smart Farming System dengan Sensor IoT dan Analisis Data
+                JUDUL
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Dedi Kurniawan</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
                 </div>
                 
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Dr. Maya Sari, M.T.</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
                 </div>
               </div>
             </div>
@@ -152,18 +152,18 @@ export default function Programs() {
             {/* Research Card 6 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-indigo-700 transition-colors">
-                Game Edukasi VR untuk Pembelajaran Algoritma dan Struktur Data
+                JUDUL
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Bayu Adi Nugroho</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
                 </div>
                 
                 <div>
                   <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Dr. Rini Agustina, M.Kom.</p>
+                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
                 </div>
               </div>
             </div>

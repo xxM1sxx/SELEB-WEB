@@ -43,7 +43,8 @@ function Navigation() {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg sm:text-xl font-bold text-gray-900 drop-shadow-lg">SELEB</h1>
-              <p className="text-xs sm:text-sm text-gray-600 drop-shadow-md">Sistem Elektronika Cerdas Berkelanjutan</p>
+              <p className="text-xs sm:text-sm text-gray-600 drop-shadow-md">Sistem ELektronika Cerdas Berkelanjutan</p>
+              {/* <p className="text-xs sm:text-sm text-gray-600 drop-shadow-md">(English: Sustainable Intelligent Electronics Systems)</p> */}
             </div>
             <div className="block sm:hidden">
               <h1 className="text-lg font-bold text-gray-900 drop-shadow-lg">SELEB</h1>
@@ -302,8 +303,8 @@ function Footer() {
             <div className="mb-6">
               <h4 className="text-lg font-semibold mb-3 text-green-400">📞 Kontak</h4>
               <div className="text-gray-300 space-y-1">
-                <p>WhatsApp: +62811-1064-6794</p>
-                <p>Email: orei@brin.go.id</p>
+                <p>WhatsApp: (Nomor WhatsApp)</p>
+                <p>Email: (Alamat Email)</p>
               </div>
             </div>
             
@@ -333,7 +334,7 @@ function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-300 mb-4 md:mb-0">
-              © 2024 SELEB - Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan
+              © 2025 SELEB - Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan
             </p>
             <p className="text-sm text-gray-400">
               Badan Riset dan Inovasi Nasional (BRIN)

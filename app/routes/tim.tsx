@@ -10,50 +10,52 @@ export function meta({}: Route.MetaArgs) {
 export default function Faculty() {
   const facultyMembers = [
     {
-      name: "Athanasia Amanda Septevani, PhD",
+      name: "Athanasia Amanda Septevani, Ph.D",
       position: "Professor Researcher",
-      specialization: "Sustainable Electronics, Green Materials",
-      education: "PhD Materials Science",
+      // specialization: "Sustainable Electronics, Green Materials",
+      specialization: "Keahlian",
+      education: "PhD in Material Engineering",
       email: "atha001@brin.go.id",
-      image: "👩‍🔬"
+      image: "/foto1.jpeg"
+      // image: "👩‍🔬"
     },
     {
       name: "Prof. Dr. Yusuf Nur Wijayanto, S.T., M.Eng.",
       position: "Professor Researcher",
-      specialization: "Smart Grid, Power Electronics",
-      education: "PhD Electrical Engineering",
+      specialization: "Keahlian",
+      education: "Pendidikan",
       email: "yusu008@brin.go.id",
       image: "👨‍🔬"
     },
     {
       name: "Swasmi Purwajanti, S.T., M.Sc., Ph.D",
       position: "Senior Researcher",
-      specialization: "IoT Systems, Sensor Networks",
-      education: "PhD Computer Engineering",
+      specialization: "Keahlian",
+      education: "Pendidikan",
       email: "swas002@brin.go.id",
       image: "👩‍🔬"
     },
     {
       name: "Yohanes Susanto Ridwan, M.Si",
       position: "Senior Researcher",
-      specialization: "Environmental Electronics, Data Analytics",
-      education: "M.Si Physics",
+      specialization: "Keahlian",
+      education: "Pendidikan",
       email: "yoha006@brin.go.id",
       image: "👨‍🔬"
     },
     {
       name: "Nanda Nagara, S.T.,M.Eng",
       position: "Junior Researcher",
-      specialization: "Embedded Systems, Microcontroller Design",
-      education: "M.Eng Electrical Engineering",
+      specialization: "Keahlian",
+      education: "Pendidikan",
       email: "nand010@brin.go.id",
       image: "👨‍🔬"
     },
     {
       name: "Dr. Nur Rohmah",
       position: "Junior Researcher",
-      specialization: "Smart Sensors, AI Applications",
-      education: "PhD Computer Science",
+      specialization: "Keahlian",
+      education: "Pendidikan",
       email: "nurr003@brin.go.id",
       image: "👩‍🔬"
     }
@@ -61,54 +63,54 @@ export default function Faculty() {
 
   const studentMembers = [
     {
-      name: "Ahmad Fajar Pratama",
-      position: "Mahasiswa S2",
-      specialization: "IoT untuk Smart Agriculture",
-      education: "S2 Teknik Elektro UPI",
-      supervisor: "Dr. Sari Elektronika, S.T., M.T.",
+      name: "Nama",
+      position: "Posisi",
+      specialization: "Keahlian",
+      education: "Pendidikan",
+      supervisor: "Pembimbing",
       image: "👨‍🎓"
     },
     {
-      name: "Siti Nurhaliza Putri",
-      position: "Mahasiswa S2",
-      specialization: "AI untuk Optimasi Energi",
-      education: "S2 Teknik Informatika UPI",
-      supervisor: "Dr. Maya Cerdas, S.T., M.T.",
+      name: "Nama",
+      position: "Posisi",
+      specialization: "Keahlian",
+      education: "Pendidikan",
+      supervisor: "Pembimbing",
       image: "👩‍🎓"
     },
     {
-      name: "Rizky Dwi Saputra",
-      position: "Mahasiswa S1",
-      specialization: "Sensor Lingkungan Berkelanjutan",
-      education: "S1 Teknik Elektro UPI",
-      supervisor: "Dr. Lisa Pintar, S.Kom., M.T.",
+      name: "Nama",
+      position: "Posisi",
+      specialization: "Keahlian",
+      education: "Pendidikan",
+      supervisor: "Pembimbing",
       image: "👨‍🎓"
     }
   ];
 
   const staffMembers = [
     {
-      name: "Hendra Teknologi, S.T.",
-      position: "Kepala Laboratorium",
-      responsibility: "Pengelolaan Lab Elektronika Berkelanjutan",
+      name: "Nama",
+      position: "Posisi",
+      responsibility: "Penanggung Jawab",
       image: "👨‍💼"
     },
     {
-      name: "Dewi Inovasi, S.T.",
-      position: "Teknisi Senior",
-      responsibility: "Maintenance Peralatan Riset Canggih",
+      name: "Nama",
+      position: "Posisi",
+      responsibility: "Penanggung Jawab",
       image: "👩‍💼"
     },
     {
-      name: "Rudi Riset, S.Kom.",
-      position: "Admin Penelitian",
-      responsibility: "Administrasi Proyek & Publikasi",
+      name: "Nama",
+      position: "Posisi",
+      responsibility: "Penanggung Jawab",
       image: "👨‍💼"
     },
     {
-      name: "Siti Kolaborasi, S.E.",
-      position: "Koordinator Kemitraan",
-      responsibility: "Kerjasama Industri & Internasional",
+      name: "Nama",
+      position: "Posisi",
+      responsibility: "Penanggung Jawab",
       image: "👩‍💼"
     }
   ];
@@ -152,8 +154,18 @@ export default function Faculty() {
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="p-4 sm:p-6">
                   <div className="text-center mb-3 sm:mb-4">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                      <span className="text-2xl sm:text-3xl">{faculty.image}</span>
+                    {/* <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                      <span className="text-2xl sm:text-3xl">{faculty.image}</span> */}
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 overflow-hidden">
+                      {faculty.image.startsWith('/') ? (
+                        <img 
+                          src={faculty.image} 
+                          alt={faculty.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="text-2xl sm:text-3xl">{faculty.image}</span>
+                      )}
                     </div>
                     <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1">
                       {faculty.name}

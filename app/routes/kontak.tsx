@@ -202,10 +202,9 @@ export default function Contact() {
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Alamat Kantor</h3>
                       <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                         SELEB Research Group<br />
-                        Sustainable Intelligent Electronic Systems<br />
-                        Fakultas Pendidikan Teknologi dan Kejuruan<br />
-                        Universitas Pendidikan Indonesia<br />
-                        Jl. Dr. Setiabudhi No. 229, Bandung 40154<br />
+                        Kawasan Sains dan Teknologi Samaun Samadikun<br />
+                        Jl. Sangkuriang, Dago<br />
+                        Kecamatan Coblong, Kota Bandung 40135<br />
                         Jawa Barat, Indonesia
                       </p>
                     </div>
@@ -222,8 +221,8 @@ export default function Contact() {
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900">Telepon</h3>
                     </div>
                     <p className="text-gray-600 text-sm sm:text-base">
-                      <strong>Kantor:</strong> (022) 2013163<br />
-                      <strong>Fax:</strong> (022) 2013651
+                      <strong>Kantor:</strong> Nomor Kantor<br />
+                      <strong>Fax:</strong> Nomor  Fax
                     </p>
                   </div>
 
@@ -235,8 +234,8 @@ export default function Contact() {
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900">Email</h3>
                     </div>
                     <p className="text-gray-600 text-sm sm:text-base">
-                      <strong>Research:</strong> seleb@upi.edu<br />
-                      <strong>Kolaborasi:</strong> research.seleb@upi.edu
+                      <strong>Research:</strong> Alamat Email<br />
+                      <strong>Kolaborasi:</strong> Alamat Email Kolaborasi
                     </p>
                   </div>
                 </div>
@@ -252,11 +251,11 @@ export default function Contact() {
                   <div className="space-y-2 text-gray-600 text-sm sm:text-base">
                     <div className="flex justify-between">
                       <span>Senin - Kamis</span>
-                      <span>08:00 - 16:00 WIB</span>
+                      <span>07:30 - 16:00 WIB</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Jumat</span>
-                      <span>08:00 - 11:30 WIB</span>
+                      <span>07:30 - 16:30 WIB</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Sabtu - Minggu</span>
@@ -274,10 +273,10 @@ export default function Contact() {
                     <h3 className="text-base sm:text-lg font-semibold text-gray-900">Fokus Penelitian</h3>
                   </div>
                   <div className="space-y-2 text-gray-600 text-sm sm:text-base">
-                    <p>• Green Electronics Development</p>
-                    <p>• Platform Engineering</p>
-                    <p>• Bio-inspired Systems</p>
-                    <p>• Smart EcoTronics</p>
+                    <p>• Nama Fokus Penelitian</p>
+                    <p>• Nama Fokus Penelitian</p>
+                    <p>• Nama Fokus Penelitian</p>
+                    <p>• Nama Fokus Penelitian</p>
                   </div>
                 </div>
 
@@ -329,7 +328,7 @@ export default function Contact() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 mx-auto mb-6 sm:mb-8"></div>
             <p className="text-base sm:text-lg text-gray-600">
-              Temukan lokasi SELEB Research Group di kampus UPI Bandung
+              Temukan lokasi SELEB Research Group di KST Samaun Samadikun (Cisitu, Bandung)
             </p>
           </div>
 
@@ -342,8 +341,10 @@ export default function Contact() {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Peta Lokasi</h3>
                 <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                   SELEB Research Group<br />
-                  Universitas Pendidikan Indonesia<br />
-                  Jl. Dr. Setiabudhi No. 229, Bandung
+                  Kawasan Sains dan Teknologi Samaun Samadikun<br />
+                  Jl. Sangkuriang, Dago<br />
+                  Kecamatan Coblong, Kota Bandung 40135<br />
+                  Jawa Barat, Indonesia
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                   <button className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium hover:from-emerald-700 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">

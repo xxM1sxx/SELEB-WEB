@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import { useState, useEffect } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,33 +9,80 @@ export function meta({}: Route.MetaArgs) {
 }
 // ini command
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Array of image URLs - first slide uses local hero.webp
+  const sliderImages = [
+    "/hero.webp", // Local hero image
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", // Green Technology
+    "https://images.unsplash.com/photo-1559028006-448665bd7c7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80"  // Sustainable Electronics
+  ];
+
+  // Auto-rotate slides every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    }, 4000);
+    
+    return () => clearInterval(interval);
+  }, [sliderImages.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-10">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Image Slider Background */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/hero.webp"
-            alt="SELEB Research Background"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-              e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-            }}
-            onLoad={(e) => {
-              e.currentTarget.parentElement!.style.background = 'none';
-            }}
-          />
+          {sliderImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`SELEB Research Background ${index + 1}`}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement!.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                }}
+              />
+            </div>
+          ))}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          {/* Navigation Dots */}
+          <div className="flex justify-center space-x-2">
+            {sliderImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'bg-green-400 scale-125' 
+                    : 'bg-white/50 hover:bg-white/70'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
             Sistem Elektronika Cerdas
             <span className="block text-green-400">Berkelanjutan</span>
           </h1>
+          <div className="inline-block bg-green-500 px-6 py-3 rounded-full mb-8 shadow-lg">
+            <span className="text-lg sm:text-xl md:text-2xl font-medium text-white italic tracking-wide">
+              "SELEB – Making Sustainable Intelligent Electronics a Global Star."
+            </span>
+          </div>
           <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90">
             Kelompok Riset SELEB mengembangkan teknologi elektronika inovatif 
             yang cerdas, berkelanjutan, dan ramah lingkungan untuk masa depan yang lebih baik.
@@ -65,9 +113,10 @@ export default function Home() {
               Tentang SELEB
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan (SELEB) adalah 
-              pusat penelitian yang fokus pada pengembangan teknologi elektronika 
-              yang inovatif, cerdas, dan ramah lingkungan.
+              SELEB stands for Sistem Elektronika cErdas Berkelanjutan (English: Sustainable Intelligent Electronics Systems).
+              In Indonesian, “seleb” also means celebrity — a well-known, celebrated, and influential figure.
+              Inspired by this, SELEB symbolizes how sustainable intelligent electronics can shine like stars:
+              recognized globally, impactful in society, and guiding the path toward a greener future.
             </p>
           </div>
 
