@@ -2,7 +2,7 @@ import type { Route } from "./+types/publikasi";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Publikasi - SELEB Research Group" },
+    { title: "Publications - SELEB" },
     { name: "description", content: "Publikasi ilmiah dan penelitian Kelompok Riset Sustainable Smart Electronics (SELEB)" },
   ];
 }
@@ -144,11 +144,11 @@ export default function Publications() {
             <div className="inline-block mb-4 sm:mb-6">
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
-              Publikasi Ilmiah
+              Scientific Publications
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
-              Kontribusi penelitian SELEB untuk kemajuan teknologi elektronika berkelanjutan 
-              melalui publikasi di jurnal dan konferensi internasional terkemuka
+              Contributions of SELEB to sustainable electronics advancement 
+              through publications in top-tier journals and international conferences
             </p>
           </div>
         </div>
@@ -160,10 +160,10 @@ export default function Publications() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Publikasi Unggulan
+              Featured Publications
             </h2>
             <p className="text-base sm:text-lg text-gray-600">
-              Publikasi terpilih dengan dampak tinggi dalam bidang elektronika berkelanjutan
+              Selected publications with high impact in sustainable electronics
             </p>
           </div>
 
@@ -224,10 +224,10 @@ export default function Publications() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold  text-white mb-3 sm:mb-4">
-              Publikasi Terbaru
+              Recent Publications
             </h2>
             <p className="text-base sm:text-lg  text-white">
-              Karya ilmiah terbaru dari tim peneliti SELEB
+              Latest research papers from SELEB's research team
             </p>
           </div>
 
@@ -261,7 +261,7 @@ export default function Publications() {
           
           <div className="text-center mt-6 sm:mt-8">
             <button className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors w-full sm:w-auto">
-              Lihat Semua Publikasi
+              View All Publications
             </button>
           </div>
         </div>
@@ -272,10 +272,10 @@ export default function Publications() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Kolaborasi Internasional
+              International Collaborations
             </h2>
             <p className="text-base sm:text-lg text-gray-600">
-              Kemitraan penelitian dengan universitas terkemuka dunia
+              Collaborations with top universities worldwide
             </p>
           </div>
 

@@ -2,7 +2,7 @@ import type { Route } from "./+types/tentang";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Tentang - SELEB BRIN" },
+    { title: "About - SELEB" },
     { name: "description", content: "Tentang Sistem Elektronika Cerdas Berkelanjutan - BRIN Samaun Samadikun" },
   ];
 }
@@ -26,9 +26,9 @@ export default function About() {
               Sustainable Intelligent Electronic Systems
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed px-2">
-              Dari Limbah Menuju Perangkat Elektronik Canggih dan Cerdas - 
-              Kelompok riset yang mengintegrasikan teknologi kontrol, navigasi, dan sensing canggih 
-              untuk sistem elektronik yang berkelanjutan
+              From Waste to Advanced and Intelligent Electronic Devices - A research group
+              that integrates advanced control, navigation, and sensing technologies for
+              sustainable electronic systems.
             </p>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Latar Belakang Penelitian
+              Reseacrh Background
             </h2>
             <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-6 sm:mb-8"></div>
           </div>
@@ -51,13 +51,14 @@ export default function About() {
                   <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-green-100 rounded-full flex items-center justify-center mr-2 sm:mr-3">
                     🎯
                   </span>
-                  Fokus Penelitian
+                  Research Focus
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
-                  Kelompok riset Sustainable Intelligent Electronic Systems berfokus pada pengembangan 
-                  <span className="font-semibold text-green-700"> perangkat elektronik yang fleksibel, portabel, dan dinamis</span> 
-                  yang memenuhi kebutuhan aplikasi modern dan masa depan seperti transportasi, 
-                  kesehatan, mitigasi bencana, militer, pertanian, kelautan, energi, dan industri.
+                  The Sustainable Intelligent Electronic Systems research group focuses on the development of 
+                  <span className="font-semibold text-green-700"> flexible, portable, and dynamic electronic devices</span> 
+                  that meet the demands of modern and future applications across various domains such as
+                  <span className="font-semibold text-green-700"> transportation, healthcare, disaster mitigation,
+                    military, agriculture, marine, energy, and industry.</span>
                 </p>
               </div>
               
@@ -66,12 +67,15 @@ export default function About() {
                   <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-emerald-100 rounded-full flex items-center justify-center mr-2 sm:mr-3">
                     ♻️
                   </span>
-                  Pendekatan Berkelanjutan
+                  Sustainable Approach
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
-                  Dengan penekanan pada <span className="font-semibold text-emerald-700">keberlanjutan</span>, 
-                  kelompok ini memprioritaskan pendekatan yang ramah lingkungan dalam fabrikasi dan 
-                  produksi sistem elektronik cerdas.
+                  With an <span className="font-semibold text-emerald-700">emphasis on sustainability</span>, 
+                  the group prioritizes environmentally friendly approaches in the fabrication and
+                  production of intelligent electronic systems. Our research integrates advanced control,
+                  navigation, and sensing algorithms to enable electronic systems to monitor, direct,
+                  and interact optimally with dynamic environments while minimizing ecological footprints
+                  and enhancing long-term viability.
                 </p>
               </div>
             </div>

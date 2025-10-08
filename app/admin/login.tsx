@@ -1,26 +1,7 @@
 import type { MetaFunction } from "react-router";
 import { useState } from "react";
-import { Link } from "react-router";
-
-// Custom layout for login page without navbar and footer
-export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="id">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Login - SELEB Research Group</title>
-        <meta name="description" content="Login ke sistem SELEB Research Group" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-      </head>
-      <body className="min-h-screen bg-gray-50">
-        {children}
-      </body>
-    </html>
-  );
-}
+import { Link, useNavigate, useLocation } from "react-router";
+import { loginUser } from "../utils/auth";
 
 export const meta: MetaFunction = () => {
   return [
@@ -30,15 +11,21 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Login() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/admin/dashboard";
+  
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   const [errors, setErrors] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -58,14 +45,12 @@ export default function Login() {
 
   const validateForm = () => {
     const newErrors = {
-      email: "",
+      username: "",
       password: "",
     };
 
-    if (!formData.email) {
-      newErrors.email = "Email harus diisi";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Format email tidak valid";
+    if (!formData.username) {
+      newErrors.username = "Username harus diisi";
     }
 
     if (!formData.password) {
@@ -75,7 +60,7 @@ export default function Login() {
     }
 
     setErrors(newErrors);
-    return !newErrors.email && !newErrors.password;
+    return !newErrors.username && !newErrors.password;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -86,13 +71,19 @@ export default function Login() {
     }
 
     setIsLoading(true);
+    setLoginError("");
     
-    // Simulate API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      alert("Login berhasil! (Demo)");
+      const result = await loginUser(formData);
+      
+      if (result.success) {
+        // Redirect to intended page or dashboard
+        navigate(from, { replace: true });
+      } else {
+        setLoginError(result.message);
+      }
     } catch (error) {
-      alert("Login gagal. Silakan coba lagi.");
+      setLoginError("Terjadi kesalahan saat login. Silakan coba lagi.");
     } finally {
       setIsLoading(false);
     }
@@ -103,13 +94,13 @@ export default function Login() {
         <div className="max-w-md w-full space-y-8">
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="text-center mb-8">
-              <div className="inline-block mb-6">
+              <div className="inline-block mb-2">
                 <img
-                  className="h-16 w-16 mx-auto mb-4"
+                  className="h-16 w-16 mx-auto"
                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ffffff'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-family='Arial' font-size='30' font-weight='bold' fill='%23059669'%3ESELEB%3C/text%3E%3C/svg%3E"
                   alt="SELEB Logo"
                 />
-                <h2 className="text-lg font-semibold text-gray-700">SELEB Research Group</h2>
+                {/* <h2 className="text-lg font-semibold text-gray-700">SELEB Research Group</h2> */}
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
                 Login
@@ -120,24 +111,24 @@ export default function Login() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Email Field */}
+              {/* Username Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email
+                <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
+                  Username
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={formData.username}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'
+                  className={`text-gray-700 w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors ${
+                    errors.username ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  placeholder="Masukkan email Anda"
+                  placeholder="Masukkan username Anda"
                 />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                {errors.username && (
+                  <p className="mt-1 text-sm text-red-600">{errors.username}</p>
                 )}
               </div>
 
@@ -146,24 +137,49 @@ export default function Login() {
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                   Password
                 </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors ${
-                    errors.password ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="Masukkan password Anda"
-                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    className={`text-gray-700 w-full px-4 py-3 pr-12 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors ${
+                      errors.password ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                    placeholder="Masukkan password Anda"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    {showPassword ? (
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
+                      </svg>
+                    ) : (
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
                 {errors.password && (
                   <p className="mt-1 text-sm text-red-600">{errors.password}</p>
                 )}
               </div>
 
+              {/* Login Error Message */}
+              {loginError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                  <p className="text-sm text-red-600">{loginError}</p>
+                </div>
+              )}
+
               {/* Remember Me & Forgot Password */}
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
                     id="remember-me"
@@ -180,7 +196,7 @@ export default function Login() {
                     Lupa password?
                   </a>
                 </div>
-              </div>
+              </div> */}
 
               {/* Submit Button */}
               <button
@@ -207,7 +223,7 @@ export default function Login() {
             </form>
 
             {/* Divider */}
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-300" />
@@ -216,10 +232,10 @@ export default function Login() {
                   <span className="px-2 bg-white text-gray-500">Atau</span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Social Login */}
-            <div className="mt-6 space-y-3">
+            {/* <div className="mt-6 space-y-3">
               <button className="w-full flex justify-center items-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -229,29 +245,17 @@ export default function Login() {
                 </svg>
                 Masuk dengan Google
               </button>
-              
-              <button className="w-full flex justify-center items-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                <svg className="w-5 h-5 mr-2" fill="#1877F2" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                Masuk dengan Facebook
-              </button>
-            </div>
+            </div> */}
 
             {/* Sign Up Link */}
-            <div className="mt-8 text-center">
+            {/* <div className="mt-8 text-center">
               <p className="text-sm text-gray-600">
                 Belum punya akun?{' '}
-                <Link to="/register" className="font-medium text-green-600 hover:text-green-500 transition-colors">
+                <Link to="/admin/register" className="font-medium text-green-600 hover:text-green-500 transition-colors">
                   Daftar sekarang
                 </Link>
               </p>
-              <div className="mt-4">
-                <Link to="/" className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
-                  ← Kembali ke Beranda
-                </Link>
-              </div>
-            </div>
+            </div> */}
           </div>
         </div>
     </div>

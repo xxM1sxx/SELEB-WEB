@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
   NavLink,
+  useLocation,
 } from "react-router";
 import { useState } from "react";
 
@@ -64,7 +65,7 @@ function Navigation() {
                   }`
                 }
               >
-                Beranda
+                Home
               </NavLink>
               <NavLink
                 to="/tentang"
@@ -76,7 +77,7 @@ function Navigation() {
                   }`
                 }
               >
-                Tentang
+                About
               </NavLink>
               <NavLink
                 to="/penelitian"
@@ -88,7 +89,7 @@ function Navigation() {
                   }`
                 }
               >
-                Penelitian
+                Research
               </NavLink>
               <NavLink
                 to="/tim"
@@ -100,7 +101,7 @@ function Navigation() {
                   }`
                 }
               >
-                Tim
+                Team
               </NavLink>
               <NavLink
                 to="/berita"
@@ -112,7 +113,7 @@ function Navigation() {
                   }`
                 }
               >
-                Berita
+                News
               </NavLink>
               <NavLink
                 to="/publikasi"
@@ -124,7 +125,7 @@ function Navigation() {
                   }`
                 }
               >
-                Publikasi
+                Publication
               </NavLink>
               <NavLink
                 to="/kontak"
@@ -136,7 +137,7 @@ function Navigation() {
                   }`
                 }
               >
-                Kontak
+                Contact
               </NavLink>
             </div>
           </div>
@@ -176,7 +177,7 @@ function Navigation() {
               }
               onClick={() => setIsMenuOpen(false)}
             >
-              Beranda
+              Home
             </NavLink>
             <NavLink
               to="/tentang"
@@ -189,7 +190,7 @@ function Navigation() {
               }
               onClick={() => setIsMenuOpen(false)}
             >
-              Tentang
+              About
             </NavLink>
             <NavLink
               to="/penelitian"
@@ -202,7 +203,7 @@ function Navigation() {
               }
               onClick={() => setIsMenuOpen(false)}
             >
-              Penelitian
+              Research
             </NavLink>
             <NavLink
               to="/tim"
@@ -215,7 +216,7 @@ function Navigation() {
               }
               onClick={() => setIsMenuOpen(false)}
             >
-              Tim
+              Team
             </NavLink>
             <NavLink
               to="/berita"
@@ -228,7 +229,7 @@ function Navigation() {
               }
               onClick={() => setIsMenuOpen(false)}
             >
-              Berita
+              News
             </NavLink>
             <NavLink
               to="/publikasi"
@@ -241,7 +242,7 @@ function Navigation() {
               }
               onClick={() => setIsMenuOpen(false)}
             >
-              Publikasi
+              Publication
             </NavLink>
             <NavLink
               to="/kontak"
@@ -254,7 +255,7 @@ function Navigation() {
               }
               onClick={() => setIsMenuOpen(false)}
             >
-              Kontak
+              Contact
             </NavLink>
           </div>
         </div>
@@ -283,16 +284,16 @@ function Footer() {
               </div>
             </div>
             <p className="text-gray-300 mb-6">
-              Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan yang berdedikasi 
-              mengembangkan teknologi elektronika inovatif dan ramah lingkungan untuk 
-              masa depan yang berkelanjutan.
+              The Sustainable Intelligent Electronics Systems Research Group is a research group
+              dedicated to developing innovative and environmentally friendly electronics
+              technologies for a sustainable future.
             </p>
             
             {/* Address Section */}
             <div className="mb-6">
-              <h4 className="text-lg font-semibold mb-3 text-green-400">📍 Alamat</h4>
+              <h4 className="text-lg font-semibold mb-3 text-green-400">📍 Address</h4>
               <div className="text-gray-300 space-y-1">
-                <p className="font-medium">Kawasan Sains dan Teknologi Samaun Samadikun</p>
+                <p className="font-medium">KST Samaun Samadikun</p>
                 <p>Jl. Sangkuriang, Dago</p>
                 <p>Kecamatan Coblong, Kota Bandung 40135</p>
                 <p>Jawa Barat, Indonesia</p>
@@ -301,7 +302,7 @@ function Footer() {
 
             {/* Contact Section */}
             <div className="mb-6">
-              <h4 className="text-lg font-semibold mb-3 text-green-400">📞 Kontak</h4>
+              <h4 className="text-lg font-semibold mb-3 text-green-400">📞 Contact</h4>
               <div className="text-gray-300 space-y-1">
                 <p>WhatsApp: (Nomor WhatsApp)</p>
                 <p>Email: (Alamat Email)</p>
@@ -311,22 +312,22 @@ function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-green-400">Penelitian</h4>
+            <h4 className="text-lg font-semibold mb-4 text-green-400">Research</h4>
             <div className="space-y-2">
-              <a href="#" className="text-gray-300 hover:text-white block">Sistem Energi Berkelanjutan</a>
-              <a href="#" className="text-gray-300 hover:text-white block">IoT & Sistem Cerdas</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Elektronika Ramah Lingkungan</a>
-              <a href="#" className="text-gray-300 hover:text-white block">AI & Machine Learning</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Eco-Devices</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Electronic Circuits</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Digitalization</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Smart-EcoTronics</a>
             </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-green-400">Informasi</h4>
+            <h4 className="text-lg font-semibold mb-4 text-green-400">Information</h4>
             <div className="space-y-2">
-              <a href="#" className="text-gray-300 hover:text-white block">Publikasi</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Berita Riset</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Tim Peneliti</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Kemitraan</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Publication</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Research News</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Research Team</a>
+              <a href="#" className="text-gray-300 hover:text-white block">Partnership</a>
             </div>
           </div>
         </div>
@@ -347,6 +348,29 @@ function Footer() {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  if (isAdminRoute) {
+    // For admin routes, use minimal layout without navbar and footer
+    return (
+      <html lang="id">
+        <head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <Meta />
+          <Links />
+        </head>
+        <body className="min-h-screen bg-gray-50">
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+        </body>
+      </html>
+    );
+  }
+
+  // For regular routes, use full layout with navbar and footer
   return (
     <html lang="id">
       <head>

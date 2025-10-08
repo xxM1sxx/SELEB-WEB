@@ -2,7 +2,7 @@ import type { Route } from "./+types/kontak";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Kontak - SELEB Research Group" },
+    { title: "Contact - SELEB" },
     { name: "description", content: "Hubungi SELEB Research Group - Sustainable Intelligent Electronic Systems" },
   ];
 }
@@ -22,12 +22,12 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-              Hubungi Kami
+              Contact Us
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-green-300 to-emerald-300 mx-auto mb-6 sm:mb-8"></div>
             <p className="text-lg sm:text-xl text-green-100 max-w-3xl mx-auto leading-relaxed">
-              Kami siap membantu Anda dengan informasi tentang SELEB Research Group dan 
-              penelitian Sustainable Intelligent Electronic Systems. Jangan ragu untuk menghubungi kami.
+              We&apos;re here to help you with information about SELEB and 
+              Sustainable Intelligent Electronic Systems. Don&apos;t hesitate to contact us.
             </p>
           </div>
         </div>
@@ -47,18 +47,18 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Kirim Pesan
+                Send a Message
               </h2>
               <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
-                Silakan isi form di bawah ini untuk mengirim pesan kepada kami. 
-                Kami akan merespons dalam waktu 1x24 jam.
+                Please fill out the form below to send us a message. 
+                We will respond within 1x24 hours.
               </p>
 
               <form className="space-y-4 sm:space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                      Nama Depan *
+                      First Name *
                     </label>
                     <input
                       type="text"
@@ -71,7 +71,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                      Nama Belakang *
+                      Last Name *
                     </label>
                     <input
                       type="text"
@@ -100,7 +100,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Nomor Telepon
+                    Phone Number
                   </label>
                   <input
                     type="tel"
@@ -113,7 +113,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="category" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Kategori Pertanyaan *
+                    Question Category *
                   </label>
                   <select
                     id="category"
@@ -121,19 +121,19 @@ export default function Contact() {
                     required
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-sm sm:text-base"
                   >
-                    <option value="">Pilih kategori</option>
-                    <option value="research">Penelitian & Kolaborasi</option>
-                    <option value="publication">Publikasi & Paper</option>
-                    <option value="partnership">Kemitraan Industri</option>
-                    <option value="academic">Program Akademik</option>
-                    <option value="facilities">Fasilitas Laboratorium</option>
-                    <option value="other">Lainnya</option>
+                    <option value="">Select a category</option>
+                    <option value="research">Research & Collaboration</option>
+                    <option value="publication">Publications & Papers</option>
+                    <option value="partnership">Industry Partnerships</option>
+                    <option value="academic">Academic Programs</option>
+                    <option value="facilities">Laboratory Facilities</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Subjek *
+                    Subject *
                   </label>
                   <input
                     type="text"
@@ -141,7 +141,7 @@ export default function Contact() {
                     name="subject"
                     required
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-sm sm:text-base"
-                    placeholder="Subjek pesan Anda"
+                    placeholder="Subject of your message"
                   />
                 </div>
 
@@ -155,7 +155,7 @@ export default function Contact() {
                     rows={6}
                     required
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-vertical text-sm sm:text-base"
-                    placeholder="Tulis pesan Anda di sini..."
+                    placeholder="Write your message here..."
                   ></textarea>
                 </div>
 
@@ -168,8 +168,8 @@ export default function Contact() {
                     className="mt-1 h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
                   />
                   <label htmlFor="privacy" className="ml-3 text-xs sm:text-sm text-gray-600">
-                    Saya setuju dengan <a href="#" className="text-emerald-600 hover:text-emerald-800">kebijakan privasi</a> dan 
-                    memberikan izin untuk memproses data pribadi saya. *
+                    I agree to the <a href="#" className="text-emerald-600 hover:text-emerald-800">privacy policy</a> and 
+                    give permission to process my personal data. *
                   </label>
                 </div>
 
@@ -177,7 +177,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-medium hover:from-emerald-700 hover:to-green-700 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
                 >
-                  Kirim Pesan
+                  Send Message
                 </button>
               </form>
             </div>
@@ -186,7 +186,7 @@ export default function Contact() {
             <div className="space-y-6 sm:space-y-8">
               <div className="text-center mb-6 sm:mb-8">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
-                  Informasi Kontak
+                  Contact Information
                 </h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 mx-auto"></div>
               </div>
@@ -199,10 +199,10 @@ export default function Contact() {
                       <span className="text-xl sm:text-2xl">🏢</span>
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Alamat Kantor</h3>
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Office Address</h3>
                       <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                         SELEB Research Group<br />
-                        Kawasan Sains dan Teknologi Samaun Samadikun<br />
+                        KST Samaun Samadikun<br />
                         Jl. Sangkuriang, Dago<br />
                         Kecamatan Coblong, Kota Bandung 40135<br />
                         Jawa Barat, Indonesia
@@ -218,11 +218,11 @@ export default function Contact() {
                       <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <span className="text-lg sm:text-xl">📞</span>
                       </div>
-                      <h3 className="text-base sm:text-lg font-semibold text-gray-900">Telepon</h3>
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900">Phone</h3>
                     </div>
                     <p className="text-gray-600 text-sm sm:text-base">
-                      <strong>Kantor:</strong> Nomor Kantor<br />
-                      <strong>Fax:</strong> Nomor  Fax
+                      <strong>Office:</strong> Office Number<br />
+                      <strong>Fax:</strong> Fax Number
                     </p>
                   </div>
 
@@ -234,8 +234,8 @@ export default function Contact() {
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900">Email</h3>
                     </div>
                     <p className="text-gray-600 text-sm sm:text-base">
-                      <strong>Research:</strong> Alamat Email<br />
-                      <strong>Kolaborasi:</strong> Alamat Email Kolaborasi
+                      <strong>Research:</strong> Research Email<br />
+                      <strong>Collaboration:</strong> Collaboration Email
                     </p>
                   </div>
                 </div>
@@ -246,20 +246,20 @@ export default function Contact() {
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <span className="text-lg sm:text-xl">🕒</span>
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">Jam Operasional</h3>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">Office Hours</h3>
                   </div>
                   <div className="space-y-2 text-gray-600 text-sm sm:text-base">
                     <div className="flex justify-between">
-                      <span>Senin - Kamis</span>
+                      <span>Monday - Thursday</span>
                       <span>07:30 - 16:00 WIB</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Jumat</span>
+                      <span>Friday</span>
                       <span>07:30 - 16:30 WIB</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Sabtu - Minggu</span>
-                      <span className="text-red-500">Tutup</span>
+                      <span>Saturday - Sunday</span>
+                      <span className="text-red-500">Closed</span>
                     </div>
                   </div>
                 </div>
@@ -270,7 +270,7 @@ export default function Contact() {
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <span className="text-lg sm:text-xl">🔬</span>
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">Fokus Penelitian</h3>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">Research Focus</h3>
                   </div>
                   <div className="space-y-2 text-gray-600 text-sm sm:text-base">
                     <p>• Nama Fokus Penelitian</p>
@@ -286,7 +286,7 @@ export default function Contact() {
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <span className="text-lg sm:text-xl">🌐</span>
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">Media Sosial</h3>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">Social Media</h3>
                   </div>
                   <div className="flex flex-wrap gap-2 sm:gap-4">
                     <a href="#" className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors bg-blue-50 px-2 sm:px-3 py-1 sm:py-2 rounded-lg hover:bg-blue-100 text-xs sm:text-sm">
@@ -324,11 +324,11 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Lokasi Kami
+              Location
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 mx-auto mb-6 sm:mb-8"></div>
             <p className="text-base sm:text-lg text-gray-600">
-              Temukan lokasi SELEB Research Group di KST Samaun Samadikun (Cisitu, Bandung)
+              Find the location of SELEB Research Group at KST Samaun Samadikun (Cisitu, Bandung)
             </p>
           </div>
 
@@ -341,17 +341,22 @@ export default function Contact() {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Peta Lokasi</h3>
                 <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                   SELEB Research Group<br />
-                  Kawasan Sains dan Teknologi Samaun Samadikun<br />
+                  KST Samaun Samadikun<br />
                   Jl. Sangkuriang, Dago<br />
                   Kecamatan Coblong, Kota Bandung 40135<br />
                   Jawa Barat, Indonesia
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-                  <button className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium hover:from-emerald-700 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
-                    Buka di Google Maps
-                  </button>
+                  <a 
+                    href="https://maps.app.goo.gl/VVn3LV9vZCfNYppe6" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium hover:from-emerald-700 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base text-center"
+                  >
+                    Open in Google Maps
+                  </a>
                   <button className="border-2 border-emerald-600 text-emerald-600 px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
-                    Petunjuk Arah
+                    Directions
                   </button>
                 </div>
               </div>
@@ -371,11 +376,11 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Pertanyaan yang Sering Diajukan
+              Frequently Asked Questions
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 mx-auto mb-6 sm:mb-8"></div>
             <p className="text-base sm:text-lg text-gray-600">
-              Temukan jawaban untuk pertanyaan umum tentang SELEB Research Group
+              Find answers to common questions about SELEB Research Group
             </p>
           </div>
 
@@ -383,50 +388,57 @@ export default function Contact() {
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 p-6 sm:p-8 hover:shadow-xl transition-all duration-300">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
                 <span className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-3 text-emerald-600 font-bold text-sm sm:text-base">Q</span>
-                Apa itu SELEB Research Group?
+                What is SELEB Research Group?
               </h3>
               <p className="text-gray-600 leading-relaxed pl-9 sm:pl-11 text-sm sm:text-base">
-                SELEB (Sustainable Intelligent Electronic Systems) adalah kelompok penelitian yang berfokus pada pengembangan sistem elektronik cerdas dan berkelanjutan di bidang teknologi komputer dan elektronika.
+                SELEB (Sustainable Intelligent Electronic Systems) is a research group that
+                focuses on developing intelligent and sustainable electronic systems in the
+                field of computer and electronics technology.
               </p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 p-6 sm:p-8 hover:shadow-xl transition-all duration-300">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
                 <span className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-3 text-emerald-600 font-bold text-sm sm:text-base">Q</span>
-                Bagaimana cara bergabung dengan penelitian?
+                How can I join the research group?
               </h3>
               <p className="text-gray-600 leading-relaxed pl-9 sm:pl-11 text-sm sm:text-base">
-                Mahasiswa dapat bergabung melalui program magang, tugas akhir, atau sebagai asisten peneliti. Silakan hubungi kami melalui email atau datang langsung ke laboratorium untuk informasi lebih lanjut.
+                Students can join the research group through our internship program, final year projects,
+                or as researcher assistants. Please contact us via email or visit our lab for more
+                information.
               </p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 p-6 sm:p-8 hover:shadow-xl transition-all duration-300">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
                 <span className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-3 text-emerald-600 font-bold text-sm sm:text-base">Q</span>
-                Apa saja bidang penelitian yang tersedia?
+                What are the research areas available?
               </h3>
               <p className="text-gray-600 leading-relaxed pl-9 sm:pl-11 text-sm sm:text-base">
-                Kami fokus pada IoT, AI/Machine Learning, sistem embedded, teknologi hijau, smart systems, dan pengembangan perangkat lunak untuk aplikasi berkelanjutan.
+                We focus on IoT, AI/Machine Learning, embedded systems, green technology, smart systems,
+                and software development for sustainable applications.
               </p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 p-6 sm:p-8 hover:shadow-xl transition-all duration-300">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
                 <span className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-3 text-emerald-600 font-bold text-sm sm:text-base">Q</span>
-                Apakah ada program kolaborasi industri?
+                Is there an industry collaboration program?
               </h3>
               <p className="text-gray-600 leading-relaxed pl-9 sm:pl-11 text-sm sm:text-base">
-                Ya, kami terbuka untuk kolaborasi dengan industri dalam bentuk penelitian bersama, konsultasi teknologi, dan pengembangan produk inovatif yang berkelanjutan.
+                Yes, we are open to industry collaborations in the form of joint research,
+                technology consulting, and the development of sustainable innovative products.
               </p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 p-6 sm:p-8 hover:shadow-xl transition-all duration-300">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
                 <span className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-3 text-emerald-600 font-bold text-sm sm:text-base">Q</span>
-                Bagaimana cara mendapatkan informasi terbaru?
+                How can I get the latest updates?
               </h3>
               <p className="text-gray-600 leading-relaxed pl-9 sm:pl-11 text-sm sm:text-base">
-                Ikuti media sosial kami, kunjungi website secara berkala, atau berlangganan newsletter untuk mendapatkan update terbaru tentang penelitian dan kegiatan SELEB Research Group.
+                Follow our social media channels, visit our website regularly, or subscribe to our newsletter
+                to stay updated on the latest research and activities of SELEB Research Group.
               </p>
             </div>
           </div>

@@ -2,7 +2,7 @@ import type { Route } from "./+types/berita";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Berita & Pengumuman - SELEB" },
+    { title: "News & Announcements - SELEB" },
     { name: "description", content: "Berita terbaru dan pengumuman Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan (SELEB)" },
   ];
 }
@@ -125,11 +125,11 @@ export default function News() {
             <div className="inline-block mb-6">
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
-              Berita & Pengumuman
+              News & Announcements
             </h1>
             <p className="text-lg sm:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
-              Informasi terbaru seputar penelitian, inovasi, dan pengumuman 
-              Kelompok Riset SELEB
+              Stay updated with the latest news, announcements, and research highlights 
+              of the SELEB group.
             </p>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function News() {
             {/* Recent News */}
             <div className="lg:col-span-2">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
-                Berita Terbaru
+                Recent News
               </h2>
               
               <div className="space-y-4 sm:space-y-6">
@@ -170,7 +170,7 @@ export default function News() {
                         </p>
                         
                         <button className="text-green-600 text-xs sm:text-sm font-medium hover:text-green-800 transition-colors">
-                          Baca Selengkapnya →
+                          Read More →
                         </button>
                       </div>
                     </div>
@@ -180,7 +180,7 @@ export default function News() {
               
               <div className="text-center mt-6 sm:mt-8">
                 <button className="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-green-700 transition-colors text-sm sm:text-base">
-                  Lihat Semua Berita
+                  View All News
                 </button>
               </div>
             </div>
@@ -188,7 +188,7 @@ export default function News() {
             {/* Announcements Sidebar */}
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Pengumuman
+                Announcements
               </h2>
               
               <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
@@ -218,7 +218,7 @@ export default function News() {
                 
                 <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200">
                   <button className="w-full text-green-600 text-xs sm:text-sm font-medium hover:text-green-800 transition-colors">
-                    Lihat Semua Pengumuman →
+                    View All Announcements →
                   </button>
                 </div>
               </div>
@@ -226,29 +226,29 @@ export default function News() {
               {/* Quick Links */}
               <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mt-4 sm:mt-6">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
-                  Tautan Cepat
+                  Quick Links
                 </h3>
                 
                 <div className="space-y-2 sm:space-y-3">
                   <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Portal Penelitian
+                    Research Portal
                   </a>
                   <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Database Publikasi
+                    Publications Database
                   </a>
                   <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Kolaborasi Riset
+                    Research Collaboration
                   </a>
                   <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Lab Virtual
+                    Virtual Laboratories
                   </a>
                   <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Repositori Data
+                    Data Repository
                   </a>
                 </div>
               </div>

@@ -2,7 +2,7 @@ import type { Route } from "./+types/penelitian";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Penelitian yang Sedang Berjalan - TEKKOM UPI" },
+    { title: "Ongoing Research - SELEB" },
     { name: "description", content: "Penelitian yang sedang dikerjakan oleh mahasiswa dan dosen Program Studi Teknik Komputer UPI" },
   ];
 }
@@ -20,11 +20,11 @@ export default function Programs() {
             <div className="inline-block mb-6">
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
-              Penelitian yang Sedang Berjalan
+              Ongoing Research
             </h1>
             <p className="text-lg sm:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
-              Berbagai penelitian inovatif yang sedang dikembangkan oleh mahasiswa dan dosen 
-              dalam bidang teknologi komputer dan elektronika berkelanjutan
+              Various innovative research projects being developed by students and faculty 
+              in the fields of computer technology and sustainable electronics
             </p>
           </div>
         </div>
@@ -44,13 +44,13 @@ export default function Programs() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Penelitian yang Sedang Berjalan
+              Ongoing Research
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-6 sm:mb-8"></div>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Berbagai penelitian inovatif yang sedang dikembangkan oleh mahasiswa dan dosen 
-              dalam bidang teknologi komputer dan elektronika berkelanjutan
-            </p>
+            {/* <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Various innovative research projects being developed by students and faculty 
+              in the fields of computer technology and sustainable electronics
+            </p> */}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
