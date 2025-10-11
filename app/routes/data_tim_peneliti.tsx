@@ -89,17 +89,17 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
                 <div className="lg:col-span-2">
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Bidang Keahlian</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Specialization</h3>
                       <p className="text-gray-700 leading-relaxed">{faculty.specialization}</p>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Pendidikan</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Education</h3>
                       <p className="text-gray-700 leading-relaxed">{faculty.education}</p>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Link Penelitian</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Research Link</h3>
                       <a 
                         href={faculty.linkPenelitian} 
                         target="_blank" 
