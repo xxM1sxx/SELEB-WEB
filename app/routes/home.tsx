@@ -114,17 +114,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              About SELEB
+              About SINES
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4">
-              <span className="font-bold text-green-500">SINES</span> focuses on developing intelligent, energy-efficient, and sustainable electronic systems
-              that address real-world environmental and technological challenges. The group integrates
-              multidisciplinary expertise in electronics, materials science, artificial intelligence, and
-              green technology to design the next generation of smart, sustainable solutions for a better planet.
+              <span className="font-bold text-green-500">SINES</span> focuses on developing intelligent,
+              energy-efficient, and sustainable electronic systems that address real-world environmental and
+              technological challenges. The group integrates multidisciplinary expertise in electronics,
+              materials science, artificial intelligence, and green technology to design the next generation
+              of smart, sustainable solutions for a better planet.
             </p>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Our work connects innovation with the <span className="font-bold text-green-500">Sustainable Development Goals (SDGs)</span> to create intelligent
-              electronic systems that minimize ecological impact and promote long-term sustainability.
+              Our work connects innovation with the
+              <span className="font-bold text-green-500"> Sustainable Development Goals (SDGs) </span>
+              to create intelligent electronic systems that minimize ecological impact and promote long-term
+              sustainability.
             </p>
           </div>
 

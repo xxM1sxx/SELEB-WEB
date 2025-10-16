@@ -1,6 +1,7 @@
 import type { Route } from "./+types/tim";
 import { Link } from "react-router";
 import { facultyMembers } from "../data/facultyData";
+import { studentMembers } from "../data/studentData";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,48 +11,6 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Faculty() {
-  const studentMembers = [
-    {
-      name: "Name",
-      position: "Postdoctoral Fellow",
-      topik_riset: "Topic",
-      education: "Education",
-      supervisor: "Supervisor",
-      image: "👨‍🎓"
-    },
-    {
-      name: "Fatih Nurrobi Alanshori",
-      position: "MBKM",
-      topik_riset: "(Hardware Integration) - Application of Artificial Intelligence for Temperature and Humidity Control in Internet of Things-based Cooler Boxes",
-      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia, Indonesia",
-      supervisor: "Nanda Nagara, S.T., M.Eng.",
-      image: "/foto-student/fatih.jpeg"
-    },
-    {
-      name: "Muhammad Bilal Mardhiyyano Azizi",
-      position: "MBKM",
-      topik_riset: "(IoT System Integration) - Application of Artificial Intelligence for Temperature and Humidity Control in Internet of Things-based Cooler Boxes",
-      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia, Indonesia",
-      supervisor: "Nanda Nagara, S.T., M.Eng.",
-      image: "/foto-student/bilal.jpg"
-    },
-    {
-      name: "Angela Putri Kurnianta",
-      position: "MBKM",
-      topik_riset: "Development of Integrated Flexi Force Sensors on Bacterial Nanocellulose Substrates for Detecting Body Balance Disorders", 
-      education: "S1 - Teknik Biomedis - Institut Tekologi Sumatera, Indonesia",
-      supervisor: "Athanasia Amanda Septevani, S.T., Ph.D",
-      image: "👨‍🎓"
-    },
-    {
-      name: "Name",
-      position: "Position",
-      topik_riset: "Research Topic", 
-      education: "Education",
-      supervisor: "Supervisor",
-      image: "👨‍🎓"
-    }
-  ];
 
   return (
     <div className="min-h-screen pt-20">
@@ -183,16 +142,26 @@ export default function Faculty() {
                   
                   <div className="space-y-2 text-xs sm:text-sm">
                     <div className="">
-                      <span className="font-medium text-gray-700">Research Topic:</span>
+                      <span className="font-medium text-black">Research Topic:</span>
                       <p className="text-gray-600">{student.topik_riset}</p>
                     </div>
                     <div>
-                      <span className="font-medium text-gray-700">Study Program:</span>
+                      <span className="font-medium text-black">Education:</span>
                       <p className="text-gray-600">{student.education}</p>
                     </div>
                     <div>
-                      <span className="font-medium text-gray-700">Supervisor:</span>
+                      <span className="font-medium text-black">Supervisor:</span>
                       <p className="text-gray-600">{student.supervisor}</p>
+                    </div>
+                    <div>
+                      <span className="font-medium text-black">Publication Link:</span>
+                      {student.link_penelitian && student.link_penelitian !== "-" ? (
+                        <p><a className="text-gray-600 hover:text-blue-500 underline" href={`${student.link_penelitian}`} >
+                          {student.link_penelitian}
+                        </a></p>
+                      ) : (
+                        <p className="text-gray-600">{student.link_penelitian || "-"}</p>
+                      )}
                     </div>
                   </div>
                 </div>

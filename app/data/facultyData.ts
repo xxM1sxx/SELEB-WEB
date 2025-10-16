@@ -24,7 +24,7 @@ export const facultyMembers: FacultyMember[] = [
     name: "Prof. Dr. Yusuf Nur Wijayanto, S.T., M.Eng.",
     position: "Professor Researcher",
     specialization: "Electronics Engineering, IoT Systems, Smart Sensors",
-    education: "PhD in Electronics Engineering, Master in Engineering",
+    education: "Ph.D. in Electronics Engineering, Master in Engineering",
     email: "yusu008@brin.go.id",
     image: "👨‍🔬",
     linkPenelitian: "https://scholar.google.com/citations?user=example2",
@@ -36,7 +36,7 @@ export const facultyMembers: FacultyMember[] = [
     specialization: "Sustainable Electronics, Chemical Sensors and Material Valorization",
     education: "Ph.D. from The University of Queensland Australia",
     email: "swas002@brin.go.id",
-    image: "/foto-peneliti/swasmi.jpeg",
+    image: "/foto-peneliti/swasmi.svg",
     linkPenelitian: "https://scholar.google.com/citations?user=fKBObtgAAAAJ&hl=en",
     bibliography: "Dr. Swasmi Purwajanti is a Senior/Expert Researcher (Peneliti Ahli Madya) at the Center for Electronics Research within Indonesia’s National Research and Innovation Agency (Badan Riset dan Inovasi Nasional - BRIN). Dr. Purwajanti's expertise and contributions have earned her significant recognition:\n\nFulbright Visiting Researcher (2023): Awarded a fellowship to conduct research on the Fabrication of Graphene Oxide-Ag/MgO nanocomposites for PFAS Degradation.\n\nUNESCO-Loreal for Women in Science - National Fellowship (2019): Recognized for her project on the Utilization of bittern as a raw material for making super multifunctional nanoadsorbents for more efficient water remediation.\n\nMajor Funded Projects: Currently leading internationally collaborative projects in Carbon Capture Storage (CCS) for 2025, supported by the New Energy and Industrial Technology Development Organization (NEDO-Japan)."
   },
@@ -44,31 +44,31 @@ export const facultyMembers: FacultyMember[] = [
     name: "Yohanes Susanto Ridwan, M.Si.",
     position: "Senior Researcher",
     specialization: "Electrochemical Sensors, Analytical Chemistry, Chemical Metrology",
-    education: "Master's Degree from Institut Teknologi Bandung",
+    education: "Master's Degree from Institut Teknologi Bandung, Indonesia",
     email: "yoha006@brin.go.id",
     image: "/foto-peneliti/santo.jpg",
     linkPenelitian: "https://scholar.google.com/citations?hl=id&user=I2iquvgAAAAJ&sortby=pubdate&view_op=list_works&authuser=1",
     bibliography: "I am part of the Sustainable Intelligent Electronics research group at the Research Center for Electronics, National Research and Innovation Agency (BRIN), where I explore innovative and sustainable sensing technologies for environmental applications. My research integrates electrochemical, spectrochemical, and fluorescence principles to design smart and reliable sensors capable of detecting a wide range of contaminants, from heavy metal ions, organic pollutants to pesticide residues. A growing part of my work focuses on green synthesis and waste valorization, utilizing agro-waste and natural extracts to develop environmentally friendly sensor materials that support sustainable electronics.\n\nBeyond sensor development, I have a strong background in metrology in chemistry and quality infrastructure, ensuring that measurement and analytical practices meet the highest international standards. I also contribute as a laboratory assessor for ISO/IEC 17025 testing laboratories, ISO 17043 proficiency testing providers, and ISO 17034 reference material producers.\n\nDriven by strong interest for accuracy and sustainability, I am dedicated to creating smart, portable, and eco-friendly sensing systems that advance environmental monitoring and public health protection."
   },
   {
-    name: "Nanda Nagara, S.T., M.Eng.",
+    name: "Nanda Nagara, M.Eng.",
     position: "Junior Researcher",
-    specialization: "Embedded Systems, Microcontroller Programming, IoT Development",
-    education: "Master of Engineering in Electronics",
+    specialization: "Electronic Instrumentation, System Control",
+    education: "Master's Degree from RINE, University of Fukui, Japan",
     email: "nand010@brin.go.id",
-    image: "👨‍🔬",
-    linkPenelitian: "https://scholar.google.com/citations?user=example5",
-    bibliography: "Deskripsi"
+    image: "/foto-peneliti/nanda.jpg",
+    linkPenelitian: "https://scholar.google.com/citations?hl=en&user=NLv6SNYAAAAJ",
+    bibliography: "Nanda Nagara completed his master's degree in Nuclear Engineering with a focus on sensor system integration and radiation exposure monitoring simulation using passive sensors, with a case study of the Fukushima Nuclear Power Plant. His research interests include computational studies, instrumentation and control systems, and the development of Internet of Things-based models. He is known for his methodical approach to designing experiments and his ability to compile technical workflows into communicative visual diagrams. Currently, he is active in an AI-based delivery box monitoring project and assists in research and development activities at the Electronics Research Center, Sustainable Intelligent Electronics Systems Research Group, in the field of electronic instrumentation and control systems.\n\nResearch Interests:\n- Sensor systems and computer vision for environmental monitoring\n- Green insulation and sustainable materials\n- Internet of Things\n- Embedded System Development\n- Artificial Intelligence"
   },
   {
     name: "Dr. Nur Rohmah",
     position: "Junior Researcher",
-    specialization: "Materials Science, Nanotechnology, Green Chemistry",
-    education: "PhD in Materials Science",
+    specialization: "Cellulose-Based Sensors, Soft/Flexible Electronics",
+    education: "Doctoral’s Degree in Chemical Engineering, Institut Teknologi Bandung, Indonesia",
     email: "nurr003@brin.go.id",
-    image: "👩‍🔬",
-    linkPenelitian: "https://scholar.google.com/citations?user=example6",
-    bibliography: "Deskripsi"
+    image: "/foto-peneliti/nur.svg",
+    linkPenelitian: "https://scholar.google.com/citations?user=VnyIXwIAAAAJ&hl=id&citsig=ACUpqDcSGGci-4RIP7YYSUYEIgJA",
+    bibliography: "Dr. Nur Rohmah is a Researcher at the Sustainable Intelligent Electronics Systems Research Group, the Research Centre for Electronics, the National Research and Innovation Agency (Badan Riset dan Inovasi Nasional - BRIN), Indonesia. Her research contribution is cellulose production from lignocellulose or biomass to support the development of sustainable cellulose/nanocellulose-based functional electronic device technology, including the following: soft/flexible electronic substrates, natural composites and conductive polymers, nanocellulose paper coated with conductive materials for sensors, conductive paper-based sensor substrates for pH, pressure, humidity, temperature, and biometric sensing applications, flexible electronics, etc. The research is dedicated to developing sustainable functional electronic devices, aligning with the principles of green electronics development that emphasize resource efficiency, the use of environmentally friendly materials, and sustainable e-waste management."
   },
   {
     name: "Dr. Ir. Rilo Berdin Taqriban, S.T., M.T.",
@@ -76,7 +76,7 @@ export const facultyMembers: FacultyMember[] = [
     specialization: "Biomechatronics, Biomaterials, Image Processing",
     education: "Doctorate in Mechanical Engineering, Universitas Diponegoro, Indonesia",
     email: "rilo002@brin.go.id/",
-    image: "👩‍🔬",
+    image: "/foto-peneliti/rilo.jpeg",
     linkPenelitian: "https://orcid.org/0000-0001-8631-5668",
     bibliography: "Rilo is an engineer with a doctoral degree in Mechanical Engineering from Diponegoro University and CBIOM3S. He currently serves as an Associate Researcher at the Research Organization for Electronics and Informatics, BRIN Bandung, focusing on biomaterials, biomechatronics, IoT, and image processing. His academic background includes a master’s and bachelor’s degree in Mechanical Engineering from Diponegoro University. He has over six years of experience in engineering, including three years as CEO of SOLI3D Studio and CTO of PT Amputee Technology Indonesia providing 3D printing, design, and scanning services for assistive devices. His expertise covers additive manufacturing, surface modification, 3D modeling, biomaterials, and biomedical applications, supported by publications and awards. Rilo is passionate about innovation, collaboration, and applying technology to improve quality of life."
   }
