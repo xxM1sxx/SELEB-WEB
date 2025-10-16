@@ -57,18 +57,18 @@ export default function Programs() {
             {/* Research Card 1 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-green-700 transition-colors">
-                JUDUL
+                TITLE 1
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
                 </div>
                 
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
                 </div>
               </div>
             </div>
@@ -76,18 +76,18 @@ export default function Programs() {
             {/* Research Card 2 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-blue-700 transition-colors">
-                JUDUL
+                TITLE 2
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
                 </div>
                 
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
                 </div>
               </div>
             </div>
@@ -95,18 +95,18 @@ export default function Programs() {
             {/* Research Card 3 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-purple-700 transition-colors">
-                JUDUL
+                TITLE 3
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
                 </div>
                 
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p> 
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p> 
                 </div>
               </div>
             </div>
@@ -114,18 +114,18 @@ export default function Programs() {
             {/* Research Card 4 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-orange-700 transition-colors">
-                JUDUL
+                TITLE 4
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
                 </div>
                 
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
                 </div>
               </div>
             </div>
@@ -133,18 +133,18 @@ export default function Programs() {
             {/* Research Card 5 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-teal-700 transition-colors">
-                JUDUL
+                TITLE 5
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
                 </div>
                 
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
                 </div>
               </div>
             </div>
@@ -152,18 +152,18 @@ export default function Programs() {
             {/* Research Card 6 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-indigo-700 transition-colors">
-                JUDUL
+                TITLE 6
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Peneliti:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Peneliti</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
                 </div>
                 
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Pembimbing:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Nama Pembimbing</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
+                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
                 </div>
               </div>
             </div>

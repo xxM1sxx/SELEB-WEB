@@ -8,7 +8,7 @@ export default [
   route("penelitian", "routes/penelitian.tsx"),
   route("tim", "routes/tim.tsx"),
   route("data-tim-peneliti/:name", "routes/data_tim_peneliti.tsx"),
-  route("publikasi", "routes/publikasi.tsx"),
+  // route("publikasi", "routes/publikasi.tsx"),
   route("berita", "routes/berita.tsx"),
   route("kontak", "routes/kontak.tsx"),
   // Admin routes

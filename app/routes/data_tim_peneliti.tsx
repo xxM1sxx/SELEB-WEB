@@ -59,13 +59,14 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
       {/* Faculty Detail Section */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          {/* Profile Information */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
             <div className="p-6 sm:p-8 lg:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Column - Photo and Basic Info */}
                 <div className="lg:col-span-1">
                   <div className="text-center">
-                    <div className="w-48 h-48 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
+                    <div className="w-55 h-55 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
                       {faculty.image.startsWith('/') ? (
                         <img 
                           src={faculty.image} 
@@ -111,11 +112,6 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Bibliography</h3>
-                      <div className="text-gray-700 leading-relaxed whitespace-pre-line text-justify">{faculty.bibliography}</div>
-                    </div>
-
-                    <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
                       <a 
                         href={`mailto:${faculty.email}`}
@@ -126,6 +122,16 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bibliography Section */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="p-6 sm:p-8 lg:p-12">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bibliography</h3>
+              <div className="text-gray-700 leading-relaxed whitespace-pre-line text-justify">
+                {faculty.bibliography}
               </div>
             </div>
           </div>

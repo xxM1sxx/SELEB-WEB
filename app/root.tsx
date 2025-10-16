@@ -38,17 +38,17 @@ function Navigation() {
             <div className="flex-shrink-0">
               <img
                 className="h-10 w-auto sm:h-12 sm:w-auto"
-                src="/SELEB Logo.svg"
-                alt="SELEB Logo"
+                src="/logo sines.svg"
+                alt="SINES-Logo"
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl font-bold text-gray-900 drop-shadow-lg">SELEB</h1>
-              <p className="text-xs sm:text-sm text-gray-600 drop-shadow-md">Sistem ELektronika Cerdas Berkelanjutan</p>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900 drop-shadow-lg">SINES</h1>
+              <p className="text-xs sm:text-sm text-gray-600 drop-shadow-md">Sustainable Intelligent Electronics Systems</p>
               {/* <p className="text-xs sm:text-sm text-gray-600 drop-shadow-md">(English: Sustainable Intelligent Electronics Systems)</p> */}
             </div>
             <div className="block sm:hidden">
-              <h1 className="text-lg font-bold text-gray-900 drop-shadow-lg">SELEB</h1>
+              <h1 className="text-lg font-bold text-gray-900 drop-shadow-lg">SINES</h1>
             </div>
           </div>
 
@@ -115,7 +115,7 @@ function Navigation() {
               >
                 News
               </NavLink>
-              <NavLink
+              {/* <NavLink
                 to="/publikasi"
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium transition-colors drop-shadow-md ${
@@ -126,7 +126,7 @@ function Navigation() {
                 }
               >
                 Publication
-              </NavLink>
+              </NavLink> */}
               <NavLink
                 to="/kontak"
                 className={({ isActive }) =>
@@ -274,17 +274,17 @@ function Footer() {
               <div className="mr-3">
                 <img
                   className="h-10 w-auto sm:h-12 sm:w-auto"
-                  src="/SELEB Logo.svg"
-                  alt="SELEB Logo"
+                  src="/logo sines.svg"
+                  alt="SINES-Logo"
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold">SELEB</h3>
-                <p className="text-gray-300 text-sm">Sistem Elektronika Cerdas Berkelanjutan</p>
+                <h3 className="text-xl font-bold">SINES</h3>
+                <p className="text-gray-300 text-sm">Sustainable Intelligent Electronics Systems</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6">
-              The Sustainable Intelligent Electronics Systems Research Group is a research group
+              The Sustainable Intelligent Electronics Systems (SINES) Research Group is a research group
               dedicated to developing innovative and environmentally friendly electronics
               technologies for a sustainable future.
             </p>
@@ -304,8 +304,12 @@ function Footer() {
             <div className="mb-6">
               <h4 className="text-lg font-semibold mb-3 text-green-400">📞 Contact</h4>
               <div className="text-gray-300 space-y-1">
-                <p>WhatsApp: (Nomor WhatsApp)</p>
-                <p>Email: (Alamat Email)</p>
+                <p>Email: <a 
+                  href="mailto:atha001@brin.go.id"
+                  className="text-green-500 hover:text-green-700 underline"
+                >
+                  atha001@brin.go.id
+                </a></p>
               </div>
             </div>
             
@@ -324,7 +328,7 @@ function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-green-400">Information</h4>
             <div className="space-y-2">
-              <a href="#" className="text-gray-300 hover:text-white block">Publication</a>
+              {/* <a href="#" className="text-gray-300 hover:text-white block">Publication</a> */}
               <a href="#" className="text-gray-300 hover:text-white block">Research News</a>
               <a href="#" className="text-gray-300 hover:text-white block">Research Team</a>
               <a href="#" className="text-gray-300 hover:text-white block">Partnership</a>
@@ -335,7 +339,7 @@ function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-300 mb-4 md:mb-0">
-              © 2025 SELEB - Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan
+              © 2025 SINES - Sustainable Intelligent Electronics Systems Research Group
             </p>
             <p className="text-sm text-gray-400">
               Badan Riset dan Inovasi Nasional (BRIN)

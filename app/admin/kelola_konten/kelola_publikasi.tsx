@@ -3,6 +3,15 @@ import { getCurrentUser, logoutUser } from "../../utils/auth";
 import { NavLink } from "react-router";
 import { useState } from "react";
 
+import type { MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Kelola Publikasi" },
+    { name: "description", content: "Kelola Publikasi - Admin" },
+  ];
+};
+
 export default function KelolaPublikasi() {
   const user = getCurrentUser();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

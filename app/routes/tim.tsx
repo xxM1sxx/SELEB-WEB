@@ -12,55 +12,44 @@ export function meta({}: Route.MetaArgs) {
 export default function Faculty() {
   const studentMembers = [
     {
+      name: "Name",
+      position: "Postdoctoral Fellow",
+      topik_riset: "Topic",
+      education: "Education",
+      supervisor: "Supervisor",
+      image: "👨‍🎓"
+    },
+    {
       name: "Fatih Nurrobi Alanshori",
       position: "MBKM",
-      topik_riset: "Penerapan Artificial Intelligence untuk Kontrol Suhu dan Kelembapan pada cooler box berbasis Internet of Things",
-      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia",
-      supervisor: "Nanda Nagara, S.T.,M.Eng",
-      image: "👨‍🎓"
+      topik_riset: "(Hardware Integration) - Application of Artificial Intelligence for Temperature and Humidity Control in Internet of Things-based Cooler Boxes",
+      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia, Indonesia",
+      supervisor: "Nanda Nagara, S.T., M.Eng.",
+      image: "/foto-student/fatih.jpeg"
     },
     {
       name: "Muhammad Bilal Mardhiyyano Azizi",
       position: "MBKM",
-      topik_riset: "Penerapan Artificial Intelligence untuk Kontrol Suhu dan Kelembapan pada cooler box berbasis Internet of Things",
-      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia",
-      supervisor: "Nanda Nagara, S.T.,M.Eng",
-      image: "👩‍🎓"
+      topik_riset: "(IoT System Integration) - Application of Artificial Intelligence for Temperature and Humidity Control in Internet of Things-based Cooler Boxes",
+      education: "S1 - Teknik Komputer - Universitas Pendidikan Indonesia, Indonesia",
+      supervisor: "Nanda Nagara, S.T., M.Eng.",
+      image: "/foto-student/bilal.jpg"
     },
     {
-      name: "Nama",
-      position: "Posisi",
-      topik_riset: "Keahlian", 
-      education: "Pendidikan",
-      supervisor: "Pembimbing",
+      name: "Angela Putri Kurnianta",
+      position: "MBKM",
+      topik_riset: "Development of Integrated Flexi Force Sensors on Bacterial Nanocellulose Substrates for Detecting Body Balance Disorders", 
+      education: "S1 - Teknik Biomedis - Institut Tekologi Sumatera, Indonesia",
+      supervisor: "Athanasia Amanda Septevani, S.T., Ph.D",
       image: "👨‍🎓"
-    }
-  ];
-
-  const staffMembers = [
-    {
-      name: "Nama",
-      position: "Posisi",
-      responsibility: "Penanggung Jawab",
-      image: "👨‍💼"
     },
     {
-      name: "Nama",
-      position: "Posisi",
-      responsibility: "Penanggung Jawab",
-      image: "👩‍💼"
-    },
-    {
-      name: "Nama",
-      position: "Posisi",
-      responsibility: "Penanggung Jawab",
-      image: "👨‍💼"
-    },
-    {
-      name: "Nama",
-      position: "Posisi",
-      responsibility: "Penanggung Jawab",
-      image: "👩‍💼"
+      name: "Name",
+      position: "Position",
+      topik_riset: "Research Topic", 
+      education: "Education",
+      supervisor: "Supervisor",
+      image: "👨‍🎓"
     }
   ];
 
@@ -99,14 +88,14 @@ export default function Faculty() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {facultyMembers.map((faculty, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow relative">
                 <div className="p-4 sm:p-6">
                   <div className="text-center mb-3 sm:mb-4">
                     {/* <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
                       <span className="text-2xl sm:text-3xl">{faculty.image}</span> */}
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 overflow-hidden">
+                    <div className="w-16 h-16 sm:w-35 sm:h-35 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 overflow-hidden">
                       {faculty.image.startsWith('/') ? (
                         <img 
                           src={faculty.image} 
@@ -143,7 +132,7 @@ export default function Faculty() {
                   <div className="absolute bottom-4 right-4">
                     <Link 
                       to={`/data-tim-peneliti/${encodeURIComponent(faculty.name)}`}
-                      className="text-green-600 hover:text-green-800 text-xs font-medium underline"
+                      className="text-green-600 hover:text-green-800 text-base font-medium underline"
                     >
                       See More
                     </Link>
@@ -160,21 +149,29 @@ export default function Faculty() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Student
+              Postdoctoral Fellow and Students
             </h2>
             <p className="text-base sm:text-lg text-gray-600">
-              SELEB Research Team consists of students currently pursuing research 
+              SELEB Research Team consists of postdoctoral fellow and students currently pursuing research 
               in sustainable electronic technologies
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {studentMembers.map((student, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="p-4 sm:p-6">
                   <div className="text-center mb-3 sm:mb-4">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                      <span className="text-2xl sm:text-3xl">{student.image}</span>
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 overflow-hidden">
+                      {student.image.startsWith('/') ? (
+                        <img 
+                          src={student.image} 
+                          alt={student.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="text-2xl sm:text-3xl">{student.image}</span>
+                      )}
                     </div>
                     <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1">
                       {student.name}
@@ -185,7 +182,7 @@ export default function Faculty() {
                   </div>
                   
                   <div className="space-y-2 text-xs sm:text-sm">
-                    <div>
+                    <div className="">
                       <span className="font-medium text-gray-700">Research Topic:</span>
                       <p className="text-gray-600">{student.topik_riset}</p>
                     </div>
@@ -204,47 +201,6 @@ export default function Faculty() {
           </div>
         </div>
       </section>
-
-      {/* Staff Section */}
-      {/* <section className="py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-              Staf Pendukung
-            </h2>
-            <p className="text-base sm:text-lg text-white">
-              Tim staf profesional yang mendukung operasional dan administrasi penelitian
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {staffMembers.map((staff, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="p-4 sm:p-6">
-                  <div className="text-center mb-3 sm:mb-4">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                      <span className="text-2xl sm:text-3xl">{staff.image}</span>
-                    </div>
-                    <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1">
-                      {staff.name}
-                    </h3>
-                    <p className="text-purple-600 font-medium text-xs sm:text-sm mb-2">
-                      {staff.position}
-                    </p>
-                  </div>
-                  
-                  <div className="text-xs sm:text-sm">
-                    <div>
-                      <span className="font-medium text-gray-700">Tanggung Jawab:</span>
-                      <p className="text-gray-600">{staff.responsibility}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }

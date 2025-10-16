@@ -147,7 +147,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                    Pesan *
+                    Message *
                   </label>
                   <textarea
                     id="message"
@@ -212,20 +212,7 @@ export default function Contact() {
                 </div>
 
                 {/* Phone & Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <div className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-300 group">
-                    <div className="flex items-center space-x-3 mb-3 sm:mb-4">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-lg sm:text-xl">📞</span>
-                      </div>
-                      <h3 className="text-base sm:text-lg font-semibold text-gray-900">Phone</h3>
-                    </div>
-                    <p className="text-gray-600 text-sm sm:text-base">
-                      <strong>Office:</strong> Office Number<br />
-                      <strong>Fax:</strong> Fax Number
-                    </p>
-                  </div>
-
+                <div className="grid grid-cols-1 gap-4 sm:gap-6">
                   <div className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-300 group">
                     <div className="flex items-center space-x-3 mb-3 sm:mb-4">
                       <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -234,8 +221,9 @@ export default function Contact() {
                       <h3 className="text-base sm:text-lg font-semibold text-gray-900">Email</h3>
                     </div>
                     <p className="text-gray-600 text-sm sm:text-base">
-                      <strong>Research:</strong> Research Email<br />
-                      <strong>Collaboration:</strong> Collaboration Email
+                      <strong>Research & Collaboration Email:</strong>
+                      <br />
+                      <a href="mailto:atha001@brin.go.id" className="text-emerald-500 hover:text-emerald-800">atha001@brin.go.id</a>
                     </p>
                   </div>
                 </div>
@@ -273,10 +261,8 @@ export default function Contact() {
                     <h3 className="text-base sm:text-lg font-semibold text-gray-900">Research Focus</h3>
                   </div>
                   <div className="space-y-2 text-gray-600 text-sm sm:text-base">
-                    <p>• Nama Fokus Penelitian</p>
-                    <p>• Nama Fokus Penelitian</p>
-                    <p>• Nama Fokus Penelitian</p>
-                    <p>• Nama Fokus Penelitian</p>
+                    <p>• Research Focus Name</p>
+                    <p>• Research Focus Name</p>
                   </div>
                 </div>
 

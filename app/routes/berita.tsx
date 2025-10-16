@@ -32,50 +32,50 @@ export default function News() {
   const recentNews = [
     {
       id: 3,
-      title: "Workshop Green Electronics Design untuk Peneliti Muda",
-      excerpt: "Workshop intensif selama 3 hari tentang desain elektronika ramah lingkungan menggunakan material berkelanjutan.",
-      date: "8 Januari 2024",
-      category: "Workshop",
+      title: "News Title 1",
+      excerpt: "News Description 1",
+      date: "January 8, 2024",
+      category: "Category",
       image: "🔧"
     },
     {
       id: 4,
-      title: "Seminar Internasional: Sustainable Smart Electronics",
-      excerpt: "Seminar internasional dengan tema elektronika cerdas berkelanjutan, dihadiri 300+ peneliti dari berbagai negara.",
-      date: "5 Januari 2024",
-      category: "Seminar",
+      title: "News Title 2",
+      excerpt: "News Description 2",
+      date: "January 5, 2024",
+      category: "Category",
       image: "🎓"
     },
     {
       id: 5,
-      title: "Breakthrough: Baterai Biodegradable dengan Kapasitas Tinggi",
-      excerpt: "Tim SELEB berhasil mengembangkan baterai yang dapat terurai secara alami dengan kapasitas 30% lebih tinggi dari baterai konvensional.",
-      date: "3 Januari 2024",
-      category: "Penelitian",
+      title: "News Title 3",
+      excerpt: "News Description 3",
+      date: "January 3, 2024",
+      category: "Category",
       image: "🔬"
     },
     {
       id: 6,
-      title: "Publikasi di Nature Electronics: Circular Economy in Electronics",
-      excerpt: "Penelitian tentang ekonomi sirkular dalam industri elektronika berhasil dipublikasikan di jurnal Nature Electronics.",
+      title: "News Title 4",
+      excerpt: "News Description 4",
       date: "2 Januari 2024",
-      category: "Publikasi",
+      category: "Category",
       image: "📝"
     },
     {
       id: 7,
-      title: "Kuliah Tamu: Future of Sustainable Technology",
-      excerpt: "Kuliah tamu dari CEO Tesla Energy membahas masa depan teknologi berkelanjutan dan peran elektronika cerdas.",
+      title: "News Title 5",
+      excerpt: "News Description 5",
       date: "28 Desember 2023",
-      category: "Kuliah Tamu",
+      category: "Category",
       image: "🏭"
     },
     {
       id: 8,
-      title: "Kompetisi Inovasi Elektronika Berkelanjutan 2024",
-      excerpt: "Kompetisi nasional untuk mahasiswa dan peneliti muda dengan tema inovasi elektronika berkelanjutan, hadiah total 50 juta rupiah.",
+      title: "News Title 6",
+      excerpt: "News Description 6",
       date: "25 Desember 2023",
-      category: "Kompetisi",
+      category: "Category",
       image: "💻"
     }
   ];
@@ -83,32 +83,32 @@ export default function News() {
   const announcements = [
     {
       id: 1,
-      title: "Call for Papers: SELEB International Conference 2024",
-      date: "20 Januari 2024",
+      title: "Announcement Title 1",
+      date: "January 20, 2024",
       urgent: true
     },
     {
       id: 2,
-      title: "Pendaftaran Program Riset Kolaboratif SELEB",
-      date: "18 Januari 2024",
+      title: "Announcement Title 2",
+      date: "January 18, 2024",
       urgent: true
     },
     {
       id: 3,
-      title: "Beasiswa Penelitian Elektronika Berkelanjutan",
-      date: "15 Januari 2024",
+      title: "Announcement Title 3",
+      date: "January 15, 2024",
       urgent: false
     },
     {
       id: 4,
-      title: "Grant Penelitian dari Kementerian Riset dan Teknologi",
-      date: "12 Januari 2024",
+      title: "Announcement Title 4",
+      date: "January 12, 2024",
       urgent: false
     },
     {
       id: 5,
-      title: "Rekrutmen Peneliti Post-Doctoral SELEB",
-      date: "10 Januari 2024",
+      title: "Announcement Title 5",
+      date: "January 10, 2024",
       urgent: false
     }
   ];
@@ -236,19 +236,7 @@ export default function News() {
                   </a>
                   <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Publications Database
-                  </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
                     Research Collaboration
-                  </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Virtual Laboratories
-                  </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Data Repository
                   </a>
                 </div>
               </div>

@@ -6,8 +6,8 @@ import { getCurrentUser, logoutUser } from "../utils/auth";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Dashboard - SELEB Research Group" },
-    { name: "description", content: "Dashboard admin SELEB Research Group" },
+    { title: "Dashboard - Home" },
+    { name: "description", content: "Dashboard - Admin" },
   ];
 };
 

@@ -14,6 +14,7 @@ export default function Home() {
   // Array of image URLs - slides from home-image-slider folder
   const sliderImages = [
     "/home-image-slider/slide1.webp",
+    "/home-image-slider/rapat.jpeg",
     "/home-image-slider/slide2.jpeg",
     "/home-image-slider/slide3.jpeg",
   ];
@@ -75,16 +76,16 @@ export default function Home() {
             ))}
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
-            Sistem Elektronika Cerdas
-            <span className="block text-green-400">Berkelanjutan</span>
+            Sustainable Intelligent Electronics
+            <span className="block text-green-400">Systems</span>
           </h1>
           <div className="inline-block bg-green-500 px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 rounded-full mb-6 sm:mb-8 shadow-lg mx-2">
             <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-white italic tracking-wide leading-tight">
-              "SELEB – Making Sustainable Intelligent Electronics a Global Star."
+              "SINES – Innovation in Intelligent Electronics, Sustainability in Action."
             </span>
           </div>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 px-2">
-            The SELEB Research Group develops innovative, smart, sustainable, and
+            The SINES Research Group develops innovative, smart, sustainable, and
             environmentally friendly electronic technologies for a better future.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
@@ -115,27 +116,34 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               About SELEB
             </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4">
+              <span className="font-bold text-green-500">SINES</span> focuses on developing intelligent, energy-efficient, and sustainable electronic systems
+              that address real-world environmental and technological challenges. The group integrates
+              multidisciplinary expertise in electronics, materials science, artificial intelligence, and
+              green technology to design the next generation of smart, sustainable solutions for a better planet.
+            </p>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              SELEB stands for Sistem Elektronika cErdas Berkelanjutan (English: Sustainable Intelligent Electronics Systems).
-              In Indonesian, “seleb” also means celebrity — a well-known, celebrated, and influential figure.
-              Inspired by this, SELEB symbolizes how sustainable intelligent electronics can shine like stars:
-              recognized globally, impactful in society, and guiding the path toward a greener future.
+              Our work connects innovation with the <span className="font-bold text-green-500">Sustainable Development Goals (SDGs)</span> to create intelligent
+              electronic systems that minimize ecological impact and promote long-term sustainability.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Vision</h3>
-              <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                To be a pioneering research group in sustainable intelligent electronics, 
-                leading innovations that strengthen society, advance technology, and protect the environment.
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-4">💡 Vision</h3>
+              <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-8 leading-relaxed text-justify">
+                To become a leading center of excellence in sustainable and intelligent electronics,
+                driving innovation that harmonizes technology and environmental stewardship for a smarter,
+                greener world.
               </p>
               
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Mission</h3>
-              <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                "SELEB develops next-generation intelligent and sustainable electronic systems 
-                through innovative research, interdisciplinary collaboration, and real-world applications."
-              </p>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-4">🎯 Mission</h3>
+              <ol className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed list-decimal pl-5 text-justify">
+                <li>Conduct high-impact research in intelligent and sustainable electronic systems.</li>
+                <li>Develop eco-efficient devices and circuits through innovative design and materials.</li>
+                <li>Foster collaboration between academia, industry, and government for sustainable technology solutions.</li>
+                <li>Empower young researchers to contribute to a greener electronics future.</li>
+              </ol>
             </div>
             
             <div className="bg-green-50 p-6 sm:p-8 rounded-2xl order-1 lg:order-2">
@@ -144,10 +152,10 @@ export default function Home() {
                   <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">6</div>
                   <div className="text-sm sm:text-base text-gray-700">Active Researcher</div>
                 </div>
-                <div className="text-center">
+                {/* <div className="text-center">
                   <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">20+</div>
                   <div className="text-sm sm:text-base text-gray-700">Publication</div>
-                </div>
+                </div> */}
                 <div className="text-center">
                   <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">25+</div>
                   <div className="text-sm sm:text-base text-gray-700">Research Project</div>
@@ -186,6 +194,12 @@ export default function Home() {
               <p className="text-sm sm:text-base text-gray-600">
                 Green Paltform Development; Performance Optimization; Design & Fabrication.
               </p>
+              <br />
+              <p className="text-sm sm:text-base text-gray-600 text-justify">
+                Developing environmentally friendly electronic devices with a focus on energy efficiency
+                and sustainable materials. Research includes optimizing the performance of green devices
+                and fabrication techniques that reduce environmental impact.
+              </p>
             </div>
 
             <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
@@ -197,6 +211,13 @@ export default function Home() {
               </h3>
               <p className="text-sm sm:text-base text-gray-600">
                 System Design; Control; Signals & Transmission.
+              </p>
+              <br />
+              {/* <br /> */}
+              <p className="text-sm sm:text-base text-gray-600 text-justify">
+                Designing and developing complex electronic systems with a focus on automatic control
+                and efficient signal transmission. Research encompasses analog and digital circuit design
+                for various industrial applications.
               </p>
             </div>
 
@@ -210,6 +231,13 @@ export default function Home() {
               <p className="text-sm sm:text-base text-gray-600">
                 Programming & Visualization; Internet of Things; Artificial Intelligence.
               </p>
+              <br />
+              {/* <br /> */}
+              <p className="text-sm sm:text-base text-gray-600 text-justify">
+                Integrating modern digital technologies such as IoT and AI to create smart solutions.
+                Research includes algorithm development, data visualization, and connected systems to
+                improve operational efficiency.
+              </p>
             </div>
 
             <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
@@ -222,33 +250,13 @@ export default function Home() {
               <p className="text-sm sm:text-base text-gray-600">
                 Dynamics; Smart & Multi-Functions; Eco-Friendly; Real-Time Control.
               </p>
+              <br />
+              <p className="text-sm sm:text-base text-gray-600 text-justify">
+                Developing smart multifunctional electronic systems with real-time control and environmental
+                friendliness. Research focuses on system dynamics, smart function integration, and sustainable
+                technologies for future applications.
+              </p>
             </div>
-
-            {/* <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
-                <span className="text-2xl sm:text-3xl">🧠</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
-                AI dan Machine Learning
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                Implementasi kecerdasan buatan pada sistem elektronika, 
-                edge computing, dan optimasi algoritma untuk efisiensi energi.
-              </p>
-            </div> */}
-
-            {/* <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
-                <span className="text-2xl sm:text-3xl">🏭</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
-                Industri 4.0
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                Sistem otomasi industri berkelanjutan, digital twin, dan 
-                teknologi manufaktur cerdas yang ramah lingkungan.
-              </p>
-            </div> */}
           </div>
         </div>
       </section>
@@ -269,16 +277,15 @@ export default function Home() {
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-40 sm:h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
               <div className="p-4 sm:p-6">
-                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">15 Januari 2024</div>
+                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">January 15, 2024</div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  Breakthrough dalam Teknologi Baterai Berkelanjutan
+                  News Title 1
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                  Tim SELEB berhasil mengembangkan teknologi baterai baru yang 
-                  100% dapat didaur ulang dengan kapasitas 30% lebih tinggi.
+                  Description Title 1
                 </p>
                 <a href="#" className="text-green-600 font-medium hover:text-green-700 text-sm sm:text-base">
-                  Baca Selengkapnya →
+                  Read More →
                 </a>
               </div>
             </article>
@@ -286,16 +293,15 @@ export default function Home() {
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-40 sm:h-48 bg-gradient-to-br from-green-500 to-emerald-600"></div>
               <div className="p-4 sm:p-6">
-                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">10 Januari 2024</div>
+                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">January 10, 2024</div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  Kemitraan dengan Industri Global
+                  News Title 2
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                  SELEB menandatangani MoU dengan perusahaan teknologi terkemuka 
-                  untuk pengembangan IoT berkelanjutan.
+                  Description Title 2
                 </p>
                 <a href="#" className="text-green-600 font-medium hover:text-green-700 text-sm sm:text-base">
-                  Baca Selengkapnya →
+                  Read More →
                 </a>
               </div>
             </article>
@@ -303,16 +309,15 @@ export default function Home() {
             <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-40 sm:h-48 bg-gradient-to-br from-emerald-400 to-green-600"></div>
               <div className="p-4 sm:p-6">
-                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">5 Januari 2024</div>
+                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">January 5, 2024</div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  Publikasi di Jurnal Internasional
+                  News Title 3
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                  Penelitian tentang sistem elektronika biodegradable berhasil 
-                  dipublikasikan di Nature Electronics.
+                  Description Title 3
                 </p>
                 <a href="#" className="text-green-600 font-medium hover:text-green-700 text-sm sm:text-base">
-                  Baca Selengkapnya →
+                  Read More →
                 </a>
               </div>
             </article>

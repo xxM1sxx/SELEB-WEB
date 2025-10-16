@@ -20,7 +20,7 @@ export default function About() {
             <div className="inline-block mb-4 sm:mb-6">
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
-              SELEB
+              SINES
             </h1>
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4 text-green-100">
               Sustainable Intelligent Electronic Systems
@@ -53,7 +53,7 @@ export default function About() {
                   </span>
                   Research Focus
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg text-justify">
                   The Sustainable Intelligent Electronic Systems research group focuses on the development of 
                   <span className="font-semibold text-green-700"> flexible, portable, and dynamic electronic devices</span> 
                   that meet the demands of modern and future applications across various domains such as
@@ -69,7 +69,7 @@ export default function About() {
                   </span>
                   Sustainable Approach
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg text-justify">
                   With an <span className="font-semibold text-emerald-700">emphasis on sustainability</span>, 
                   the group prioritizes environmentally friendly approaches in the fabrication and
                   production of intelligent electronic systems. Our research integrates advanced control,
@@ -87,32 +87,48 @@ export default function About() {
                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
                       <span className="text-lg sm:text-xl md:text-2xl text-white">🔬</span>
                     </div>
-                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Teknologi Canggih</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Kontrol, navigasi & sensing</p>
+                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Advanced Technology</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Control, navigation & sensing</p>
+                    <br />
+                    <p className="text-xs sm:text-sm text-gray-600 text-justify">
+                      Implementing cutting-edge control systems, precision navigation algorithms, and advanced sensing technologies to create intelligent electronic systems that can adapt and respond to dynamic environments with high accuracy and reliability.
+                    </p>
                   </div>
                   
                   <div className="text-center p-3 sm:p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
                       <span className="text-lg sm:text-xl md:text-2xl text-white">🌍</span>
                     </div>
-                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Ramah Lingkungan</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Minimalisir jejak ekologis</p>
+                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Environmentally Friendly</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Minimize ecological footprint</p>
+                    <br />
+                    <p className="text-xs sm:text-sm text-gray-600 text-justify">
+                      Developing sustainable electronic solutions that significantly reduce environmental impact through eco-friendly materials, energy-efficient designs, and waste reduction strategies while maintaining high performance standards.
+                    </p>
                   </div>
                   
                   <div className="text-center p-3 sm:p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
                       <span className="text-lg sm:text-xl md:text-2xl text-white">⚡</span>
                     </div>
-                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Efisiensi Energi</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Optimalisasi konsumsi daya</p>
+                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Energy Efficiency</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Power consumption optimization</p>
+                    <br />
+                    <p className="text-xs sm:text-sm text-gray-600 text-justify">
+                      Optimizing power consumption through innovative circuit designs, smart power management systems, and energy harvesting technologies to create ultra-low power electronic devices that maximize performance while minimizing energy usage.
+                    </p>
                   </div>
                   
                   <div className="text-center p-3 sm:p-4 md:p-6 bg-white rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
                       <span className="text-lg sm:text-xl md:text-2xl text-white">🚀</span>
                     </div>
-                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Inovasi</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Solusi masa depan</p>
+                    <h4 className="font-bold text-gray-900 mb-2 text-xs sm:text-sm md:text-base">Innovation</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Future solutions</p>
+                    <br />
+                    <p className="text-xs sm:text-sm text-gray-600 text-justify">
+                      Pioneering breakthrough technologies and novel approaches to electronic system design that address tomorrow's challenges today, creating innovative solutions that transform industries and improve quality of life globally.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -133,13 +149,13 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-white">
-              Ruang Lingkup Penelitian
+              Research Scope
             </h2>
             <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-green-300 to-emerald-300 mx-auto mb-6 sm:mb-8"></div>
             <p className="text-base sm:text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed px-2">
-              Penelitian kami mengintegrasikan teknologi kontrol, navigasi, dan sensing canggih untuk 
-              memungkinkan sistem elektronik memantau, mengarahkan, dan berinteraksi secara optimal 
-              dengan lingkungan dinamis sambil meminimalkan jejak ekologis.
+              Our research integrates advanced control, navigation, and sensing technologies to 
+              enable electronic systems to monitor, navigate, and interact optimally 
+              with dynamic environments while minimizing ecological footprint.
             </p>
           </div>
           
@@ -151,9 +167,9 @@ export default function About() {
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-black">Green Electronics Development</h3>
               </div>
-              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base">
-                Desain dan fabrikasi perangkat elektronik ramah lingkungan menggunakan 
-                material alami dan limbah lingkungan untuk menciptakan solusi berkelanjutan.
+              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base text-justify">
+                Design and fabrication of environmentally friendly electronic devices using 
+                natural materials and environmental waste to create sustainable solutions.
               </p>
             </div>
             
@@ -164,9 +180,9 @@ export default function About() {
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-black">Platform Engineering</h3>
               </div>
-              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base">
-                Pengembangan konfigurasi elektronik 2D dan 3D dengan konduktivitas yang 
-                ditingkatkan, stabilitas mekanik, dan sensitivitas untuk aplikasi canggih.
+              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base text-justify">
+                Development of 2D and 3D electronic configurations with enhanced 
+                conductivity, mechanical stability, and sensitivity for advanced applications.
               </p>
             </div>
             
@@ -177,9 +193,9 @@ export default function About() {
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-black">Biointegration</h3>
               </div>
-              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base">
-                Integrasi platform elektronik dengan molekul fungsional, material, 
-                dan jaringan biologis untuk aplikasi biomedis dan lingkungan.
+              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base text-justify">
+                Integration of electronic platforms with functional molecules, materials, 
+                and biological networks for biomedical and environmental applications.
               </p>
             </div>
             
@@ -190,9 +206,9 @@ export default function About() {
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-black">Multifunctional Electronic Systems</h3>
               </div>
-              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base">
-                Desain sistem elektronik cerdas dengan fungsi kontrol yang dioptimalkan 
-                untuk berbagai aplikasi industri dan konsumen.
+              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base text-justify">
+                Design of intelligent electronic systems with optimized control functions 
+                for various industrial and consumer applications.
               </p>
             </div>
             
@@ -203,9 +219,9 @@ export default function About() {
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-black">IoT-Enabled Monitoring</h3>
               </div>
-              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base">
-                Pengembangan teknologi sensing dan pengukuran cerdas yang terintegrasi 
-                dengan IoT untuk sistem monitoring dan kontrol real-time.
+              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base text-justify">
+                Development of intelligent sensing and measurement technologies integrated 
+                with IoT for real-time monitoring and control systems.
               </p>
             </div>
             
@@ -216,9 +232,9 @@ export default function About() {
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-black">Smart EcoTronics</h3>
               </div>
-              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base">
-                Sistem elektronik dinamis, multifungsi, ramah lingkungan dengan 
-                kontrol real-time untuk optimalisasi kinerja dan efisiensi energi.
+              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-base text-justify">
+                Dynamic, multifunctional, environmentally friendly electronic systems with 
+                real-time control for performance optimization and energy efficiency.
               </p>
             </div>
           </div>
@@ -230,12 +246,12 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Area Penelitian Terintegrasi
+              Integrated Research Areas
             </h2>
             <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-6 sm:mb-8"></div>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-2">
-              Pendekatan holistik dalam pengembangan sistem elektronik berkelanjutan melalui 
-              integrasi berbagai disiplin ilmu dan teknologi canggih.
+              A holistic approach to sustainable electronic system development through 
+              integration of various scientific disciplines and advanced technologies.
             </p>
           </div>
           
@@ -252,14 +268,14 @@ export default function About() {
                 </div>
                 
                 {/* Outer Circles */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300">
                   <div className="text-center text-white">
                     <div className="text-sm sm:text-base md:text-lg">🌱</div>
                     <div className="text-xs font-semibold">Eco-Devices</div>
                   </div>
                 </div>
                 
-                <div className="absolute top-1/4 right-0 transform translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-400 to-teal-500 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300">
+                <div className="absolute top-1/4 right-0 transform translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-20 bg-gradient-to-br from-blue-400 to-teal-500 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300">
                   <div className="text-center text-white">
                     <div className="text-sm sm:text-base md:text-lg">💻</div>
                     <div className="text-xs font-semibold">Digitalization</div>
@@ -300,13 +316,13 @@ export default function About() {
                   <span className="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
                     🎯
                   </span>
-                  Pendekatan Multidisiplin
+                  Multidisciplinary Approach
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
-                  Mengintegrasikan <span className="font-semibold text-green-700">desain & fabrikasi</span>, 
-                  <span className="font-semibold text-blue-700"> digitalisasi</span>, 
-                  <span className="font-semibold text-purple-700"> sirkuit elektronik</span>, dan 
-                  <span className="font-semibold text-emerald-700"> eco-devices</span> dalam satu ekosistem penelitian.
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg text-justify">
+                  Integrating <span className="font-semibold text-green-700">design & fabrication</span>, 
+                  <span className="font-semibold text-blue-700"> digitalization</span>, 
+                  <span className="font-semibold text-purple-700"> electronic circuits</span>, and 
+                  <span className="font-semibold text-emerald-700"> eco-devices</span> in one research ecosystem.
                 </p>
               </div>
               
@@ -315,12 +331,12 @@ export default function About() {
                   <span className="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
                     🔄
                   </span>
-                  Sinergi Teknologi
+                  Technology Synergy
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
-                  Setiap area penelitian saling mendukung untuk menciptakan 
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg text-justify">
+                  Each research area mutually supports to create 
                   <span className="font-semibold text-emerald-700"> Smart EcoTronics</span> - 
-                  sistem elektronik yang dinamis, multifungsi, dan berkelanjutan.
+                  dynamic, multifunctional, and sustainable electronic systems.
                 </p>
               </div>
               
@@ -329,11 +345,11 @@ export default function About() {
                   <span className="w-8 h-8 sm:w-10 sm:h-10 bg-teal-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
                     🌍
                   </span>
-                  Dampak Berkelanjutan
+                  Sustainable Impact
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
-                  Setiap inovasi dirancang untuk memberikan dampak positif jangka panjang 
-                  terhadap lingkungan dan masyarakat melalui teknologi yang bertanggung jawab.
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg text-justify">
+                  Every innovation is designed to provide long-term positive impact 
+                  on the environment and society through responsible technology.
                 </p>
               </div>
             </div>
@@ -352,50 +368,50 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-              Bergabunglah dalam Revolusi
+              Join the Revolution of
               <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                Elektronika Berkelanjutan
+                Sustainable Electronics
               </span>
             </h2>
             <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-yellow-300 to-orange-300 mx-auto mb-6 sm:mb-8"></div>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-green-100 leading-relaxed max-w-3xl mx-auto px-2">
-              Mari bersama-sama menciptakan masa depan yang lebih hijau melalui inovasi 
-              teknologi elektronik yang berkelanjutan dan bertanggung jawab.
+              Let's work together to create a greener future through sustainable and 
+              responsible electronic technology innovations.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
               <div className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">🔬</div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2">Penelitian Kolaboratif</h3>
-              <p className="text-sm sm:text-base text-green-100">Bergabung dalam proyek penelitian multidisiplin</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2">Collaborative Research</h3>
+              <p className="text-sm sm:text-base text-green-100">Join multidisciplinary research projects</p>
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
               <div className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">🌱</div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2">Inovasi Berkelanjutan</h3>
-              <p className="text-sm sm:text-base text-green-100">Kembangkan teknologi ramah lingkungan</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2">Sustainable Innovation</h3>
+              <p className="text-sm sm:text-base text-green-100">Develop environmentally friendly technology</p>
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
               <div className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">🤝</div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2">Jaringan Global</h3>
-              <p className="text-sm sm:text-base text-green-100">Terhubung dengan komunitas peneliti dunia</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2">Global Network</h3>
+              <p className="text-sm sm:text-base text-green-100">Connect with global research community</p>
             </div>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
             <button className="w-full sm:w-auto bg-white text-green-700 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-green-50 transform hover:scale-105 transition-all duration-300 shadow-xl">
-              Mulai Kolaborasi
+              Start Collaboration
             </button>
             <button className="w-full sm:w-auto border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white hover:text-green-700 transform hover:scale-105 transition-all duration-300">
-              Pelajari Lebih Lanjut
+              Learn More
             </button>
           </div>
           
           <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20">
             <p className="text-sm sm:text-base md:text-lg text-green-100">
-              <span className="font-semibold">SELEB Research Group</span> - 
+              <span className="font-semibold">SINES Research Group</span> - 
               Sustainable Intelligent Electronics Systems
             </p>
             <p className="text-sm sm:text-base text-green-200 mt-2">

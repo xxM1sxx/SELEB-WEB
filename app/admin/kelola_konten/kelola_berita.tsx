@@ -2,6 +2,14 @@ import { ProtectedRoute } from "../../login_session/ProtectedRoute";
 import { getCurrentUser, logoutUser } from "../../utils/auth";
 import { NavLink } from "react-router";
 import { useState } from "react";
+import type { MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Kelola Berita" },
+    { name: "description", content: "Kelola Berita - Admin" },
+  ];
+};
 
 export default function KelolaBerita() {
   const user = getCurrentUser();

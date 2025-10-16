@@ -3,6 +3,15 @@ import { getCurrentUser, logoutUser } from "../../utils/auth";
 import { NavLink } from "react-router";
 import { useState } from "react";
 
+import type { MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Kelola Tim" },
+    { name: "description", content: "Kelola Tim - Admin" },
+  ];
+};
+
 export default function KelolaTim() {
   const user = getCurrentUser();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
