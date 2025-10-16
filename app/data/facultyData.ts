@@ -1,4 +1,7 @@
+import { supabase } from "../koneksi_supabase";
+
 export interface FacultyMember {
+  id: number;
   name: string;
   position: string;
   specialization: string;
@@ -9,75 +12,156 @@ export interface FacultyMember {
   bibliography: string;
 }
 
-export const facultyMembers: FacultyMember[] = [
-  {
-    name: "Athanasia Amanda Septevani, Ph.D.",
-    position: "Professor Researcher",
-    specialization: "Sustainable Electronics, Green Materials, Biopolymers",
-    education: "Ph.D. in Bioengineering, The University of Queensland, Australia",
-    email: "atha001@brin.go.id",
-    image: "/foto-peneliti/amanda.jpeg",
-    linkPenelitian: "https://scholar.google.com/citations?user=AP9HQuQAAAAJ&hl=id",
-    bibliography: "Athanasia Amanda Septevani is a Research Professor at the Research Centre for Electronics, National Research and Innovation Agency (BRIN), Indonesia, where she leads the Sustainable Intelligent Electronics Systems Group. She earned her Ph.D. from the Australian Institute for Bioengineering and Nanotechnology at The University of Queensland, Australia, and a Bachelor of Engineering in Chemical Engineering from Universitas Diponegoro, Indonesia.\n\nHer research sits at the intersection of polymers, nanotechnology, and sustainable electronics, with a strong commitment to both fundamental and translational science. She is passionate about harnessing Indonesia's abundant biomass wastes to develop innovative processes that transform this resource into high-value biobased polymers, such as nanocellulose, a versatile material with wide-ranging applications in wearable and flexible electronics devices, energy systems, as well as medical devices. Beyond materials innovation, her group pioneers the integration of these green materials into flexible sensing systems, soft robotics, and IoT-enabled electronic platforms that advance sustainable technology.\n\nAmanda's contributions to STEM have been recognized globally. She is a recipient of the L'Oréal–UNESCO For Women in Science Award (2018), the Japan International Award for Young Agricultural Researchers (2022), and was named a Finalist in the Mid-career Category of the 2024 UL Research Institutes–ASEAN–U.S. Science Prize for Women. In 2023, she was also featured in Asian Scientist as one of the Powerhouse Women Engineers of Our Time. Through international collaborations across Southeast Asia, America, and Europe, she continues to expand the development of sustainable, intelligent materials and systems that bridge science and societal impact."
-  },
-  {
-    name: "Prof. Dr. Yusuf Nur Wijayanto, S.T., M.Eng.",
-    position: "Professor Researcher",
-    specialization: "Electronics Engineering, IoT Systems, Smart Sensors",
-    education: "Ph.D. in Electronics Engineering, Master in Engineering",
-    email: "yusu008@brin.go.id",
-    image: "👨‍🔬",
-    linkPenelitian: "https://scholar.google.com/citations?user=example2",
-    bibliography: "Deskripsi"
-  },
-  {
-    name: "Swasmi Purwajanti, S.T., M.Sc., Ph.D.",
-    position: "Senior Researcher",
-    specialization: "Sustainable Electronics, Chemical Sensors and Material Valorization",
-    education: "Ph.D. from The University of Queensland Australia",
-    email: "swas002@brin.go.id",
-    image: "/foto-peneliti/swasmi.svg",
-    linkPenelitian: "https://scholar.google.com/citations?user=fKBObtgAAAAJ&hl=en",
-    bibliography: "Dr. Swasmi Purwajanti is a Senior/Expert Researcher (Peneliti Ahli Madya) at the Center for Electronics Research within Indonesia’s National Research and Innovation Agency (Badan Riset dan Inovasi Nasional - BRIN). Dr. Purwajanti's expertise and contributions have earned her significant recognition:\n\nFulbright Visiting Researcher (2023): Awarded a fellowship to conduct research on the Fabrication of Graphene Oxide-Ag/MgO nanocomposites for PFAS Degradation.\n\nUNESCO-Loreal for Women in Science - National Fellowship (2019): Recognized for her project on the Utilization of bittern as a raw material for making super multifunctional nanoadsorbents for more efficient water remediation.\n\nMajor Funded Projects: Currently leading internationally collaborative projects in Carbon Capture Storage (CCS) for 2025, supported by the New Energy and Industrial Technology Development Organization (NEDO-Japan)."
-  },
-  {
-    name: "Yohanes Susanto Ridwan, M.Si.",
-    position: "Senior Researcher",
-    specialization: "Electrochemical Sensors, Analytical Chemistry, Chemical Metrology",
-    education: "Master's Degree from Institut Teknologi Bandung, Indonesia",
-    email: "yoha006@brin.go.id",
-    image: "/foto-peneliti/santo.jpg",
-    linkPenelitian: "https://scholar.google.com/citations?hl=id&user=I2iquvgAAAAJ&sortby=pubdate&view_op=list_works&authuser=1",
-    bibliography: "I am part of the Sustainable Intelligent Electronics research group at the Research Center for Electronics, National Research and Innovation Agency (BRIN), where I explore innovative and sustainable sensing technologies for environmental applications. My research integrates electrochemical, spectrochemical, and fluorescence principles to design smart and reliable sensors capable of detecting a wide range of contaminants, from heavy metal ions, organic pollutants to pesticide residues. A growing part of my work focuses on green synthesis and waste valorization, utilizing agro-waste and natural extracts to develop environmentally friendly sensor materials that support sustainable electronics.\n\nBeyond sensor development, I have a strong background in metrology in chemistry and quality infrastructure, ensuring that measurement and analytical practices meet the highest international standards. I also contribute as a laboratory assessor for ISO/IEC 17025 testing laboratories, ISO 17043 proficiency testing providers, and ISO 17034 reference material producers.\n\nDriven by strong interest for accuracy and sustainability, I am dedicated to creating smart, portable, and eco-friendly sensing systems that advance environmental monitoring and public health protection."
-  },
-  {
-    name: "Nanda Nagara, M.Eng.",
-    position: "Junior Researcher",
-    specialization: "Electronic Instrumentation, System Control",
-    education: "Master's Degree from RINE, University of Fukui, Japan",
-    email: "nand010@brin.go.id",
-    image: "/foto-peneliti/nanda.jpg",
-    linkPenelitian: "https://scholar.google.com/citations?hl=en&user=NLv6SNYAAAAJ",
-    bibliography: "Nanda Nagara completed his master's degree in Nuclear Engineering with a focus on sensor system integration and radiation exposure monitoring simulation using passive sensors, with a case study of the Fukushima Nuclear Power Plant. His research interests include computational studies, instrumentation and control systems, and the development of Internet of Things-based models. He is known for his methodical approach to designing experiments and his ability to compile technical workflows into communicative visual diagrams. Currently, he is active in an AI-based delivery box monitoring project and assists in research and development activities at the Electronics Research Center, Sustainable Intelligent Electronics Systems Research Group, in the field of electronic instrumentation and control systems.\n\nResearch Interests:\n- Sensor systems and computer vision for environmental monitoring\n- Green insulation and sustainable materials\n- Internet of Things\n- Embedded System Development\n- Artificial Intelligence"
-  },
-  {
-    name: "Dr. Nur Rohmah",
-    position: "Junior Researcher",
-    specialization: "Cellulose-Based Sensors, Soft/Flexible Electronics",
-    education: "Doctoral’s Degree in Chemical Engineering, Institut Teknologi Bandung, Indonesia",
-    email: "nurr003@brin.go.id",
-    image: "/foto-peneliti/nur.svg",
-    linkPenelitian: "https://scholar.google.com/citations?user=VnyIXwIAAAAJ&hl=id&citsig=ACUpqDcSGGci-4RIP7YYSUYEIgJA",
-    bibliography: "Dr. Nur Rohmah is a Researcher at the Sustainable Intelligent Electronics Systems Research Group, the Research Centre for Electronics, the National Research and Innovation Agency (Badan Riset dan Inovasi Nasional - BRIN), Indonesia. Her research contribution is cellulose production from lignocellulose or biomass to support the development of sustainable cellulose/nanocellulose-based functional electronic device technology, including the following: soft/flexible electronic substrates, natural composites and conductive polymers, nanocellulose paper coated with conductive materials for sensors, conductive paper-based sensor substrates for pH, pressure, humidity, temperature, and biometric sensing applications, flexible electronics, etc. The research is dedicated to developing sustainable functional electronic devices, aligning with the principles of green electronics development that emphasize resource efficiency, the use of environmentally friendly materials, and sustainable e-waste management."
-  },
-  {
-    name: "Dr. Ir. Rilo Berdin Taqriban, S.T., M.T.",
-    position: "Associate Researcher",
-    specialization: "Biomechatronics, Biomaterials, Image Processing",
-    education: "Doctorate in Mechanical Engineering, Universitas Diponegoro, Indonesia",
-    email: "rilo002@brin.go.id/",
-    image: "/foto-peneliti/rilo.jpeg",
-    linkPenelitian: "https://orcid.org/0000-0001-8631-5668",
-    bibliography: "Rilo is an engineer with a doctoral degree in Mechanical Engineering from Diponegoro University and CBIOM3S. He currently serves as an Associate Researcher at the Research Organization for Electronics and Informatics, BRIN Bandung, focusing on biomaterials, biomechatronics, IoT, and image processing. His academic background includes a master’s and bachelor’s degree in Mechanical Engineering from Diponegoro University. He has over six years of experience in engineering, including three years as CEO of SOLI3D Studio and CTO of PT Amputee Technology Indonesia providing 3D printing, design, and scanning services for assistive devices. His expertise covers additive manufacturing, surface modification, 3D modeling, biomaterials, and biomedical applications, supported by publications and awards. Rilo is passionate about innovation, collaboration, and applying technology to improve quality of life."
+// Database response interface (matches Supabase table structure)
+interface DatabaseFacultyMember {
+  id: number;
+  name: string;
+  position: string;
+  specialization: string;
+  education: string;
+  email: string;
+  image: string;
+  link_penelitian: string;
+  bibliography: string;
+}
+
+// Position hierarchy mapping for sorting
+function getPositionPriority(position: string): number {
+  const positionLower = position.toLowerCase();
+  
+  if (positionLower.includes('professor')) return 1;
+  if (positionLower.includes('senior')) return 2;
+  if (positionLower.includes('junior')) return 3;
+  if (positionLower.includes('associate')) return 4;
+  
+  // Default priority for other positions
+  return 5;
+}
+
+// Sort faculty members by position hierarchy, then alphabetically by name
+function sortFacultyMembers(facultyMembers: FacultyMember[]): FacultyMember[] {
+  return facultyMembers.sort((a, b) => {
+    // First, sort by position priority
+    const priorityA = getPositionPriority(a.position);
+    const priorityB = getPositionPriority(b.position);
+    
+    if (priorityA !== priorityB) {
+      return priorityA - priorityB;
+    }
+    
+    // If positions have the same priority, sort alphabetically by name
+    return a.name.localeCompare(b.name);
+  });
+}
+
+// Transform database response to match our interface
+function transformDatabaseResponse(dbData: DatabaseFacultyMember[]): FacultyMember[] {
+  return dbData.map(faculty => ({
+    id: faculty.id,
+    name: faculty.name,
+    position: faculty.position,
+    specialization: faculty.specialization,
+    education: faculty.education,
+    email: faculty.email,
+    image: faculty.image,
+    linkPenelitian: faculty.link_penelitian,
+    bibliography: faculty.bibliography,
+  }));
+}
+
+/**
+ * Fetch all faculty members from the database
+ * @returns Promise<FacultyMember[]> - Array of faculty members
+ */
+export async function getAllFacultyMembers(): Promise<FacultyMember[]> {
+  try {
+    const { data, error } = await supabase
+      .from('data_peneliti')
+      .select('*');
+
+    if (error) {
+      console.error('Error fetching faculty data:', error);
+      throw new Error(`Failed to fetch faculty data: ${error.message}`);
+    }
+
+    if (!data || data.length === 0) {
+      console.warn('No faculty data found in database');
+      return [];
+    }
+
+    const transformedData = transformDatabaseResponse(data);
+    return sortFacultyMembers(transformedData);
+  } catch (error) {
+    console.error('Error in getAllFacultyMembers:', error);
+    throw error;
   }
-];
+}
+
+/**
+ * Find a faculty member by name
+ * @param name - The name to search for
+ * @returns Promise<FacultyMember | null> - Faculty member or null if not found
+ */
+export async function getFacultyMemberByName(name: string): Promise<FacultyMember | null> {
+  try {
+    const { data, error } = await supabase
+      .from('data_peneliti')
+      .select('*')
+      .ilike('name', `%${name}%`)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // No rows returned
+        console.warn(`No faculty member found with name: ${name}`);
+        return null;
+      }
+      console.error('Error fetching faculty member by name:', error);
+      throw new Error(`Failed to fetch faculty member: ${error.message}`);
+    }
+
+    if (!data) {
+      return null;
+    }
+
+    const transformed = transformDatabaseResponse([data]);
+    return transformed[0];
+  } catch (error) {
+    console.error('Error in getFacultyMemberByName:', error);
+    throw error;
+  }
+}
+
+/**
+ * Search faculty members by various criteria
+ * @param searchTerm - Term to search in name, position, or specialization
+ * @returns Promise<FacultyMember[]> - Array of matching faculty members
+ */
+export async function searchFacultyMembers(searchTerm: string): Promise<FacultyMember[]> {
+  try {
+    const { data, error } = await supabase
+      .from('data_peneliti')
+      .select('*')
+      .or(`name.ilike.%${searchTerm}%,position.ilike.%${searchTerm}%,specialization.ilike.%${searchTerm}%`)
+      .order('name', { ascending: true });
+
+    if (error) {
+      console.error('Error searching faculty members:', error);
+      throw new Error(`Failed to search faculty members: ${error.message}`);
+    }
+
+    if (!data || data.length === 0) {
+      console.warn(`No faculty members found matching: ${searchTerm}`);
+      return [];
+    }
+
+    return transformDatabaseResponse(data);
+  } catch (error) {
+    console.error('Error in searchFacultyMembers:', error);
+    throw error;
+  }
+}
+
+// Legacy export for backward compatibility (deprecated)
+// Use getAllFacultyMembers() instead
+export const facultyMembers: FacultyMember[] = [];

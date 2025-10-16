@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
   NavLink,
+  Link,
   useLocation,
 } from "react-router";
 import { useState } from "react";
@@ -330,7 +331,7 @@ function Footer() {
             <div className="space-y-2">
               {/* <a href="#" className="text-gray-300 hover:text-white block">Publication</a> */}
               <a href="#" className="text-gray-300 hover:text-white block">Research News</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Research Team</a>
+              <Link to="/tim" className="text-gray-300 hover:text-white block">Research Team</Link>
               <a href="#" className="text-gray-300 hover:text-white block">Partnership</a>
             </div>
           </div>

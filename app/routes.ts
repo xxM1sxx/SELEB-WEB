@@ -18,5 +18,12 @@ export default [
   // Admin content management routes
   route("admin/kelola_konten/kelola_berita", "admin/kelola_konten/kelola_berita.tsx"),
   route("admin/kelola_konten/kelola_publikasi", "admin/kelola_konten/kelola_publikasi.tsx"),
-  route("admin/kelola_konten/kelola_tim", "admin/kelola_konten/kelola_tim.tsx"),
+  route("admin/kelola_konten/kelola_peneliti", "admin/kelola_konten/kelola_peneliti.tsx"),
+  route("admin/kelola_konten/kelola_student", "admin/kelola_konten/kelola_student.tsx"),
+  // CRUD routes for kelola_peneliti
+  route("admin/kelola_konten/crud_kelola_peneliti/tambah_peneliti", "admin/kelola_konten/crud_kelola_peneliti/tambah_peneliti.tsx"),
+  route("admin/kelola_konten/crud_kelola_peneliti/edit_peneliti/:id", "admin/kelola_konten/crud_kelola_peneliti/edit_peneliti.tsx"),
+  // CRUD routes for kelola_student
+  route("admin/kelola_konten/crud_kelola_student/tambah_data_student", "admin/kelola_konten/crud_kelola_student/tambah_data_student.tsx"),
+  route("admin/kelola_konten/crud_kelola_student/edit_data_student/:id", "admin/kelola_konten/crud_kelola_student/edit_data_student.tsx"),
 ] satisfies RouteConfig;

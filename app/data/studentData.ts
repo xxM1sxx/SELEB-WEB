@@ -1,4 +1,19 @@
+import { supabase } from "../koneksi_supabase";
+
 export interface StudentMember {
+  id: number;
+  name: string;
+  position: string;
+  researchTopic: string;
+  education: string;
+  supervisor: string;
+  image: string;
+  researchLink: string;
+}
+
+// Database response interface (matches Supabase table structure)
+interface DatabaseStudentMember {
+  id: number;
   name: string;
   position: string;
   topik_riset: string;
@@ -8,77 +23,143 @@ export interface StudentMember {
   link_penelitian: string;
 }
 
-export const studentMembers: StudentMember[] = [
-  {
-    name: "Dr. Nadiatus Silmi, S.Si., M.Si.",
-    position: "Postdoctoral",
-    topik_riset: "Mesporous Silica from Agricultural Waste and Industrial Byproducts",
-    education: "Doctor of Philosophy in Chemistry",
-    supervisor: "-",
-    image: "/foto-student/silmi.jpg",
-    link_penelitian: "https://scholar.google.com/citations?user=x44WWFsAAAAJ&hl=id"
-  },
-  {
-    name: "Dr. John Philia Yuliyandjaja, S.T., M.T.",
-    position: "Postdoctoral",
-    topik_riset: "Development of Film-Based Piezoelectric Sensor for Parkinson Detection",
-    education: "Doctor of Mechanical Engineering, Universitas Diponegoro, Indonesia",
-    supervisor: "Swasmi Purwajanti, S.T., M.Sc., Ph.D.",
-    image: "/foto-student/yaya.jpg",
-    link_penelitian: "https://scholar.google.com/citations?user=gYLd-C8AAAAJ&hl=en"
-  },
-  {
-    name: "Thasia Gian Pavita, M.Si.",
-    position: "Researcher Assistant",
-    topik_riset: "Development of Flexible Strain-Stress Sensor Based on PVA/Borate/CNC/CNT Hydrogel Polymer",
-    education: "Master’s Degree in Chemistry, Universitas Pendidikan Indonesia",
-    supervisor: "-",
-    image: "/foto-student/thasia.jpg",
-    link_penelitian: "-"
-  },
-  {
-    name: "Fatih Nurrobi Alanshori",
-    position: "MBKM",
-    topik_riset: "(Hardware System Integration) - Application of Artificial Intelligence for Temperature and Humidity Control in Internet of Things-based Cooler Boxes",
-    education: "Undergraduate Student in Computer Engineering, Universitas Pendidikan Indonesia",
-    supervisor: "Nanda Nagara, M.Eng.",
-    image: "/foto-student/fatih.jpeg",
-    link_penelitian: "-"
-  },
-  {
-    name: "Muhammad Bilal Mardhiyyano Azizi",
-    position: "MBKM",
-    topik_riset: "(IoT System Integration) - Application of Artificial Intelligence for Temperature and Humidity Control in Internet of Things-based Cooler Boxes",
-    education: "Undergraduate Student in Computer Engineering, Universitas Pendidikan Indonesia",
-    supervisor: "Nanda Nagara, M.Eng.",
-    image: "/foto-student/bilal.jpg",
-    link_penelitian: "-"
-  },
-  {
-    name: "Angela Putri Kurnianta",
-    position: "MBKM",
-    topik_riset: "Development of Integrated Flexi Force Sensors on Bacterial Nanocellulose Substrates for Detecting Body Balance Disorders", 
-    education: "Undergraduate Student in Biomedical Engineering, Institut Teknologi Sumatera, Indonesia",
-    supervisor: "Athanasia Amanda Septevani, Ph.D.",
-    image: "/foto-student/angela.jpeg",
-    link_penelitian: "-"
-  },
-  {
-    name: "Meri Tiani",
-    position: "MBKM",
-    topik_riset: "Development of pH-Responsive Smart Packaging Based on Alginate for Food Safety", 
-    education: "Undergraduate Student in Physics, Universitas Jenderal Soedirman, Indonesia",
-    supervisor: "-",
-    image: "/foto-student/meri.jpg",
-    link_penelitian: "-"
-  },
-  {
-    name: "Zidan Rafif Pratama",
-    position: "Magang Mandiri",
-    topik_riset: "Spoiled Food Detector Based Gas Amonia, CO2, and Methane", 
-    education: "Undergraduate Student in Mechatronics Engineering, Politeknik Caltex Riau, Indonesia",
-    supervisor: "Dr. Ir. Rilo Berdin Taqriban, S.T., M.T.",
-    image: "/foto-student/zidan.jpg",
-    link_penelitian: "-"
-  },
-];
+// Position hierarchy mapping for sorting
+function getPositionPriority(position: string): number {
+  const positionLower = position.toLowerCase();
+  
+  if (positionLower.includes('postdoctoral')) return 1;
+  if (positionLower.includes('researcher assistant')) return 2;
+  if (positionLower.includes('tugas akhir')) return 3;
+  if (positionLower.includes('mbkm')) return 4;
+  if (positionLower.includes('magang')) return 5;
+  
+  // Default priority for other positions
+  return 6;
+}
+
+// Sort student members by position hierarchy, then alphabetically by name
+function sortStudentMembers(studentMembers: StudentMember[]): StudentMember[] {
+  return studentMembers.sort((a, b) => {
+    // First, sort by position priority
+    const priorityA = getPositionPriority(a.position);
+    const priorityB = getPositionPriority(b.position);
+    
+    if (priorityA !== priorityB) {
+      return priorityA - priorityB;
+    }
+    
+    // If positions have the same priority, sort alphabetically by name
+    return a.name.localeCompare(b.name);
+  });
+}
+
+// Transform database response to match our interface
+function transformDatabaseResponse(dbData: DatabaseStudentMember[]): StudentMember[] {
+  return dbData.map(student => ({
+    id: student.id,
+    name: student.name,
+    position: student.position,
+    researchTopic: student.topik_riset,
+    education: student.education,
+    supervisor: student.supervisor,
+    image: student.image,
+    researchLink: student.link_penelitian,
+  }));
+}
+
+/**
+ * Fetch all student members from the database
+ * @returns Promise<StudentMember[]> - Array of student members
+ */
+export async function getAllStudentMembers(): Promise<StudentMember[]> {
+  try {
+    const { data, error } = await supabase
+      .from('data_student')
+      .select('*');
+
+    if (error) {
+      console.error('Error fetching student data:', error);
+      throw new Error(`Failed to fetch student data: ${error.message}`);
+    }
+
+    if (!data || data.length === 0) {
+      console.warn('No student data found in database');
+      return [];
+    }
+
+    const transformedData = transformDatabaseResponse(data);
+    return sortStudentMembers(transformedData);
+  } catch (error) {
+    console.error('Error in getAllStudentMembers:', error);
+    throw error;
+  }
+}
+
+/**
+ * Find a student member by name
+ * @param name - The name to search for
+ * @returns Promise<StudentMember | null> - Student member or null if not found
+ */
+export async function getStudentMemberByName(name: string): Promise<StudentMember | null> {
+  try {
+    const { data, error } = await supabase
+      .from('data_student')
+      .select('*')
+      .ilike('name', `%${name}%`)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // No rows returned
+        console.warn(`No student member found with name: ${name}`);
+        return null;
+      }
+      console.error('Error fetching student member by name:', error);
+      throw new Error(`Failed to fetch student member: ${error.message}`);
+    }
+
+    if (!data) {
+      return null;
+    }
+
+    const transformed = transformDatabaseResponse([data]);
+    return transformed[0];
+  } catch (error) {
+    console.error('Error in getStudentMemberByName:', error);
+    throw error;
+  }
+}
+
+/**
+ * Search student members by various criteria
+ * @param searchTerm - Term to search in name, position, or research topic
+ * @returns Promise<StudentMember[]> - Array of matching student members
+ */
+export async function searchStudentMembers(searchTerm: string): Promise<StudentMember[]> {
+  try {
+    const { data, error } = await supabase
+      .from('data_student')
+      .select('*')
+      .or(`name.ilike.%${searchTerm}%,position.ilike.%${searchTerm}%,topik_riset.ilike.%${searchTerm}%`)
+      .order('name', { ascending: true });
+
+    if (error) {
+      console.error('Error searching student members:', error);
+      throw new Error(`Failed to search student members: ${error.message}`);
+    }
+
+    if (!data || data.length === 0) {
+      console.warn(`No student members found matching: ${searchTerm}`);
+      return [];
+    }
+
+    return transformDatabaseResponse(data);
+  } catch (error) {
+    console.error('Error in searchStudentMembers:', error);
+    throw error;
+  }
+}
+
+// Legacy export for backward compatibility (deprecated)
+// Use getAllStudentMembers() instead
+export const studentMembers: StudentMember[] = [];

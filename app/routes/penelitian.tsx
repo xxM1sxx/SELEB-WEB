@@ -53,22 +53,18 @@ export default function Programs() {
             </p> */}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {/* Research Card 1 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-green-700 transition-colors">
-                TITLE 1
+                Eco-Friendly Hydrogel Strain Sensor for IoT-Enabled Muscle Strength Detection (Funded by RP-ORKES 2025)
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
-                </div>
-                
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                    Development of a sustainable alternative muscle strength measuring device produced domestically to substitute imported electromyography (EMG) equipment, with the potential to become a leading product in the local market.
+                  </p>
                 </div>
               </div>
             </div>
@@ -76,18 +72,14 @@ export default function Programs() {
             {/* Research Card 2 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-blue-700 transition-colors">
-                TITLE 2
+                BNC Hydrogel-Based Plantar Sensor Integrated with FlexiForce and IoT Systems
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
-                </div>
-                
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                    Development of a BNC hydrogel-based plantar sensor integrated with FlexiForce and IoT for real-time monitoring of pressure distribution and body balance, with applications in medical rehabilitation and health monitoring.
+                  </p>
                 </div>
               </div>
             </div>
@@ -95,18 +87,14 @@ export default function Programs() {
             {/* Research Card 3 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-purple-700 transition-colors">
-                TITLE 3
+                Real-Time Food Safety and Quality Monitoring Using Moisture and pH-Responsive Sensor
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
-                </div>
-                
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p> 
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                    Moisture-responsive sensor functions to detect changes in humidity within food packaging, helping to maintain storage conditions that prevent bacterial growth. The colorimetric pH-based sensor enables quick and practical monitoring of food freshness by detecting color changes that correspond to pH variations caused by bacterial growth.
+                  </p>
                 </div>
               </div>
             </div>
@@ -114,18 +102,14 @@ export default function Programs() {
             {/* Research Card 4 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-orange-700 transition-colors">
-                TITLE 4
+                Strain Sensor for Health Monitoring Funded by RKI International UPI
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
-                </div>
-                
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                    Development of an eco-friendly hydrogel-based flexible sensor for wearable device applications embedded in a bionic hand or human skin.
+                  </p>
                 </div>
               </div>
             </div>
@@ -133,18 +117,14 @@ export default function Programs() {
             {/* Research Card 5 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-teal-700 transition-colors">
-                TITLE 5
+                Film-Based Sensor for Evaluation and Detection of Parkinson's Disease
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
-                </div>
-                
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                    Development of a film-based piezoelectric finger-tapping sensor for the detection and evaluation of Parkinson's disease through its ability to record muscle mechanical responses.
+                  </p>
                 </div>
               </div>
             </div>
@@ -152,18 +132,14 @@ export default function Programs() {
             {/* Research Card 6 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-indigo-700 transition-colors">
-                TITLE 6
+                Hydrogel-based Wound Dressings for Diabetic Patients with Integrated Multifunctional Smart Monitoring System and Internet of Things
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Researcher:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Researcher</p>
-                </div>
-                
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-gray-700 mb-1">Supervisor:</p>
-                  <p className="text-sm sm:text-base text-gray-600">Name of Supervisor</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
+                    Develops an intelligent hydrogel-based wound dressing for diabetic patients, integrating temperature and glucose sensors with an IoT-based smart monitoring system. Made from sustainable cellulose materials reinforced with nanocellulose, the hydrogel enables real-time monitoring of wound conditions to improve healing efficiency and reduce complications.
+                  </p>
                 </div>
               </div>
             </div>
