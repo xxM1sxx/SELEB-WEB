@@ -24,6 +24,7 @@ export default function TambahDataStudent() {
   const [formData, setFormData] = useState({
     name: "",
     position: "",
+    masa_program: "",
     topik_riset: "",
     education: "",
     supervisor: "",
@@ -303,6 +304,7 @@ export default function TambahDataStudent() {
                       />
                     </div>
                     
+                    {/* Masa Program */}
                     <div>
                       <label htmlFor="masa_program" className="block text-sm font-medium text-gray-700 mb-2">
                         Masa Program

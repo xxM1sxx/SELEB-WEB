@@ -172,9 +172,6 @@ export default function Faculty() {
                       <p className="text-sm font-bold text-green-600 mb-1">
                         {faculty.position}
                       </p>
-                      <p className="text-sm font-medium text-blue-500">
-                        {faculty.masa_jabatan}
-                      </p>
                     </div>
                     
                     <div className="space-y-2 text-xs sm:text-sm mb-4">
@@ -268,9 +265,11 @@ export default function Faculty() {
                     <p className="text-sm font-bold text-green-600 mb-1">
                       {student.position}
                     </p>
+                    {student.masa_program && (
                     <p className="text-sm font-medium text-blue-500">
                       {student.masa_program}
                     </p>
+                    )}
                   </div>
                   
                   <div className="space-y-2 text-xs sm:text-sm">

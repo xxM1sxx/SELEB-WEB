@@ -61,6 +61,7 @@ function transformDatabaseResponse(dbData: DatabaseStudentMember[]): StudentMemb
     id: student.id,
     name: student.name,
     position: student.position,
+    masa_program: student.masa_program,
     researchTopic: student.topik_riset,
     education: student.education,
     supervisor: student.supervisor,

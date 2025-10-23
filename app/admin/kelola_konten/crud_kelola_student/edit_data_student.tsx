@@ -169,6 +169,7 @@ export default function EditDataStudent() {
         .update({
           name: formData.name,
           position: formData.position,
+          masa_program: formData.masa_program,
           topik_riset: formData.research_topic,
           education: formData.education,
           supervisor: formData.supervisor,

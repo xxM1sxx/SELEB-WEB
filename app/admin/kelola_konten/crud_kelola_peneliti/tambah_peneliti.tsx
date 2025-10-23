@@ -291,52 +291,39 @@ export default function TambahPeneliti() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                    {/* Position and Masa Jabatan */}
-                    <div>
-                      <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
-                        Posisi *
-                      </label>
-                      <input
-                         type="text"
-                         name="position"
-                         id="position"
-                         required
-                         value={formData.position}
-                         onChange={handleInputChange}
-                         className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                         placeholder="Contoh: Senior Researcher"
-                        />
-                    </div>
-                      
-                     <div>
-                       <label htmlFor="masa_jabatan" className="block text-sm font-medium text-gray-700 mb-2">
-                         Masa Jabatan
-                       </label>
-                       <input
-                         type="text"
-                         name="masa_jabatan"
-                         id="masa_jabatan"
-                         placeholder="Contoh: 2023-2025"
-                         className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                       />
-                     </div>
-                     </div>
+                      {/* Position and Masa Jabatan */}
+                      <div>
+                        <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
+                          Posisi *
+                        </label>
+                        <input
+                          type="text"
+                          name="position"
+                          id="position"
+                          required
+                          value={formData.position}
+                          onChange={handleInputChange}
+                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          placeholder="Contoh: Senior Researcher"
+                          />
+                      </div>
 
-                    {/* Email */}
-                    <div className="col-span-2">
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="email@example.com"
-                      />
+                      {/* Email */}
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                          Email *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          placeholder="email@example.com"
+                        />
+                      </div>
                     </div>
 
                     {/* Link Penelitian */}
