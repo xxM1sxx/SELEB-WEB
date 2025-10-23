@@ -272,16 +272,16 @@ export default function TambahPeneliti() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-lg shadow-md p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
                     {/* Name */}
-                    <div>
+                    <div className="col-span-2">
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                         Nama Lengkap *
                       </label>
                       <input
                         type="text"
-                        id="name"
                         name="name"
+                        id="name"
                         required
                         value={formData.name}
                         onChange={handleInputChange}
@@ -290,25 +290,40 @@ export default function TambahPeneliti() {
                       />
                     </div>
 
-                    {/* Position */}
+                    <div className="grid grid-cols-2 gap-4">
+                    {/* Position and Masa Jabatan */}
                     <div>
                       <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
                         Posisi *
                       </label>
                       <input
-                        type="text"
-                        id="position"
-                        name="position"
-                        required
-                        value={formData.position}
-                        onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="Contoh: Senior Researcher"
-                      />
+                         type="text"
+                         name="position"
+                         id="position"
+                         required
+                         value={formData.position}
+                         onChange={handleInputChange}
+                         className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                         placeholder="Contoh: Senior Researcher"
+                        />
                     </div>
+                      
+                     <div>
+                       <label htmlFor="masa_jabatan" className="block text-sm font-medium text-gray-700 mb-2">
+                         Masa Jabatan
+                       </label>
+                       <input
+                         type="text"
+                         name="masa_jabatan"
+                         id="masa_jabatan"
+                         placeholder="Contoh: 2023-2025"
+                         className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                       />
+                     </div>
+                     </div>
 
                     {/* Email */}
-                    <div>
+                    <div className="col-span-2">
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                         Email *
                       </label>
@@ -378,7 +393,7 @@ export default function TambahPeneliti() {
                   {/* Bibliography */}
                   <div>
                     <label htmlFor="bibliography" className="block text-sm font-medium text-gray-700 mb-2">
-                      Biografi *
+                      Bibliografi *
                     </label>
                     <textarea
                       id="bibliography"

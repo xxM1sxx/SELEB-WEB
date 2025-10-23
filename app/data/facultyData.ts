@@ -10,6 +10,7 @@ export interface FacultyMember {
   image: string;
   linkPenelitian: string;
   bibliography: string;
+  masa_jabatan?: string; // Optional field
 }
 
 // Database response interface (matches Supabase table structure)
@@ -23,6 +24,7 @@ interface DatabaseFacultyMember {
   image: string;
   link_penelitian: string;
   bibliography: string;
+  masa_jabatan: string;
 }
 
 // Position hierarchy mapping for sorting
@@ -66,6 +68,7 @@ function transformDatabaseResponse(dbData: DatabaseFacultyMember[]): FacultyMemb
     image: faculty.image,
     linkPenelitian: faculty.link_penelitian,
     bibliography: faculty.bibliography,
+    masa_jabatan: faculty.masa_jabatan,
   }));
 }
 

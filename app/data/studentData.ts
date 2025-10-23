@@ -4,6 +4,7 @@ export interface StudentMember {
   id: number;
   name: string;
   position: string;
+  masa_program?: string; // Optional field
   researchTopic: string;
   education: string;
   supervisor: string;
@@ -16,6 +17,7 @@ interface DatabaseStudentMember {
   id: number;
   name: string;
   position: string;
+  masa_program: string;
   topik_riset: string;
   education: string;
   supervisor: string;

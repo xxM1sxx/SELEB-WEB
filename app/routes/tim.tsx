@@ -169,8 +169,11 @@ export default function Faculty() {
                       <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1">
                         {faculty.name}
                       </h3>
-                      <p className="text-green-600 font-medium text-xs sm:text-sm mb-2">
+                      <p className="text-sm font-bold text-green-600 mb-1">
                         {faculty.position}
+                      </p>
+                      <p className="text-sm font-medium text-blue-500">
+                        {faculty.masa_jabatan}
                       </p>
                     </div>
                     
@@ -262,8 +265,11 @@ export default function Faculty() {
                     <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1">
                       {student.name}
                     </h3>
-                    <p className="text-blue-600 font-medium text-xs sm:text-sm mb-2">
+                    <p className="text-sm font-bold text-green-600 mb-1">
                       {student.position}
+                    </p>
+                    <p className="text-sm font-medium text-blue-500">
+                      {student.masa_program}
                     </p>
                   </div>
                   

@@ -271,24 +271,23 @@ export default function TambahDataStudent() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-lg shadow-md p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
                     {/* Name */}
-                    <div>
+                    <div className="col-span-2">
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                         Nama Lengkap *
                       </label>
                       <input
                         type="text"
-                        id="name"
                         name="name"
+                        id="name"
                         required
-                        value={formData.name}
-                        onChange={handleInputChange}
                         className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Masukkan nama lengkap"
                       />
                     </div>
 
+                    <div className="grid grid-cols-2 gap-4">
                     {/* Position */}
                     <div>
                       <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
@@ -296,50 +295,61 @@ export default function TambahDataStudent() {
                       </label>
                       <input
                         type="text"
-                        id="position"
                         name="position"
+                        id="position"
                         required
-                        value={formData.position}
-                        onChange={handleInputChange}
                         className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="Contoh: Mahasiswa S1, Mahasiswa S2, dll"
+                        placeholder="Contoh: Tugas Akhir/MBKM/Researcher Assistant/dll"
                       />
                     </div>
-
-                    {/* Supervisor */}
+                    
                     <div>
-                      <label htmlFor="supervisor" className="block text-sm font-medium text-gray-700 mb-2">
-                        Supervisor *
+                      <label htmlFor="masa_program" className="block text-sm font-medium text-gray-700 mb-2">
+                        Masa Program
                       </label>
                       <input
                         type="text"
-                        id="supervisor"
-                        name="supervisor"
-                        required
-                        value={formData.supervisor}
-                        onChange={handleInputChange}
+                        name="masa_program"
+                        id="masa_program"
+                        placeholder="Contoh: Januari-Juni 2025"
                         className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="Nama supervisor/pembimbing"
-                      />
-                    </div>
-
-                    {/* Link Penelitian */}
-                    <div>
-                      <label htmlFor="link_penelitian" className="block text-sm font-medium text-gray-700 mb-2">
-                        Link Penelitian
-                      </label>
-                      <input
-                        type="url"
-                        id="link_penelitian"
-                        name="link_penelitian"
-                        value={formData.link_penelitian}
-                        onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="https://scholar.google.com/..."
                       />
                     </div>
                   </div>
+                  </div>
 
+                  {/* Supervisor */}
+                  <div>
+                    <label htmlFor="supervisor" className="block text-sm font-medium text-gray-700 mb-2">
+                      Supervisor *
+                    </label>
+                    <input
+                      type="text"
+                      id="supervisor"
+                      name="supervisor"
+                      required
+                      value={formData.supervisor}
+                      onChange={handleInputChange}
+                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      placeholder="Nama supervisor/pembimbing"
+                    />
+                  </div>
+
+                  {/* Link Penelitian */}
+                  <div>
+                    <label htmlFor="link_penelitian" className="block text-sm font-medium text-gray-700 mb-2">
+                      Link Penelitian
+                    </label>
+                    <input
+                      type="url"
+                      id="link_penelitian"
+                      name="link_penelitian"
+                      value={formData.link_penelitian}
+                      onChange={handleInputChange}
+                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      placeholder="https://scholar.google.com/..."
+                    />
+                  </div>
                   {/* Education */}
                   <div>
                     <label htmlFor="education" className="block text-sm font-medium text-gray-700 mb-2">

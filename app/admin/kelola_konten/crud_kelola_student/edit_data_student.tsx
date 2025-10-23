@@ -17,6 +17,7 @@ interface Student {
   id: number;
   name: string;
   position: string;
+  masa_program?: string;
   research_topic: string;
   education: string;
   supervisor: string;
@@ -38,6 +39,7 @@ export default function EditDataStudent() {
   const [formData, setFormData] = useState({
     name: "",
     position: "",
+    masa_program: "",
     research_topic: "",
     education: "",
     supervisor: "",
@@ -70,6 +72,7 @@ export default function EditDataStudent() {
           setFormData({
             name: data.name || "",
             position: data.position || "",
+            masa_program: data.masa_program || "",
             research_topic: data.topik_riset || "",
             education: data.education || "",
             supervisor: data.supervisor || "",
@@ -343,9 +346,9 @@ export default function EditDataStudent() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-lg shadow-md p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
                     {/* Name */}
-                    <div>
+                    <div className="col-span-2">
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                         Nama Lengkap *
                       </label>
@@ -361,21 +364,39 @@ export default function EditDataStudent() {
                       />
                     </div>
 
-                    {/* Position */}
-                    <div>
-                      <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
-                        Posisi *
-                      </label>
-                      <input
-                        type="text"
-                        id="position"
-                        name="position"
-                        required
-                        value={formData.position}
-                        onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="Contoh: Mahasiswa S1"
-                      />
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* Position */}
+                      <div>
+                        <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
+                          Posisi *
+                        </label>
+                        <input
+                          type="text"
+                          id="position"
+                          name="position"
+                          required
+                          value={formData.position}
+                          onChange={handleInputChange}
+                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          placeholder="Contoh: Tugas Akhir/MBKM/Researcher Assistant/dll"
+                        />
+                      </div>
+
+                      {/* Masa Program */}
+                      <div>
+                        <label htmlFor="masa_program" className="block text-sm font-medium text-gray-700 mb-2">
+                          Masa Program
+                        </label>
+                        <input
+                          type="text"
+                          id="masa_program"
+                          name="masa_program"
+                          value={formData.masa_program}
+                          onChange={handleInputChange}
+                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          placeholder="Contoh: Januari-Juni 2025"
+                        />
+                      </div>
                     </div>
 
                     {/* Supervisor */}

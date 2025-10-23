@@ -181,8 +181,11 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                       {faculty.name}
                     </h2>
-                    <p className="text-lg text-green-600 font-medium">
+                    <p className="text-lg text-green-600 font-bold mb-1">
                       {faculty.position}
+                    </p>
+                    <p className="text-base text-blue-500 font-medium">
+                      {faculty.masa_jabatan}
                     </p>
                   </div>
                 </div>
