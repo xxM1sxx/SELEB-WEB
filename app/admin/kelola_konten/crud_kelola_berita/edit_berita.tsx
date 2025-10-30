@@ -19,6 +19,8 @@ interface Berita {
   isi_berita: string;
   tanggal_berita: string;
   foto_berita: string;
+  link_yt: string;
+  reporter: string;
 }
 
 export default function EditBerita() {
@@ -36,6 +38,8 @@ export default function EditBerita() {
     judul_berita: "",
     isi_berita: "",
     tanggal_berita: "",
+    link_yt: "",
+    reporter: "",
   });
 
   const handleLogout = () => {
@@ -66,6 +70,8 @@ export default function EditBerita() {
             judul_berita: data.judul_berita || "",
             isi_berita: data.isi_berita || "",
             tanggal_berita: data.tanggal_berita || "",
+            link_yt: data.link_yt || "",
+            reporter: data.reporter || "",
           }));
           setCurrentImageUrl(data.foto_berita || "");
         }
@@ -98,6 +104,9 @@ export default function EditBerita() {
         setImagePreview(e.target?.result as string);
       };
       reader.readAsDataURL(file);
+    } else {
+      setSelectedImage(null);
+      setImagePreview("");
     }
   };
 
@@ -159,7 +168,9 @@ export default function EditBerita() {
           judul_berita: formData.judul_berita,
           isi_berita: formData.isi_berita,
           tanggal_berita: formData.tanggal_berita,
-          foto_berita: imageUrl
+          foto_berita: imageUrl,
+          link_yt: formData.link_yt,
+          reporter: formData.reporter,
         })
         .eq('id', id);
 
@@ -353,6 +364,22 @@ export default function EditBerita() {
                         />
                       </div>
 
+                    {/* Reporter */}
+                    <div>
+                      <label htmlFor="reporter" className="block text-sm font-medium text-gray-700 mb-2">
+                        Reporter/Penulis
+                      </label>
+                      <input
+                        type="text"
+                        id="reporter"
+                        name="reporter"
+                        value={formData.reporter}
+                        onChange={handleInputChange}
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="Masukkan nama reporter atau penulis (opsional)"
+                      />
+                    </div>
+
                     {/* Isi Berita */}
                     <div>
                       <label htmlFor="isi_berita" className="block text-sm font-medium text-gray-700 mb-2">
@@ -367,6 +394,22 @@ export default function EditBerita() {
                         onChange={handleInputChange}
                         className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Masukkan isi berita"
+                      />
+                    </div>
+
+                    {/* Link YouTube */}
+                    <div>
+                      <label htmlFor="link_yt" className="block text-sm font-medium text-gray-700 mb-2">
+                        Link YouTube
+                      </label>
+                      <input
+                        type="url"
+                        id="link_yt"
+                        name="link_yt"
+                        value={formData.link_yt}
+                        onChange={handleInputChange}
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="Masukkan link YouTube (opsional)"
                       />
                     </div>
 

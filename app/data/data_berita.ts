@@ -6,6 +6,8 @@ export interface Berita {
   tanggal_berita: string;
   isi_berita: string;
   foto_berita: string;
+  link_yt: string;
+  reporter: string;
 }
 
 // Database response interface (matches Supabase table structure)
@@ -15,6 +17,8 @@ interface DatabaseBerita {
   tanggal_berita: string;
   isi_berita: string;
   foto_berita: string;
+  link_yt: string;
+  reporter: string;
 }
 
 // Transform database response to match our interface
@@ -25,6 +29,8 @@ function transformDatabaseResponse(dbData: DatabaseBerita[]): Berita[] {
     tanggal_berita: berita.tanggal_berita,
     isi_berita: berita.isi_berita,
     foto_berita: berita.foto_berita,
+    link_yt: berita.link_yt,
+    reporter: berita.reporter,
   }));
 }
 
@@ -197,6 +203,8 @@ export async function initializeBeritaData() {
         tanggal_berita: "2025-10-10",
         isi_berita: "Sebuah studi baru oleh tim peneliti SELEB menunjukkan dampak signifikan kecerdasan buatan dalam pengembangan elektronik berkelanjutan, membuka jalan bagi inovasi ramah lingkungan.",
         foto_berita: "https://wsgqastrtdkcrgpzgzhp.supabase.co/storage/v1/object/public/foto_berita/foto%20berita_10-10-2025.jpeg",
+        link_yt: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        reporter: "Admin SELEB",
       };
 
       await addBerita(initialBerita);

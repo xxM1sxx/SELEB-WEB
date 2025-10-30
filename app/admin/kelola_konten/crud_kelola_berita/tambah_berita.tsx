@@ -9,6 +9,8 @@ interface BeritaForm {
   judul_berita: string;
   tanggal_berita: string;
   isi_berita: string;
+  reporter: string;
+  link_yt: string;
 }
 
 export default function TambahBerita() {
@@ -16,6 +18,8 @@ export default function TambahBerita() {
     judul_berita: '',
     tanggal_berita: '',
     isi_berita: '',
+    reporter: '',
+    link_yt: '',
   });
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -110,6 +114,8 @@ export default function TambahBerita() {
         tanggal_berita: form.tanggal_berita,
         isi_berita: form.isi_berita,
         foto_berita: imageUrl,
+        reporter: form.reporter,
+        link_yt: form.link_yt,
 
       });
 
@@ -291,6 +297,20 @@ export default function TambahBerita() {
                   />
                 </div>
                 <div>
+                  <label htmlFor="reporter" className="block text-sm font-medium text-gray-700 mb-2">
+                    Reporter/Penulis
+                  </label>
+                  <input
+                    type='text'
+                    name='reporter'
+                    id='reporter'
+                    value={form.reporter}
+                    onChange={handleInputChange}
+                    className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Masukkan nama reporter atau penulis (opsional)"
+                  />
+                </div>
+                <div>
                   <label htmlFor="isi_berita" className="block text-sm font-medium text-gray-700 mb-2">
                     Isi Berita *
                   </label>
@@ -303,6 +323,20 @@ export default function TambahBerita() {
                     rows={10}
                     required
                     placeholder="Masukkan isi berita"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="link_yt" className="block text-sm font-medium text-gray-700 mb-2">
+                    Link YouTube
+                  </label>
+                  <input
+                    type='url'
+                    name='link_yt'
+                    id='link_yt'
+                    value={form.link_yt}
+                    onChange={handleInputChange}
+                    className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Masukkan link YouTube (opsional)"
                   />
                 </div>
                 <div>

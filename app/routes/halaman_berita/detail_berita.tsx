@@ -11,6 +11,12 @@ export function meta({ params }: Route.MetaArgs) {
   ];
 }
 
+const getYouTubeEmbedUrl = (url: string) => {
+  const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:m\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|)([^\s&]+)$/;
+  const match = url.match(regExp);
+  return match && match[1] ? `https://www.youtube.com/embed/${match[1]}` : null;
+};
+
 export default function DetailBerita() {
   const { id } = useParams();
   const [berita, setBerita] = useState<Berita | null>(null);
@@ -124,6 +130,8 @@ export default function DetailBerita() {
     );
   }
 
+  const youtubeEmbedUrl = berita.link_yt ? getYouTubeEmbedUrl(berita.link_yt) : null;
+
   return (
     <div className="min-h-screen pt-20">
       {/* Header Section */}
@@ -159,12 +167,15 @@ export default function DetailBerita() {
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
                 {berita.judul_berita}
               </h2>
-              <p className="text-base text-green-600 font-medium mb-6">
+              <p className="text-base text-green-600 font-medium mb-2">
                 {new Date(berita.tanggal_berita).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
                 })}
+              </p>
+              <p className="text-base text-gray-700 mb-6">
+                Reporter/Writer: <span className="text-blue-600">{berita.reporter || "Admin"}</span>
               </p>
               <div className="mb-8 rounded-lg overflow-hidden shadow-md">
                 <img 
@@ -187,6 +198,20 @@ export default function DetailBerita() {
               <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify whitespace-pre-line">
                 {berita.isi_berita}
               </div>
+              {youtubeEmbedUrl && (
+                <div className="mt-8 aspect-w-16 aspect-h-9">
+                  <iframe
+                    width="100%"
+                    height="400px"
+                    src={youtubeEmbedUrl}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="YouTube video player"
+                    className="rounded-lg shadow-md"
+                  ></iframe>
+                </div>
+              )}
             </article>
           </div>
 
