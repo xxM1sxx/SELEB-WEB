@@ -319,10 +319,7 @@ function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-green-400">Research</h4>
             <div className="space-y-2">
-              <a href="#" className="text-gray-300 hover:text-white block">Eco-Devices</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Electronic Circuits</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Digitalization</a>
-              <a href="#" className="text-gray-300 hover:text-white block">Smart-EcoTronics</a>
+              <Link to="/penelitian" className="text-gray-300 hover:text-white block">Ongoing Research</Link>
             </div>
           </div>
           
@@ -330,9 +327,9 @@ function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-green-400">Information</h4>
             <div className="space-y-2">
               {/* <a href="#" className="text-gray-300 hover:text-white block">Publication</a> */}
-              <a href="#" className="text-gray-300 hover:text-white block">Research News</a>
+              <Link to="/berita" className="text-gray-300 hover:text-white block">Research News</Link>
               <Link to="/tim" className="text-gray-300 hover:text-white block">Research Team</Link>
-              <a href="#" className="text-gray-300 hover:text-white block">Partnership</a>
+              <Link to="/kontak" className="text-gray-300 hover:text-white block">Contact</Link>
             </div>
           </div>
         </div>
