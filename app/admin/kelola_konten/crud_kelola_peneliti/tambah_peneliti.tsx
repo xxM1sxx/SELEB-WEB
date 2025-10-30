@@ -193,19 +193,7 @@ export default function TambahPeneliti() {
               >
                 Kelola Berita
               </NavLink>
-              <NavLink
-                to="/admin/kelola_konten/kelola_publikasi"
-                className={({ isActive }: { isActive: boolean }) =>
-                  `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                    isActive
-                      ? "bg-green-500 text-white shadow-md"
-                      : "text-gray-700 hover:bg-green-500 hover:text-white hover:shadow-md"
-                  }`
-                }
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                Kelola Publikasi
-              </NavLink>
+
               <NavLink
                 to="/admin/kelola_konten/kelola_peneliti"
                 className={({ isActive }: { isActive: boolean }) =>
@@ -285,7 +273,7 @@ export default function TambahPeneliti() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Masukkan nama lengkap"
                       />
                     </div>
@@ -303,7 +291,7 @@ export default function TambahPeneliti() {
                           required
                           value={formData.position}
                           onChange={handleInputChange}
-                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="Contoh: Senior Researcher"
                           />
                       </div>
@@ -320,7 +308,7 @@ export default function TambahPeneliti() {
                           required
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="email@example.com"
                         />
                       </div>
@@ -337,7 +325,7 @@ export default function TambahPeneliti() {
                         name="link_penelitian"
                         value={formData.link_penelitian}
                         onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="https://scholar.google.com/..."
                       />
                     </div>
@@ -355,7 +343,7 @@ export default function TambahPeneliti() {
                       rows={3}
                       value={formData.education}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Masukkan riwayat pendidikan"
                     />
                   </div>
@@ -372,7 +360,7 @@ export default function TambahPeneliti() {
                       rows={3}
                       value={formData.specialization}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Masukkan bidang spesialisasi"
                     />
                   </div>
@@ -389,7 +377,7 @@ export default function TambahPeneliti() {
                       rows={5}
                       value={formData.bibliography}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Masukkan biografi lengkap"
                     />
                   </div>
@@ -404,7 +392,7 @@ export default function TambahPeneliti() {
                       id="image"
                       accept="image/*"
                       onChange={handleImageChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                     {imagePreview && (
                       <div className="mt-4">

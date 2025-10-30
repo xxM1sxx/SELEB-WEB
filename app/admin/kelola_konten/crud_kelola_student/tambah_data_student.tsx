@@ -193,19 +193,7 @@ export default function TambahDataStudent() {
               >
                 Kelola Berita
               </NavLink>
-              <NavLink
-                to="/admin/kelola_konten/kelola_publikasi"
-                className={({ isActive }: { isActive: boolean }) =>
-                  `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                    isActive
-                      ? "bg-green-500 text-white shadow-md"
-                      : "text-gray-700 hover:bg-green-500 hover:text-white hover:shadow-md"
-                  }`
-                }
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                Kelola Publikasi
-              </NavLink>
+
               <NavLink
                 to="/admin/kelola_konten/kelola_peneliti"
                 className={({ isActive }: { isActive: boolean }) =>
@@ -283,7 +271,7 @@ export default function TambahDataStudent() {
                         name="name"
                         id="name"
                         required
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Masukkan nama lengkap"
                       />
                     </div>
@@ -299,7 +287,7 @@ export default function TambahDataStudent() {
                         name="position"
                         id="position"
                         required
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Contoh: Tugas Akhir/MBKM/Researcher Assistant/dll"
                       />
                     </div>
@@ -314,7 +302,7 @@ export default function TambahDataStudent() {
                         name="masa_program"
                         id="masa_program"
                         placeholder="Contoh: Januari-Juni 2025"
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -332,7 +320,7 @@ export default function TambahDataStudent() {
                       required
                       value={formData.supervisor}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Nama supervisor/pembimbing"
                     />
                   </div>
@@ -348,7 +336,7 @@ export default function TambahDataStudent() {
                       name="link_penelitian"
                       value={formData.link_penelitian}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="https://scholar.google.com/..."
                     />
                   </div>
@@ -364,7 +352,7 @@ export default function TambahDataStudent() {
                       rows={3}
                       value={formData.education}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Masukkan riwayat pendidikan"
                     />
                   </div>
@@ -381,7 +369,7 @@ export default function TambahDataStudent() {
                       rows={5}
                       value={formData.topik_riset}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Masukkan topik riset yang sedang dikerjakan"
                     />
                   </div>
@@ -396,7 +384,7 @@ export default function TambahDataStudent() {
                       id="image"
                       accept="image/*"
                       onChange={handleImageChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                     {imagePreview && (
                       <div className="mt-4">

@@ -1,247 +1,220 @@
 import type { Route } from "./+types/berita";
+import { useState, useEffect } from "react";
+import { Link } from "react-router";
+import type { Berita } from "../data/data_berita";
+import { getAllBerita } from "../data/data_berita";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "News & Announcements - SELEB" },
-    { name: "description", content: "Berita terbaru dan pengumuman Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan (SELEB)" },
+    { title: "All News - SELEB" },
+    { name: "description", content: "View all latest news from the SELEB BRIN research group on Electronic Smart System" },
   ];
 }
 
+const truncateText = (text: string, wordLimit: number) => {
+  const words = text.split(' ');
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(' ') + '...';
+  }
+  return text;
+};
+
 export default function News() {
-  const featuredNews = [
-    {
-      id: 1,
-      title: "Tim SELEB Raih Penghargaan Best Paper di Konferensi Internasional",
-      excerpt: "Penelitian tentang sistem energi berkelanjutan berhasil meraih penghargaan best paper di IEEE International Conference on Sustainable Electronics 2024.",
-      date: "15 Januari 2024",
-      category: "Prestasi",
-      image: "🏆",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Kerjasama Riset: MOU dengan Samsung Electronics",
-      excerpt: "SELEB menandatangani MOU dengan Samsung Electronics untuk penelitian bersama dalam pengembangan teknologi elektronika ramah lingkungan.",
-      date: "10 Januari 2024",
-      category: "Kerjasama",
-      image: "🤝",
-      featured: true
-    }
-  ];
+  const [news, setNews] = useState<Berita[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const recentNews = [
-    {
-      id: 3,
-      title: "News Title 1",
-      excerpt: "News Description 1",
-      date: "January 8, 2024",
-      category: "Category",
-      image: "🔧"
-    },
-    {
-      id: 4,
-      title: "News Title 2",
-      excerpt: "News Description 2",
-      date: "January 5, 2024",
-      category: "Category",
-      image: "🎓"
-    },
-    {
-      id: 5,
-      title: "News Title 3",
-      excerpt: "News Description 3",
-      date: "January 3, 2024",
-      category: "Category",
-      image: "🔬"
-    },
-    {
-      id: 6,
-      title: "News Title 4",
-      excerpt: "News Description 4",
-      date: "2 Januari 2024",
-      category: "Category",
-      image: "📝"
-    },
-    {
-      id: 7,
-      title: "News Title 5",
-      excerpt: "News Description 5",
-      date: "28 Desember 2023",
-      category: "Category",
-      image: "🏭"
-    },
-    {
-      id: 8,
-      title: "News Title 6",
-      excerpt: "News Description 6",
-      date: "25 Desember 2023",
-      category: "Category",
-      image: "💻"
-    }
-  ];
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
-  const announcements = [
-    {
-      id: 1,
-      title: "Announcement Title 1",
-      date: "January 20, 2024",
-      urgent: true
-    },
-    {
-      id: 2,
-      title: "Announcement Title 2",
-      date: "January 18, 2024",
-      urgent: true
-    },
-    {
-      id: 3,
-      title: "Announcement Title 3",
-      date: "January 15, 2024",
-      urgent: false
-    },
-    {
-      id: 4,
-      title: "Announcement Title 4",
-      date: "January 12, 2024",
-      urgent: false
-    },
-    {
-      id: 5,
-      title: "Announcement Title 5",
-      date: "January 10, 2024",
-      urgent: false
-    }
-  ];
+  // Calculate for pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentNews = news.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(news.length / itemsPerPage);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const allNews = await getAllBerita();
+        // Sort by date in descending order (terbaru ke terlama)
+        const sortedNews = allNews.sort((a, b) => new Date(b.tanggal_berita).getTime() - new Date(a.tanggal_berita).getTime());
+        setNews(sortedNews);
+      } catch (err) {
+        console.error('Error fetching news:', err);
+        setError('Failed to load news. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchNews();
+  }, []);
+
+  const retryLoadData = () => {
+    const fetchNews = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const allNews = await getAllBerita();
+        const sortedNews = allNews.sort((a, b) => new Date(b.tanggal_berita).getTime() - new Date(a.tanggal_berita).getTime());
+        setNews(sortedNews);
+      } catch (err) {
+        console.error('Error fetching news:', err);
+        setError('Failed to load news. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchNews();
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+          <p className="text-gray-600 mt-4">Loading news...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">An Error Occurred</h1>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <div className="space-x-4">
+            <button 
+               onClick={retryLoadData} 
+               className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+             >
+              Try Again
+            </button>
+            <Link to="/berita" className="text-green-600 hover:text-green-800 underline">
+              Back to News Page
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (news.length === 0) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">No News Available</h1>
+          <Link to="/berita" className="text-green-600 hover:text-green-800 underline">
+            Back to News Page
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Section */}
+      {/* Header Section */}
       <section className="bg-gradient-to-br from-green-900 via-emerald-800 to-teal-700 text-white py-16 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="absolute top-10 left-10 w-32 h-32 bg-green-400 rounded-full opacity-10 animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-24 h-24 bg-emerald-300 rounded-full opacity-15 animate-bounce"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <div className="inline-block mb-6">
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
-              News & Announcements
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
+              All News
             </h1>
-            <p className="text-lg sm:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
-              Stay updated with the latest news, announcements, and research highlights 
-              of the SELEB group.
+            <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
+              View all recent news from the Sustainable Intelligent Electronics Systems Research Group
             </p>
           </div>
         </div>
       </section>
 
-      {/* Recent News & Announcements */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      {/* News List Section */}
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* Recent News */}
-            <div className="lg:col-span-2">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
-                Recent News
-              </h2>
-              
-              <div className="space-y-4 sm:space-y-6">
-                {recentNews.map((news) => (
-                  <article key={news.id} className="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow">
-                    <div className="flex items-start space-x-3 sm:space-x-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-lg sm:text-xl">{news.image}</span>
-                      </div>
-                      
-                      <div className="flex-grow">
-                        <div className="flex flex-col sm:flex-row sm:items-center mb-2 space-y-1 sm:space-y-0">
-                          <span className="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-medium sm:mr-2">
-                            {news.category}
-                          </span>
-                          <span className="text-xs sm:text-sm text-gray-500">{news.date}</span>
-                        </div>
-                        
-                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 hover:text-green-600 cursor-pointer">
-                          {news.title}
-                        </h3>
-                        
-                        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3">
-                          {news.excerpt}
-                        </p>
-                        
-                        <button className="text-green-600 text-xs sm:text-sm font-medium hover:text-green-800 transition-colors">
-                          Read More →
-                        </button>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-              
-              <div className="text-center mt-6 sm:mt-8">
-                <button className="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-green-700 transition-colors text-sm sm:text-base">
-                  View All News
-                </button>
-              </div>
-            </div>
-
-            {/* Announcements Sidebar */}
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Announcements
-              </h2>
-              
-              <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
-                <div className="space-y-3 sm:space-y-4">
-                  {announcements.map((announcement) => (
-                    <div key={announcement.id} className={`p-3 sm:p-4 rounded-lg border-l-4 ${
-                      announcement.urgent 
-                        ? 'border-red-500 bg-red-50' 
-                        : 'border-green-500 bg-green-50'
-                    }`}>
-                      <div className="flex items-start justify-between">
-                        <div className="flex-grow">
-                          <h4 className="font-medium text-gray-900 text-xs sm:text-sm mb-1">
-                            {announcement.title}
-                          </h4>
-                          <p className="text-xs text-gray-500">{announcement.date}</p>
-                        </div>
-                        {announcement.urgent && (
-                          <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full font-medium ml-2 flex-shrink-0">
-                            Penting
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {currentNews.map((article) => (
+              <article key={article.id} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+                <div className="h-56 w-full overflow-hidden">
+                  <Link to={`/halaman_berita/detail_berita/${article.id}`}>
+                    <img
+                      src={article.foto_berita}
+                      alt={article.judul_berita}
+                      className="w-full h-full object-cover hover:opacity-75 transition-opacity duration-300"
+                    />
+                  </Link>
                 </div>
-                
-                <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200">
-                  <button className="w-full text-green-600 text-xs sm:text-sm font-medium hover:text-green-800 transition-colors">
-                    View All Announcements →
-                  </button>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="text-sm text-green-600 font-medium mb-2">
+                    {new Date(article.tanggal_berita).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </div>
+                  <Link to={`/halaman_berita/detail_berita/${article.id}`}>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-green-600 transition-colors duration-300 cursor-pointer">
+                      {article.judul_berita}
+                    </h3>
+                  </Link>
+                  <p className="text-base text-gray-600 mb-4 flex-grow">
+                    {truncateText(article.isi_berita, 35)}
+                  </p>
+                  <Link to={`/halaman_berita/detail_berita/${article.id}`} className="text-green-600 font-medium hover:text-green-700 text-base self-start">
+                    Read More →
+                  </Link>
                 </div>
-              </div>
-
-              {/* Quick Links */}
-              <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mt-4 sm:mt-6">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
-                  Quick Links
-                </h3>
-                
-                <div className="space-y-2 sm:space-y-3">
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Research Portal
-                  </a>
-                  <a href="#" className="flex items-center text-gray-600 hover:text-green-600 transition-colors text-sm">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    Research Collaboration
-                  </a>
-                </div>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200 mt-8">
+              <div className="text-sm text-gray-600">
+                Showing {(currentPage - 1) * itemsPerPage + 1} to {
+                  Math.min(currentPage * itemsPerPage, news.length)
+                } of {news.length} entries
+              </div>
+              <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span>Previous</span>
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
+                  if (page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1)) {
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium ${page === currentPage ? 'z-10 bg-green-50 border-green-500 text-green-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  }
+                  return null;
+                })}
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span>Next</span>
+                </button>
+              </nav>
+            </div>
+          )}
         </div>
       </section>
     </div>

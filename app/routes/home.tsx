@@ -1,16 +1,40 @@
 import type { Route } from "./+types/home";
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
+import type { Berita } from "../data/data_berita";
+import { getAllBerita } from "../data/data_berita";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "SELEB - Sistem Elektronika Cerdas Berkelanjutan" },
+    { title: "SINES - Sustainable Intelligent Electronics Systems" },
     { name: "description", content: "Kelompok Riset Sistem Elektronika Cerdas Berkelanjutan - Mengembangkan teknologi elektronika yang inovatif dan berkelanjutan" },
   ];
 }
 // ini command
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+  const [news, setNews] = useState<Berita[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        setIsLoading(true);
+        const allNews = await getAllBerita();
+        // Sort by date in descending order and take the latest 3
+        const latestNews = allNews
+          .sort((a, b) => new Date(b.tanggal_berita).getTime() - new Date(a.tanggal_berita).getTime())
+          .slice(0, 3);
+        setNews(latestNews);
+      } catch (error) {
+        console.error("Failed to fetch news:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchNews();
+  }, []);
+
   // Array of image URLs - slides from home-image-slider folder
   const sliderImages = [
     "/home-image-slider/slide1.webp",
@@ -32,7 +56,7 @@ export default function Home() {
     setCurrentSlide(index);
   };
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-gray-100 font-sans antialiased">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Image Slider Background */}
@@ -89,12 +113,12 @@ export default function Home() {
             environmentally friendly electronic technologies for a better future.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
-            <button className="bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto max-w-xs sm:max-w-none">
+            <Link to={`/penelitian`}><button className="bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto max-w-xs sm:max-w-none">
               Explore Research
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 w-full sm:w-auto max-w-xs sm:max-w-none">
+            </button></Link>
+            <Link to={`/kontak`}><button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 w-full sm:w-auto max-w-xs sm:max-w-none">
               Contact Us
-            </button>
+            </button></Link>
           </div>
 
           {/* Scroll Indicator */}
@@ -265,68 +289,62 @@ export default function Home() {
       </section>
 
       {/* Latest News */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Recent News
-            </h2>
-            <p className="text-xl text-gray-600">
-              Latest updates on SELEB research and activities
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-40 sm:h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
-              <div className="p-4 sm:p-6">
-                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">January 15, 2024</div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  News Title 1
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                  Description Title 1
-                </p>
-                <a href="#" className="text-green-600 font-medium hover:text-green-700 text-sm sm:text-base">
-                  Read More →
-                </a>
-              </div>
-            </article>
-
-            <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-40 sm:h-48 bg-gradient-to-br from-green-500 to-emerald-600"></div>
-              <div className="p-4 sm:p-6">
-                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">January 10, 2024</div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  News Title 2
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                  Description Title 2
-                </p>
-                <a href="#" className="text-green-600 font-medium hover:text-green-700 text-sm sm:text-base">
-                  Read More →
-                </a>
-              </div>
-            </article>
-
-            <article className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-40 sm:h-48 bg-gradient-to-br from-emerald-400 to-green-600"></div>
-              <div className="p-4 sm:p-6">
-                <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">January 5, 2024</div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                  News Title 3
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                  Description Title 3
-                </p>
-                <a href="#" className="text-green-600 font-medium hover:text-green-700 text-sm sm:text-base">
-                  Read More →
-                </a>
-              </div>
-            </article>
-          </div>
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-12">
+            Berita Terbaru
+          </h2>
+          {isLoading ? (
+            <div className="text-center text-gray-600 text-lg">Memuat berita terbaru...</div>
+          ) : news.length === 0 ? (
+            <div className="text-center text-gray-600 text-lg">Tidak ada berita terbaru yang tersedia.</div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {news.map((article) => (
+                <article key={article.id} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="h-40 sm:h-48 w-full overflow-hidden">
+                    <Link to={`/halaman_berita/detail_berita/${article.id}`}>
+                      <img
+                        src={article.foto_berita}
+                        alt={article.judul_berita}
+                        className="w-full h-full object-cover hover:opacity-75 transition-opacity duration-300"
+                      />
+                    </Link>
+                  </div>
+                  <div className="p-4 sm:p-6">
+                    <div className="text-xs sm:text-sm text-green-600 font-medium mb-2">
+                      {new Date(article.tanggal_berita).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </div>
+                    <Link to={`/halaman_berita/detail_berita/${article.id}`}>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 hover:text-green-600 transition-colors duration-300 cursor-pointer">
+                        {truncateText(article.judul_berita, 10)}
+                      </h3>
+                    </Link>
+                    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
+                      {truncateText(article.isi_berita, 20)}
+                    </p>
+                    <Link to={`/halaman_berita/detail_berita/${article.id}`} className="text-green-600 font-medium hover:text-green-700 text-sm sm:text-base">
+                      Read More →
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </div>
   );
 }
+
+const truncateText = (text: string, wordLimit: number) => {
+  const words = text.split(' ');
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(' ') + '...';
+  }
+  return text;
+};

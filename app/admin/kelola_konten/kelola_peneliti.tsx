@@ -31,13 +31,23 @@ export default function KelolaPeneliti() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [facultyMembers, setFacultyMembers] = useState<FacultyMember[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [deleteConfirm, setDeleteConfirm] = useState<{ show: boolean; id: number | null; name: string }>({
-    show: false,
-    id: null,
-    name: ""
-  });
+  const [deleteConfirm, setDeleteConfirm] = useState<{ show: boolean; id: number | null; name: string }>(
+     { show: false, id: null, name: "" }
+   );
 
-  const handleLogout = () => {
+   // Pagination states
+   const [currentPage, setCurrentPage] = useState(1);
+   const itemsPerPage = 4;
+
+   // Calculate for pagination
+   const indexOfLastItem = currentPage * itemsPerPage;
+   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+   const currentPeneliti = facultyMembers.slice(indexOfFirstItem, indexOfLastItem);
+   const totalPages = Math.ceil(facultyMembers.length / itemsPerPage);
+
+   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+   const handleLogout = () => {
     logoutUser();
     // Clear browser history and prevent back navigation
     window.history.replaceState(null, "", "/admin/login");
@@ -57,7 +67,29 @@ export default function KelolaPeneliti() {
           throw error;
         }
 
-        setFacultyMembers(data || []);
+        // Define priority for researcher positions for custom sorting.
+        // Positions not listed here will have a lower priority (99).
+        const positionPriority: { [key: string]: number } = {
+          "Professor Researcher": 1,
+          "Senior Researcher": 2,
+          "Junior Researcher": 3,
+        };
+
+        // Sort faculty members based on position priority and then alphabetically by name.
+        const sortedFacultyMembers = (data || []).sort((a, b) => {
+          const priorityA = positionPriority[a.position] || 99;
+          const priorityB = positionPriority[b.position] || 99;
+
+          // If positions are different, sort by priority.
+          if (priorityA !== priorityB) {
+            return priorityA - priorityB;
+          }
+
+          // If positions are the same, sort alphabetically by name.
+          return a.name.localeCompare(b.name);
+        });
+
+        setFacultyMembers(sortedFacultyMembers || []);
       } catch (error) {
         console.error("Error loading faculty data:", error);
         alert("Gagal memuat data peneliti.");
@@ -176,19 +208,7 @@ export default function KelolaPeneliti() {
               >
                 Kelola Berita
               </NavLink>
-              <NavLink
-                to="/admin/kelola_konten/kelola_publikasi"
-                className={({ isActive }: { isActive: boolean }) =>
-                  `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                    isActive
-                      ? "bg-green-500 text-white shadow-md"
-                      : "text-gray-700 hover:bg-green-500 hover:text-white hover:shadow-md"
-                  }`
-                }
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                Kelola Publikasi
-              </NavLink>
+
               <NavLink
                 to="/admin/kelola_konten/kelola_peneliti"
                 className={({ isActive }: { isActive: boolean }) =>
@@ -320,7 +340,7 @@ export default function KelolaPeneliti() {
                             </tr>
                           </thead>
                           <tbody className="bg-white divide-y divide-gray-200">
-                            {facultyMembers.map((faculty) => (
+                            {currentPeneliti.map((faculty) => (
                               <tr key={faculty.id} className="hover:bg-gray-50">
                                 <td className="px-3 py-4">
                                   <div className="flex items-center">
@@ -375,7 +395,7 @@ export default function KelolaPeneliti() {
 
                       {/* Mobile Card View */}
                       <div className="lg:hidden">
-                        {facultyMembers.map((faculty) => (
+                        {currentPeneliti.map((faculty) => (
                           <div key={faculty.id} className="border-b border-gray-200 p-3">
                             <div className="flex items-start space-x-3">
                               <div className="flex-shrink-0">
@@ -420,6 +440,51 @@ export default function KelolaPeneliti() {
                             </div>
                           </div>
                         ))}
+                      </div>
+
+                      {/* Pagination Controls */}
+                      <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200">
+                        <div className="text-sm text-gray-600">
+                          Menampilkan {(currentPage - 1) * itemsPerPage + 1} sampai {
+                            Math.min(currentPage * itemsPerPage, facultyMembers.length)
+                          } dari {facultyMembers.length} entries
+                        </div>
+                        <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                          <button
+                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                            disabled={currentPage === 1}
+                            className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                          >
+                            <span>Previous</span>
+                          </button>
+                          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
+                            if (page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1)) {
+                              return (
+                                <button
+                                  key={page}
+                                  onClick={() => setCurrentPage(page)}
+                                  className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium ${page === currentPage ? 'z-10 bg-green-50 border-green-500 text-green-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                                >
+                                  {page}
+                                </button>
+                              );
+                            } else if (page === currentPage - 2 || page === currentPage + 2) {
+                              return (
+                                <span key={page} className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                                  ...
+                                </span>
+                              );
+                            }
+                            return null;
+                          })}
+                          <button
+                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                            disabled={currentPage === totalPages}
+                            className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                          >
+                            <span>Next</span>
+                          </button>
+                        </nav>
                       </div>
                     </div>
                   )}

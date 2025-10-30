@@ -2,7 +2,7 @@ import type { Route } from "./+types/kontak";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Contact - SELEB" },
+    { title: "Contact - SINES" },
     { name: "description", content: "Hubungi SELEB Research Group - Sustainable Intelligent Electronic Systems" },
   ];
 }

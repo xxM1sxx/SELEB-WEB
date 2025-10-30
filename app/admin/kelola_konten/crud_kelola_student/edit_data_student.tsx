@@ -268,19 +268,7 @@ export default function EditDataStudent() {
               >
                 Kelola Berita
               </NavLink>
-              <NavLink
-                to="/admin/kelola_konten/kelola_publikasi"
-                className={({ isActive }: { isActive: boolean }) =>
-                  `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                    isActive
-                      ? "bg-green-500 text-white shadow-md"
-                      : "text-gray-700 hover:bg-green-500 hover:text-white hover:shadow-md"
-                  }`
-                }
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                Kelola Publikasi
-              </NavLink>
+
               <NavLink
                 to="/admin/kelola_konten/kelola_peneliti"
                 className={({ isActive }: { isActive: boolean }) =>
@@ -360,7 +348,7 @@ export default function EditDataStudent() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Masukkan nama lengkap"
                       />
                     </div>
@@ -378,7 +366,7 @@ export default function EditDataStudent() {
                           required
                           value={formData.position}
                           onChange={handleInputChange}
-                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="Contoh: Tugas Akhir/MBKM/Researcher Assistant/dll"
                         />
                       </div>
@@ -394,7 +382,7 @@ export default function EditDataStudent() {
                           name="masa_program"
                           value={formData.masa_program}
                           onChange={handleInputChange}
-                          className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="Contoh: Januari-Juni 2025"
                         />
                       </div>
@@ -412,7 +400,7 @@ export default function EditDataStudent() {
                         required
                         value={formData.supervisor}
                         onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Nama supervisor"
                       />
                     </div>
@@ -428,7 +416,7 @@ export default function EditDataStudent() {
                         name="research_link"
                         value={formData.research_link}
                         onChange={handleInputChange}
-                        className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="https://..."
                       />
                     </div>
@@ -446,7 +434,7 @@ export default function EditDataStudent() {
                       rows={3}
                       value={formData.education}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Masukkan riwayat pendidikan"
                     />
                   </div>
@@ -463,7 +451,7 @@ export default function EditDataStudent() {
                       rows={5}
                       value={formData.research_topic}
                       onChange={handleInputChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       placeholder="Masukkan topik penelitian"
                     />
                   </div>
@@ -491,7 +479,7 @@ export default function EditDataStudent() {
                       id="image"
                       accept="image/*"
                       onChange={handleImageChange}
-                      className="text-gray-900 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     />
                     
                     {/* New Image Preview */}

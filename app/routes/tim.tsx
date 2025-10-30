@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Research Team - SELEB" },
+    { title: "Research Team - SINES" },
     { name: "description", content: "Tim Peneliti Sistem Elektronika Cerdas Berkelanjutan - Badan Riset dan Inovasi Nasional" },
   ];
 }
@@ -33,7 +33,7 @@ export default function Faculty() {
         setStudentMembers(students);
       } catch (err) {
         console.error('Error loading data:', err);
-        setError('Gagal memuat data. Silakan coba lagi.');
+        setError('Something went wrong. Please try again.');
       } finally {
         setIsLoading(false);
       }
@@ -58,7 +58,7 @@ export default function Faculty() {
         setStudentMembers(students);
       } catch (err) {
         console.error('Error loading data:', err);
-        setError('Gagal memuat data. Silakan coba lagi.');
+        setError('Something went wrong. Please try again.');
       } finally {
         setIsLoading(false);
       }

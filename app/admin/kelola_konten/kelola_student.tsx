@@ -30,11 +30,21 @@ export default function KelolaStudent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [students, setStudents] = useState<Student[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [deleteConfirm, setDeleteConfirm] = useState<{ show: boolean; id: number | null; name: string }>({
-    show: false,
-    id: null,
-    name: ""
-  });
+  const [deleteConfirm, setDeleteConfirm] = useState<{ show: boolean; id: number | null; name: string }>(
+    { show: false, id: null, name: "" }
+  );
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
+  // Calculate for pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentStudents = students.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(students.length / itemsPerPage);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   const handleLogout = () => {
     logoutUser();
@@ -56,7 +66,25 @@ export default function KelolaStudent() {
           throw error;
         }
 
-        setStudents(data || []);
+        const positionPriority: { [key: string]: number } = {
+          "Postdoctoral": 1,
+          "Researcher Assistant": 2,
+          "Tugas Akhir": 3,
+          "MBKM": 4,
+        };
+
+        const sortedStudents = (data || []).sort((a, b) => {
+          const priorityA = positionPriority[a.position] || 99; // Default to a high number for other positions
+          const priorityB = positionPriority[b.position] || 99;
+
+          if (priorityA !== priorityB) {
+            return priorityA - priorityB;
+          }
+
+          return a.name.localeCompare(b.name);
+        });
+
+        setStudents(sortedStudents || []);
       } catch (error) {
         console.error("Error loading student data:", error);
         alert("Gagal memuat data student.");
@@ -175,19 +203,7 @@ export default function KelolaStudent() {
               >
                 Kelola Berita
               </NavLink>
-              <NavLink
-                to="/admin/kelola_konten/kelola_publikasi"
-                className={({ isActive }: { isActive: boolean }) =>
-                  `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                    isActive
-                      ? "bg-green-500 text-white shadow-md"
-                      : "text-gray-700 hover:bg-green-500 hover:text-white hover:shadow-md"
-                  }`
-                }
-                onClick={() => setIsSidebarOpen(false)}
-              >
-                Kelola Publikasi
-              </NavLink>
+
               <NavLink
                 to="/admin/kelola_konten/kelola_peneliti"
                 className={({ isActive }: { isActive: boolean }) =>
@@ -320,7 +336,7 @@ export default function KelolaStudent() {
                             </tr>
                           </thead>
                           <tbody className="bg-white divide-y divide-gray-200">
-                            {students.map((student) => (
+                            {currentStudents.map((student) => (
                               <tr key={student.id} className="hover:bg-gray-50">
                                 <td className="px-3 py-4">
                                   <div className="flex items-center">
@@ -343,7 +359,21 @@ export default function KelolaStudent() {
                                   </div>
                                 </td>
                                 <td className="px-3 py-4">
-                                  <div className="text-sm text-gray-900 font-medium">{student.position}</div>
+                                  <div className="text-sm text-gray-900 font-medium flex items-center">
+                                   {student.position}
+                                   {student.position === "Postdoctoral" && (
+                                     <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800">Postdoc</span>
+                                   )}
+                                   {student.position === "Researcher Assistant" && (
+                                     <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">RA</span>
+                                   )}
+                                   {student.position === "Tugas Akhir" && (
+                                     <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">TA</span>
+                                   )}
+                                   {student.position === "MBKM" && (
+                                     <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">MBKM</span>
+                                   )}
+                                 </div>
                                   <div className="text-xs text-gray-500 truncate">{student.supervisor}</div>
                                 </td>
                                 <td className="px-3 py-4">
@@ -375,7 +405,7 @@ export default function KelolaStudent() {
 
                       {/* Mobile Card View */}
                       <div className="lg:hidden">
-                        {students.map((student) => (
+                        {currentStudents.map((student) => (
                           <div key={student.id} className="border-b border-gray-200 p-3">
                             <div className="flex items-start space-x-3">
                               <div className="flex-shrink-0">
@@ -393,8 +423,20 @@ export default function KelolaStudent() {
                                 <div className="text-sm font-medium text-gray-900 mb-1">
                                   {student.name}
                                 </div>
-                                <div className="text-sm text-gray-600 mb-1">
+                                <div className="text-sm text-gray-600 mb-1 flex items-center">
                                   {student.position}
+                                  {student.position === "Postdoctoral" && (
+                                    <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800">Postdoc</span>
+                                  )}
+                                  {student.position === "Researcher Assistant" && (
+                                    <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">RA</span>
+                                  )}
+                                  {student.position === "Tugas Akhir" && (
+                                    <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">TA</span>
+                                  )}
+                                  {student.position === "MBKM" && (
+                                    <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">MBKM</span>
+                                  )}
                                 </div>
                                 <div className="text-xs text-gray-600 mb-2 truncate">
                                   Supervisor: {student.supervisor}
@@ -421,6 +463,64 @@ export default function KelolaStudent() {
                           </div>
                         ))}
                       </div>
+
+                      {/* Pagination Controls */}
+                      {totalPages > 1 && (
+                        <div className="flex flex-col sm:flex-row justify-between items-center px-6 py-4">
+                          <div className="text-sm text-gray-600 mb-4 sm:mb-0">
+                            Menampilkan {indexOfFirstItem + 1} sampai {Math.min(indexOfLastItem, students.length)} dari {students.length} entries
+                          </div>
+                          <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                            <button
+                              onClick={() => paginate(currentPage - 1)}
+                              disabled={currentPage === 1}
+                              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              <span>Previous</span>
+                            </button>
+                            {[...Array(totalPages)].map((_, index) => {
+                              const pageNumber = index + 1;
+                              // Logic to display a limited number of page numbers
+                              if (
+                                pageNumber === 1 ||
+                                pageNumber === totalPages ||
+                                (pageNumber >= currentPage - 1 && pageNumber <= currentPage + 1)
+                              ) {
+                                return (
+                                  <button
+                                    key={pageNumber}
+                                    onClick={() => paginate(pageNumber)}
+                                    className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                                      pageNumber === currentPage
+                                        ? "z-10 bg-green-50 border-green-500 text-green-600"
+                                        : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                                    }`}
+                                  >
+                                    {pageNumber}
+                                  </button>
+                                );
+                              } else if (
+                                (pageNumber === currentPage - 2 && currentPage > 3) ||
+                                (pageNumber === currentPage + 2 && currentPage < totalPages - 2)
+                              ) {
+                                return (
+                                  <span key={pageNumber} className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                                    ...
+                                  </span>
+                                );
+                              }
+                              return null;
+                            })}
+                            <button
+                              onClick={() => paginate(currentPage + 1)}
+                              disabled={currentPage === totalPages}
+                              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              <span>Next</span>
+                            </button>
+                          </nav>
+                        </div>
+                      )}
                     </div>
                   )}
                 </>

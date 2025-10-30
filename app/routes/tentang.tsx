@@ -2,7 +2,7 @@ import type { Route } from "./+types/tentang";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "About - SELEB" },
+    { title: "About - SINES" },
     { name: "description", content: "Tentang Sistem Elektronika Cerdas Berkelanjutan - BRIN Samaun Samadikun" },
   ];
 }

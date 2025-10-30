@@ -2,7 +2,7 @@ import type { Route } from "./+types/penelitian";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Ongoing Research - SELEB" },
+    { title: "Ongoing Research - SINES" },
     { name: "description", content: "Penelitian yang sedang dikerjakan oleh mahasiswa dan dosen Program Studi Teknik Komputer UPI" },
   ];
 }

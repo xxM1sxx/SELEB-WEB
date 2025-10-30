@@ -6,7 +6,7 @@ import { getFacultyMemberByName, type FacultyMember } from "../data/facultyData"
 export function meta({ params }: Route.MetaArgs) {
   const facultyName = decodeURIComponent(params.name || "");
   return [
-    { title: `${facultyName} - Data Tim Peneliti - SELEB BRIN` },
+    { title: `${facultyName} - Researcher Data - SINES BRIN` },
     { name: "description", content: `Profil lengkap ${facultyName} - Tim Peneliti Sistem Elektronika Cerdas Berkelanjutan` },
   ];
 }
@@ -64,7 +64,7 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
       <div className="min-h-screen pt-20 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
-          <p className="text-gray-600 mt-4">Memuat data peneliti...</p>
+          <p className="text-gray-600 mt-4">Loading Data...</p>
         </div>
       </div>
     );
@@ -74,17 +74,17 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Terjadi Kesalahan</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Something Went Wrong</h1>
           <p className="text-gray-600 mb-4">{error}</p>
           <div className="space-x-4">
             <button 
                onClick={retryLoadData} 
                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
              >
-              Coba Lagi
+              Try Again
             </button>
             <Link to="/tim" className="text-green-600 hover:text-green-800 underline">
-              Kembali ke halaman Tim
+              Back to Team Page
             </Link>
           </div>
         </div>
@@ -96,9 +96,9 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Data tidak ditemukan</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Data Not Found</h1>
           <Link to="/tim" className="text-green-600 hover:text-green-800 underline">
-            Kembali ke halaman Tim
+            Back to Team Page
           </Link>
         </div>
       </div>
@@ -119,14 +119,14 @@ export default function DataTimPeneliti({ params }: Route.ComponentProps) {
                 to="/tim" 
                 className="text-green-200 hover:text-white text-sm underline mb-4 inline-block"
               >
-                ← Kembali ke Tim Peneliti
+                ← Back to Team Page
               </Link>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
-              Data Tim - Peneliti
+              Team Data - Researcher
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
-              Profil lengkap peneliti Sistem Elektronika Cerdas Berkelanjutan
+              Complete profile of the researcher in the Sustainable Intelligent Electronics Systems Research Group
             </p>
           </div>
         </div>

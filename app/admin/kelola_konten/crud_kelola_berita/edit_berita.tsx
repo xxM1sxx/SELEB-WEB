@@ -8,24 +8,20 @@ import type { MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Edit Peneliti" },
-    { name: "description", content: "Edit Peneliti - Admin" },
+    { title: "Edit Berita" },
+    { name: "description", content: "Edit Berita - Admin" },
   ];
 };
 
-interface FacultyMember {
+interface Berita {
   id: number;
-  name: string;
-  position: string;
-  specialization: string;
-  education: string;
-  email: string;
-  image: string;
-  link_penelitian: string;
-  bibliography: string;
+  judul_berita: string;
+  isi_berita: string;
+  tanggal_berita: string;
+  foto_berita: string;
 }
 
-export default function EditPeneliti() {
+export default function EditBerita() {
   const user = getCurrentUser();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -37,13 +33,9 @@ export default function EditPeneliti() {
   const [currentImageUrl, setCurrentImageUrl] = useState<string>("");
   
   const [formData, setFormData] = useState({
-    name: "",
-    position: "",
-    specialization: "",
-    education: "",
-    email: "",
-    link_penelitian: "",
-    bibliography: ""
+    judul_berita: "",
+    isi_berita: "",
+    tanggal_berita: "",
   });
 
   const handleLogout = () => {
@@ -54,12 +46,12 @@ export default function EditPeneliti() {
 
   // Load existing data
   useEffect(() => {
-    const loadFacultyData = async () => {
+    const loadBeritaData = async () => {
       if (!id) return;
       
       try {
         const { data, error } = await supabase
-          .from('data_peneliti')
+          .from('data_berita')
           .select('*')
           .eq('id', id)
           .single();
@@ -69,27 +61,24 @@ export default function EditPeneliti() {
         }
 
         if (data) {
-          setFormData({
-            name: data.name || "",
-            position: data.position || "",
-            specialization: data.specialization || "",
-            education: data.education || "",
-            email: data.email || "",
-            link_penelitian: data.link_penelitian || "",
-            bibliography: data.bibliography || ""
-          });
-          setCurrentImageUrl(data.image || "");
+          setFormData(prev => ({
+            ...prev,
+            judul_berita: data.judul_berita || "",
+            isi_berita: data.isi_berita || "",
+            tanggal_berita: data.tanggal_berita || "",
+          }));
+          setCurrentImageUrl(data.foto_berita || "");
         }
       } catch (error) {
-        console.error("Error loading faculty data:", error);
-        alert("Gagal memuat data peneliti.");
-        navigate("/admin/kelola_konten/kelola_peneliti");
+        console.error("Error loading news data:", error);
+        alert("Gagal memuat data berita.");
+        navigate("/admin/kelola_konten/kelola_berita");
       } finally {
         setIsLoadingData(false);
       }
     };
 
-    loadFacultyData();
+    loadBeritaData();
   }, [id, navigate]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -121,7 +110,7 @@ export default function EditPeneliti() {
       const fileName = urlParts[urlParts.length - 1];
       
       await supabase.storage
-        .from('foto_peneliti')
+        .from('foto_berita')
         .remove([fileName]);
     } catch (error) {
       console.error("Error deleting old image:", error);
@@ -133,7 +122,7 @@ export default function EditPeneliti() {
     const fileName = `${Date.now()}.${fileExt}`;
     
     const { data, error } = await supabase.storage
-      .from('foto_peneliti')
+      .from('foto_berita')
       .upload(fileName, file);
 
     if (error) {
@@ -141,7 +130,7 @@ export default function EditPeneliti() {
     }
 
     const { data: { publicUrl } } = supabase.storage
-      .from('foto_peneliti')
+      .from('foto_berita')
       .getPublicUrl(fileName);
 
     return publicUrl;
@@ -165,10 +154,12 @@ export default function EditPeneliti() {
       }
 
       const { error } = await supabase
-        .from('data_peneliti')
+        .from('data_berita')
         .update({
-          ...formData,
-          image: imageUrl
+          judul_berita: formData.judul_berita,
+          isi_berita: formData.isi_berita,
+          tanggal_berita: formData.tanggal_berita,
+          foto_berita: imageUrl
         })
         .eq('id', id);
 
@@ -176,11 +167,11 @@ export default function EditPeneliti() {
         throw error;
       }
 
-      alert("Data peneliti berhasil diperbarui!");
-      navigate("/admin/kelola_konten/kelola_peneliti");
+      alert("Data berita berhasil diperbarui!");
+      navigate("/admin/kelola_konten/kelola_berita");
     } catch (error) {
-      console.error("Error updating researcher:", error);
-      alert("Gagal memperbarui data peneliti. Silakan coba lagi.");
+      console.error("Error updating news:", error);
+      alert("Gagal memperbarui data berita. Silakan coba lagi.");
     } finally {
       setIsLoading(false);
     }
@@ -192,7 +183,7 @@ export default function EditPeneliti() {
         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-500 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Memuat data peneliti...</p>
+            <p className="mt-4 text-gray-600">Memuat data berita...</p>
           </div>
         </div>
       </ProtectedRoute>
@@ -212,7 +203,7 @@ export default function EditPeneliti() {
 
         {/* Left Sidebar Navigation */}
         <div className={`
-          fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white/90 backdrop-blur-md shadow-lg transform transition-transform duration-300 ease-in-out
+          fixed inset-y-0 left-0 z-50 w-64 bg-white/90 backdrop-blur-md shadow-lg transform transition-transform duration-300 ease-in-out h-screen overflow-y-auto
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}>
           <div className="p-6">
@@ -294,7 +285,7 @@ export default function EditPeneliti() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 lg:ml-0">
+        <div className="flex-1 lg:ml-64">
           {/* Top Header */}
           <div className="bg-white shadow">
             <div className="px-4 sm:px-6 py-4">
@@ -308,7 +299,7 @@ export default function EditPeneliti() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                   </button>
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Edit Peneliti</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Edit Berita</h2>
                 </div>
                 <div className="flex items-center space-x-2 sm:space-x-4">
                   <span className="text-gray-700 text-sm sm:text-base hidden sm:inline">Hi, {user?.username}</span>
@@ -330,172 +321,100 @@ export default function EditPeneliti() {
               <div className="bg-white rounded-lg shadow-md p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-6">
-                    {/* Name */}
+                    {/* Judul Berita */}
                     <div className="col-span-2">
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nama Lengkap *
+                      <label htmlFor="judul_berita" className="block text-sm font-medium text-gray-700 mb-2">
+                        Judul Berita *
                       </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
+                      <textarea
+                        id="judul_berita"
+                        name="judul_berita"
+                        rows={3}
                         required
-                        value={formData.name}
+                        value={formData.judul_berita}
                         onChange={handleInputChange}
                         className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="Masukkan nama lengkap"
+                        placeholder="Masukkan judul berita"
                       />
                     </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      {/* Position */}
+                      {/* Tanggal Berita */}
                       <div>
-                        <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
-                          Posisi *
+                        <label htmlFor="tanggal_berita" className="block text-sm font-medium text-gray-700 mb-2">
+                          Tanggal Berita *
                         </label>
                         <input
-                          type="text"
-                          id="position"
-                          name="position"
+                          type="date"
+                          id="tanggal_berita"
+                          name="tanggal_berita"
                           required
-                          value={formData.position}
+                          value={formData.tanggal_berita}
                           onChange={handleInputChange}
-                          className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                          placeholder="Contoh: Senior Researcher"
+                          className="text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         />
                       </div>
-                    
 
-                    {/* Email */}
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                          Email *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                          placeholder="email@example.com"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Link Penelitian */}
+                    {/* Isi Berita */}
                     <div>
-                      <label htmlFor="link_penelitian" className="block text-sm font-medium text-gray-700 mb-2">
-                        Link Penelitian
+                      <label htmlFor="isi_berita" className="block text-sm font-medium text-gray-700 mb-2">
+                        Isi Berita *
                       </label>
-                      <input
-                        type="url"
-                        id="link_penelitian"
-                        name="link_penelitian"
-                        value={formData.link_penelitian}
+                      <textarea
+                        id="isi_berita"
+                        name="isi_berita"
+                        required
+                        rows={10}
+                        value={formData.isi_berita}
                         onChange={handleInputChange}
                         className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        placeholder="https://scholar.google.com/..."
+                        placeholder="Masukkan isi berita"
                       />
                     </div>
-                  </div>
 
-                  {/* Education */}
-                  <div>
-                    <label htmlFor="education" className="block text-sm font-medium text-gray-700 mb-2">
-                      Pendidikan *
-                    </label>
-                    <textarea
-                      id="education"
-                      name="education"
-                      required
-                      rows={3}
-                      value={formData.education}
-                      onChange={handleInputChange}
-                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      placeholder="Masukkan riwayat pendidikan"
-                    />
-                  </div>
-
-                  {/* Specialization */}
-                  <div>
-                    <label htmlFor="specialization" className="block text-sm font-medium text-gray-700 mb-2">
-                      Spesialisasi *
-                    </label>
-                    <textarea
-                      id="specialization"
-                      name="specialization"
-                      required
-                      rows={3}
-                      value={formData.specialization}
-                      onChange={handleInputChange}
-                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      placeholder="Masukkan bidang spesialisasi"
-                    />
-                  </div>
-
-                  {/* Bibliography */}
-                  <div>
-                    <label htmlFor="bibliography" className="block text-sm font-medium text-gray-700 mb-2">
-                      Biografi *
-                    </label>
-                    <textarea
-                      id="bibliography"
-                      name="bibliography"
-                      required
-                      rows={5}
-                      value={formData.bibliography}
-                      onChange={handleInputChange}
-                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      placeholder="Masukkan biografi lengkap"
-                    />
-                  </div>
-
-                  {/* Image Upload */}
-                  <div>
-                    <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
-                      Foto Peneliti
-                    </label>
-                    
-                    {/* Current Image */}
-                    {currentImageUrl && !imagePreview && (
-                      <div className="mb-4">
-                        <p className="text-sm text-gray-600 mb-2">Foto saat ini:</p>
-                        <img
-                          src={currentImageUrl}
-                          alt="Current"
-                          className="w-32 h-32 object-cover rounded-lg border border-gray-300"
-                        />
-                      </div>
-                    )}
-                    
-                    <input
-                      type="file"
-                      id="image"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                      className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    />
-                    
-                    {/* New Image Preview */}
-                    {imagePreview && (
-                      <div className="mt-4">
-                        <p className="text-sm text-gray-600 mb-2">Preview foto baru:</p>
-                        <img
-                          src={imagePreview}
-                          alt="Preview"
-                          className="w-32 h-32 object-cover rounded-lg border border-gray-300"
-                        />
-                      </div>
-                    )}
+                    {/* Image Upload */}
+                    <div>
+                      <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
+                        Foto Berita
+                      </label>
+                      
+                      {/* Current Image */}
+                      {currentImageUrl && !imagePreview && (
+                        <div className="mb-4">
+                          <p className="text-sm text-gray-600 mb-2">Foto saat ini:</p>
+                          <img
+                            src={currentImageUrl}
+                            alt="Current"
+                            className="object-cover rounded-lg border border-gray-300"
+                          />
+                        </div>
+                      )}
+                      
+                      <input
+                        type="file"
+                        id="image"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      />
+                      
+                      {/* New Image Preview */}
+                      {imagePreview && (
+                        <div className="mt-4">
+                          <p className="text-sm text-gray-600 mb-2">Preview foto baru:</p>
+                          <img
+                            src={imagePreview}
+                            alt="Preview"
+                            className="object-cover rounded-lg border border-gray-300"
+                          />
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {/* Submit Buttons */}
                   <div className="flex justify-end space-x-4 pt-6">
                     <button
                       type="button"
-                      onClick={() => navigate("/admin/kelola_konten/kelola_peneliti")}
+                      onClick={() => navigate("/admin/kelola_konten/kelola_berita")}
                       className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
                     >
                       Batal
