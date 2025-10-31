@@ -68,6 +68,7 @@ function Navigation() {
               >
                 Home
               </NavLink>
+              
               <NavLink
                 to="/tentang"
                 className={({ isActive }) =>
@@ -80,6 +81,7 @@ function Navigation() {
               >
                 About
               </NavLink>
+
               <NavLink
                 to="/penelitian"
                 className={({ isActive }) =>
@@ -92,6 +94,7 @@ function Navigation() {
               >
                 Research
               </NavLink>
+
               <NavLink
                 to="/tim"
                 className={({ isActive }) =>
@@ -104,6 +107,7 @@ function Navigation() {
               >
                 Team
               </NavLink>
+
               <NavLink
                 to="/berita"
                 className={({ isActive }) =>
@@ -116,6 +120,7 @@ function Navigation() {
               >
                 News
               </NavLink>
+
               {/* <NavLink
                 to="/publikasi"
                 className={({ isActive }) =>
@@ -128,6 +133,7 @@ function Navigation() {
               >
                 Publication
               </NavLink> */}
+
               <NavLink
                 to="/kontak"
                 className={({ isActive }) =>
@@ -180,6 +186,7 @@ function Navigation() {
             >
               Home
             </NavLink>
+
             <NavLink
               to="/tentang"
               className={({ isActive }) =>
@@ -193,6 +200,7 @@ function Navigation() {
             >
               About
             </NavLink>
+
             <NavLink
               to="/penelitian"
               className={({ isActive }) =>
@@ -206,6 +214,7 @@ function Navigation() {
             >
               Research
             </NavLink>
+
             <NavLink
               to="/tim"
               className={({ isActive }) =>
@@ -219,6 +228,7 @@ function Navigation() {
             >
               Team
             </NavLink>
+
             <NavLink
               to="/berita"
               className={({ isActive }) =>
@@ -232,7 +242,8 @@ function Navigation() {
             >
               News
             </NavLink>
-            <NavLink
+
+            {/* <NavLink
               to="/publikasi"
               className={({ isActive }) =>
                 `block px-3 py-2 rounded-md text-base font-medium transition-colors ${
@@ -244,7 +255,8 @@ function Navigation() {
               onClick={() => setIsMenuOpen(false)}
             >
               Publication
-            </NavLink>
+            </NavLink> */}
+
             <NavLink
               to="/kontak"
               className={({ isActive }) =>
