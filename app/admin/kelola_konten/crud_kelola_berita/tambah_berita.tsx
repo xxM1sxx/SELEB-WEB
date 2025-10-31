@@ -4,6 +4,14 @@ import { NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import { addBerita } from "../../../data/data_berita";
 import { supabase } from "../../../koneksi_supabase";
+import type { MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Admin - Tambah Berita" },
+    { name: "description", content: "Tambah Berita - Admin" },
+  ];
+};
 
 interface BeritaForm {
   judul_berita: string;
@@ -187,6 +195,21 @@ export default function TambahBerita() {
               >
                 Home
               </NavLink>
+
+              <NavLink
+                to="/admin/kelola_konten/kelola_riset"
+                className={({ isActive }: { isActive: boolean }) =>
+                  `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-green-500 text-white shadow-md"
+                      : "text-gray-700 hover:bg-green-500 hover:text-white hover:shadow-md"
+                  }`
+                }
+                onClick={() => setIsSidebarOpen(false)}
+              >
+                Kelola Riset
+              </NavLink>
+
               <NavLink
                 to="/admin/kelola_konten/kelola_berita"
                 className={({ isActive }: { isActive: boolean }) =>

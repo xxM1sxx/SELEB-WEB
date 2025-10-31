@@ -1,61 +1,80 @@
+import { ProtectedRoute } from "../../../login_session/ProtectedRoute";
+import { getCurrentUser, logoutUser } from "../../../utils/auth";
+import { NavLink, useNavigate } from "react-router";
+import { useState } from "react";
+import { addRiset } from "../../../data/data_riset";
+
 import type { MetaFunction } from "react-router";
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router";
-import ProtectedRoute from "../login_session/ProtectedRoute";
-import { getCurrentUser, logoutUser } from "../utils/auth";
-import { getAllBerita } from "../data/data_berita";
-import { getAllFacultyMembers } from "../data/facultyData";
-import { getAllStudentMembers } from "../data/studentData";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Dashboard - Home" },
-    { name: "description", content: "Dashboard - Admin" },
+    { title: "Admin - Tambah Riset" },
+    { name: "description", content: "Tambah Riset - Admin" },
   ];
 };
 
-export default function Dashboard() {
+interface RisetForm {
+  judul_riset: string;
+  deskripsi_riset: string;
+}
+
+export default function TambahRiset() {
+  const [form, setForm] = useState<RisetForm>({
+    judul_riset: '',
+    deskripsi_riset: '',
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const user = getCurrentUser();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [beritaCount, setBeritaCount] = useState<number | null>(null);
-  const [facultyCount, setFacultyCount] = useState<number | null>(null);
-  const [studentCount, setStudentCount] = useState<number | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const allBerita = await getAllBerita();
-        setBeritaCount(allBerita.length);
-      } catch (error) {
-        console.error("Failed to fetch berita count:", error);
-        setBeritaCount(0);
-      }
-
-      try {
-        const allFaculty = await getAllFacultyMembers();
-        setFacultyCount(allFaculty.length);
-      } catch (error) {
-        console.error("Failed to fetch faculty count:", error);
-        setFacultyCount(0);
-      }
-
-      try {
-        const allStudents = await getAllStudentMembers();
-        setStudentCount(allStudents.length);
-      } catch (error) {
-        console.error("Failed to fetch student count:", error);
-        setStudentCount(0);
-      }
-    };
-
-    fetchData();
-  }, []);
+  if (!user) {
+    navigate('/admin/login');
+    return null;
+  }
 
   const handleLogout = () => {
     logoutUser();
-    // Clear browser history and prevent back navigation
     window.history.replaceState(null, "", "/admin/login");
     window.location.replace("/admin/login");
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    if (!form.judul_riset || !form.deskripsi_riset) {
+      alert('Judul Riset dan Deskripsi Riset harus diisi!');
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      await addRiset({
+        judul_riset: form.judul_riset,
+        deskripsi_riset: form.deskripsi_riset,
+      });
+
+      alert("Riset berhasil ditambahkan!");
+      navigate('/admin/kelola_konten/kelola_riset');
+    } catch (error) {
+      console.error('Error menambahkan riset:', error);
+      if (error instanceof Error) {
+        alert(`Gagal menambahkan riset: ${error.message}`);
+      } else {
+        alert("Gagal menambahkan riset. Silakan coba lagi.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -63,7 +82,7 @@ export default function Dashboard() {
       <div className="min-h-screen bg-gray-50 flex">
         {/* Mobile Sidebar Overlay */}
         {isSidebarOpen && (
-          <div 
+          <div
             className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
             onClick={() => setIsSidebarOpen(false)}
           />
@@ -71,7 +90,7 @@ export default function Dashboard() {
 
         {/* Left Sidebar Navigation */}
         <div className={`
-          fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white/90 backdrop-blur-md shadow-lg transform transition-transform duration-300 ease-in-out
+          fixed inset-y-0 left-0 z-50 w-64 bg-white/90 backdrop-blur-md shadow-lg transform transition-transform duration-300 ease-in-out h-screen overflow-y-auto
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}>
           <div className="p-6">
@@ -84,7 +103,6 @@ export default function Dashboard() {
                 />
                 <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
               </div>
-              {/* Close button for mobile */}
               <button
                 onClick={() => setIsSidebarOpen(false)}
                 className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-600"
@@ -94,11 +112,11 @@ export default function Dashboard() {
                 </svg>
               </button>
             </div>
-            
+
             <nav className="space-y-2">
               <NavLink
                 to="/admin/dashboard"
-                className={({ isActive }) =>
+                className={({ isActive }: { isActive: boolean }) =>
                   `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-green-500 text-white shadow-md"
@@ -112,7 +130,7 @@ export default function Dashboard() {
 
               <NavLink
                 to="/admin/kelola_konten/kelola_riset"
-                className={({ isActive }) =>
+                className={({ isActive }: { isActive: boolean }) =>
                   `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-green-500 text-white shadow-md"
@@ -126,7 +144,7 @@ export default function Dashboard() {
 
               <NavLink
                 to="/admin/kelola_konten/kelola_berita"
-                className={({ isActive }) =>
+                className={({ isActive }: { isActive: boolean }) =>
                   `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-green-500 text-white shadow-md"
@@ -140,7 +158,7 @@ export default function Dashboard() {
 
               <NavLink
                 to="/admin/kelola_konten/kelola_peneliti"
-                className={({ isActive }) =>
+                className={({ isActive }: { isActive: boolean }) =>
                   `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-green-500 text-white shadow-md"
@@ -151,10 +169,9 @@ export default function Dashboard() {
               >
                 Kelola Peneliti
               </NavLink>
-              
               <NavLink
                 to="/admin/kelola_konten/kelola_student"
-                className={({ isActive }) =>
+                className={({ isActive }: { isActive: boolean }) =>
                   `block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-green-500 text-white shadow-md"
@@ -170,13 +187,12 @@ export default function Dashboard() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 lg:ml-0">
+        <div className="flex-1 lg:ml-64">
           {/* Top Header */}
           <div className="bg-white shadow">
             <div className="px-4 sm:px-6 py-4">
               <div className="flex justify-between items-center">
                 <div className="flex items-center">
-                  {/* Mobile menu button */}
                   <button
                     onClick={() => setIsSidebarOpen(true)}
                     className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-600 mr-4"
@@ -185,7 +201,7 @@ export default function Dashboard() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                   </button>
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Dashboard</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Tambah Riset Baru</h2>
                 </div>
                 <div className="flex items-center space-x-2 sm:space-x-4">
                   <span className="text-gray-700 text-sm sm:text-base hidden sm:inline">Hi, {user?.username}</span>
@@ -201,60 +217,58 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Dashboard Content */}
+          {/* Content */}
           <div className="p-4 sm:p-6">
-            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Selamat datang di Dashboard Admin
-              </h2>
-              <p className="text-gray-600 mb-2 text-base">
-                Username: {user?.username || "Username tidak diketahui"}
-              </p>
-              <p className="text-gray-500 text-sm max-w-md">
-                Ini adalah halaman dashboard admin. Anda dapat mengelola konten website dari sini.
-              </p>
-            </div>
-
-            <hr className="my-6 border-gray-300" />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Card Jumlah Berita */}
-              <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
-                <div className="flex-shrink-0 bg-green-100 p-3 rounded-full">
-                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v10m-7-2l4 4m-4-4l-4 4" />
-                  </svg>
+            <div className="max-w-4xl mx-auto">
+                <div className="bg-white rounded-lg shadow-md p-6">
+              <form onSubmit={handleSubmit} className='space-y-6'>
+                <div className="space-y-6">
+                  <label htmlFor="judul_riset" className="block text-sm font-medium text-gray-700 mb-2">
+                    Judul Riset *
+                  </label>
+                  <textarea
+                    name='judul_riset'
+                    id='judul_riset'
+                    rows={3}
+                    value={form.judul_riset}
+                    onChange={handleInputChange}
+                    className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    required
+                    placeholder="Masukkan judul riset"
+                  />
                 </div>
                 <div>
-                  <p className="text-gray-500 text-base">Total Berita</p>
-                  <p className="text-2xl font-bold text-gray-900">{beritaCount !== null ? beritaCount : '...'}</p>
+                  <label htmlFor="deskripsi_riset" className="block text-sm font-medium text-gray-700 mb-2">
+                    Deskripsi Riset *
+                  </label>
+                  <textarea
+                    name='deskripsi_riset'
+                    id='deskripsi_riset'
+                    rows={6}
+                    value={form.deskripsi_riset}
+                    onChange={handleInputChange}
+                    className="text-black w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    required
+                    placeholder="Masukkan deskripsi riset"
+                  />
                 </div>
-              </div>
-
-              {/* Card Jumlah Peneliti */}
-              <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
-                <div className="flex-shrink-0 bg-blue-100 p-3 rounded-full">
-                  <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M7 10a6 6 0 1112 0v2H7v-2zm0 0a5.972 5.972 0 001.518 4.334m7.584 0a5.972 5.972 0 001.518-4.334" />
-                  </svg>
+                <div className="flex justify-end space-x-4 pt-6">
+                  <button
+                    type="button"
+                    onClick={() => navigate('/admin/kelola_konten/kelola_riset')}
+                    className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+                  >
+                    Batal
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Menyimpan...' : 'Simpan'}
+                  </button>
                 </div>
-                <div>
-                  <p className="text-gray-500 text-base">Total Peneliti</p>
-                  <p className="text-2xl font-bold text-gray-900">{facultyCount !== null ? facultyCount : '...'}</p>
-                </div>
-              </div>
-
-              {/* Card Jumlah Student */}
-              <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
-                <div className="flex-shrink-0 bg-purple-100 p-3 rounded-full">
-                  <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 18.72a9.094 9.094 0 003.715-.423 2 2 0 01.685.165c.227.093.354.29.354.51v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2c0-.22.127-.417.354-.51a2 2 0 01.685-.165A9.094 9.094 0 0018 18.72zM10.5 11.25a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-gray-500 text-base">Total Student</p>
-                  <p className="text-2xl font-bold text-gray-900">{studentCount !== null ? studentCount : '...'}</p>
-                </div>
+              </form>
               </div>
             </div>
           </div>

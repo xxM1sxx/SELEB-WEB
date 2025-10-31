@@ -20,6 +20,7 @@ export default [
   route("admin/kelola_konten/kelola_berita", "admin/kelola_konten/kelola_berita.tsx"),
   route("admin/kelola_konten/kelola_peneliti", "admin/kelola_konten/kelola_peneliti.tsx"),
   route("admin/kelola_konten/kelola_student", "admin/kelola_konten/kelola_student.tsx"),
+  route("admin/kelola_konten/kelola_riset", "admin/kelola_konten/kelola_riset.tsx"),
 
   // CRUD routes for kelola_peneliti
   route("admin/kelola_konten/crud_kelola_peneliti/tambah_peneliti", "admin/kelola_konten/crud_kelola_peneliti/tambah_peneliti.tsx"),
@@ -33,7 +34,11 @@ export default [
   route("admin/kelola_konten/crud_kelola_berita/tambah_berita", "admin/kelola_konten/crud_kelola_berita/tambah_berita.tsx"),
   route("admin/kelola_konten/crud_kelola_berita/edit_berita/:id", "admin/kelola_konten/crud_kelola_berita/edit_berita.tsx"),
 
-  // Rute untuk berita
+   // CRUD routes for kelola_riset
+  route("admin/kelola_konten/crud_kelola_riset/tambah_riset", "admin/kelola_konten/crud_kelola_riset/tambah_riset.tsx"),
+  route("admin/kelola_konten/crud_kelola_riset/edit_riset/:id", "admin/kelola_konten/crud_kelola_riset/edit_riset.tsx"),
+
+  // Rute untuk detail berita
   route("halaman_berita/detail_berita/:id", "routes/halaman_berita/detail_berita.tsx"),
 
 ] satisfies RouteConfig;

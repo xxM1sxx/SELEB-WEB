@@ -85,6 +85,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           {/* Navigation Dots */}
+          <div className="inline-block mb-20 sm:mb-16"></div>
           <div className="flex justify-center space-x-2 mb-6 pt-4 sm:pt-8 md:pt-12">
             {sliderImages.map((_, index) => (
               <button
@@ -100,8 +101,7 @@ export default function Home() {
             ))}
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
-            Sustainable Intelligent Electronics
-            <span className="block text-green-400">Systems</span>
+            Sustainable Intelligent Electronics Systems
           </h1>
           <div className="inline-block bg-green-500 px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 rounded-full mb-6 sm:mb-8 shadow-lg mx-2">
             <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-white italic tracking-wide leading-tight">

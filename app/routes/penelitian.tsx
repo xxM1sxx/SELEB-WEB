@@ -1,149 +1,197 @@
 import type { Route } from "./+types/penelitian";
+import { useState, useEffect } from "react";
+import { Link } from "react-router";
+import type { Riset } from "../data/data_riset";
+import { getAllRiset } from "../data/data_riset";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Ongoing Research - SINES" },
-    { name: "description", content: "Penelitian yang sedang dikerjakan oleh mahasiswa dan dosen Program Studi Teknik Komputer UPI" },
+    { title: "Research - SELEB" },
+    { name: "description", content: "Explore ongoing research projects by the SELEB BRIN research group on Electronic Smart System" },
   ];
 }
 
-export default function Programs() {
+const truncateText = (text: string, wordLimit: number) => {
+  const words = text.split(' ');
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(' ') + '...';
+  }
+  return text;
+};
+
+export default function Penelitian() {
+  const [riset, setRiset] = useState<Riset[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
+  // Calculate for pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentRiset = riset.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(riset.length / itemsPerPage);
+
+  useEffect(() => {
+    const fetchRiset = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const allRiset = await getAllRiset();
+        setRiset(allRiset);
+      } catch (err) {
+        console.error('Error fetching research data:', err);
+        setError('Failed to load research data. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchRiset();
+  }, []);
+
+  const retryLoadData = () => {
+    const fetchRiset = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const allRiset = await getAllRiset();
+        setRiset(allRiset);
+      } catch (err) {
+        console.error('Error fetching research data:', err);
+        setError('Failed to load research data. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchRiset();
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+          <p className="text-gray-600 mt-4">Loading research data...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">An Error Occurred</h1>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <div className="space-x-4">
+            <button 
+               onClick={retryLoadData} 
+               className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+             >
+              Try Again
+            </button>
+            <Link to="/penelitian" className="text-green-600 hover:text-green-800 underline">
+              Back to Research Page
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (riset.length === 0) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">No Research Available</h1>
+          <Link to="/penelitian" className="text-green-600 hover:text-green-800 underline">
+            Back to Research Page
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Section */}
+      {/* Header Section */}
       <section className="bg-gradient-to-br from-green-900 via-emerald-800 to-teal-700 text-white py-16 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="absolute top-10 left-10 w-32 h-32 bg-green-400 rounded-full opacity-10 animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-24 h-24 bg-emerald-300 rounded-full opacity-15 animate-bounce"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <div className="inline-block mb-6">
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
-              Ongoing Research
+            <div className="inline-block mb-4 sm:mb-6"></div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-green-200 to-emerald-100 bg-clip-text text-transparent">
+              Research
             </h1>
-            <p className="text-lg sm:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
-              Various innovative research projects being developed by students and faculty 
-              in the fields of computer technology and sustainable electronics
+            <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-4xl mx-auto leading-relaxed">
+              Explore the cutting-edge research and innovative projects conducted by our team.
             </p>
           </div>
         </div>
       </section>
 
-
-
-      {/* Ongoing Research */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
-        {/* Background Decorations */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 right-10 w-40 h-40 bg-green-200/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-32 h-32 bg-emerald-200/40 rounded-full blur-2xl"></div>
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-teal-200/20 rounded-full blur-xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Ongoing Research
-            </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-6 sm:mb-8"></div>
-            {/* <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Various innovative research projects being developed by students and faculty 
-              in the fields of computer technology and sustainable electronics
-            </p> */}
+      {/* Research List Section */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {currentRiset.map((item) => (
+              <article key={item.id} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-green-600 transition-colors duration-300 cursor-pointer">
+                    {item.judul_riset}
+                  </h3>
+                  <p className="text-base text-gray-600 mb-4 flex-grow">
+                    {truncateText(item.deskripsi_riset, 35)}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-            {/* Research Card 1 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-green-700 transition-colors">
-                Eco-Friendly Hydrogel Strain Sensor for IoT-Enabled Muscle Strength Detection (Funded by RP-ORKES 2025)
-              </h3>
-              
-              <div className="space-y-3 sm:space-y-4">
-                <div>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                    Development of a sustainable alternative muscle strength measuring device produced domestically to substitute imported electromyography (EMG) equipment, with the potential to become a leading product in the local market.
-                  </p>
-                </div>
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="px-6 py-4 flex items-center justify-between border-t border-gray-200 mt-8">
+              <div className="text-sm text-gray-600">
+                Showing {(currentPage - 1) * itemsPerPage + 1} to {
+                  Math.min(currentPage * itemsPerPage, riset.length)
+                } of {riset.length} entries
               </div>
+              <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span>Previous</span>
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
+                  if (page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1)) {
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium ${page === currentPage ? 'z-10 bg-green-50 border-green-500 text-green-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  }
+                  return null;
+                })}
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span>Next</span>
+                </button>
+              </nav>
             </div>
-
-            {/* Research Card 2 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-blue-700 transition-colors">
-                BNC Hydrogel-Based Plantar Sensor Integrated with FlexiForce and IoT Systems
-              </h3>
-              
-              <div className="space-y-3 sm:space-y-4">
-                <div>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                    Development of a BNC hydrogel-based plantar sensor integrated with FlexiForce and IoT for real-time monitoring of pressure distribution and body balance, with applications in medical rehabilitation and health monitoring.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Research Card 3 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-purple-700 transition-colors">
-                Real-Time Food Safety and Quality Monitoring Using Moisture and pH-Responsive Sensor
-              </h3>
-              
-              <div className="space-y-3 sm:space-y-4">
-                <div>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                    Moisture-responsive sensor functions to detect changes in humidity within food packaging, helping to maintain storage conditions that prevent bacterial growth. The colorimetric pH-based sensor enables quick and practical monitoring of food freshness by detecting color changes that correspond to pH variations caused by bacterial growth.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Research Card 4 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-orange-700 transition-colors">
-                Strain Sensor for Health Monitoring Funded by RKI International UPI
-              </h3>
-              
-              <div className="space-y-3 sm:space-y-4">
-                <div>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                    Development of an eco-friendly hydrogel-based flexible sensor for wearable device applications embedded in a bionic hand or human skin.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Research Card 5 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-teal-700 transition-colors">
-                Film-Based Sensor for Evaluation and Detection of Parkinson's Disease
-              </h3>
-              
-              <div className="space-y-3 sm:space-y-4">
-                <div>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                    Development of a film-based piezoelectric finger-tapping sensor for the detection and evaluation of Parkinson's disease through its ability to record muscle mechanical responses.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Research Card 6 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-indigo-700 transition-colors">
-                Hydrogel-based Wound Dressings for Diabetic Patients with Integrated Multifunctional Smart Monitoring System and Internet of Things
-              </h3>
-              
-              <div className="space-y-3 sm:space-y-4">
-                <div>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                    Develops an intelligent hydrogel-based wound dressing for diabetic patients, integrating temperature and glucose sensors with an IoT-based smart monitoring system. Made from sustainable cellulose materials reinforced with nanocellulose, the hydrogel enables real-time monitoring of wound conditions to improve healing efficiency and reduce complications.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </section>
     </div>
