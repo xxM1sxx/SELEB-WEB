@@ -6,6 +6,9 @@ import { getCurrentUser, logoutUser } from "../utils/auth";
 import { getAllBerita } from "../data/data_berita";
 import { getAllFacultyMembers } from "../data/facultyData";
 import { getAllStudentMembers } from "../data/studentData";
+import { getAllRiset } from "../data/data_riset";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook, faUserGraduate, faUserTie, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 export const meta: MetaFunction = () => {
   return [
@@ -20,6 +23,7 @@ export default function Dashboard() {
   const [beritaCount, setBeritaCount] = useState<number | null>(null);
   const [facultyCount, setFacultyCount] = useState<number | null>(null);
   const [studentCount, setStudentCount] = useState<number | null>(null);
+  const [risetCount, setRisetCount] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,6 +49,14 @@ export default function Dashboard() {
       } catch (error) {
         console.error("Failed to fetch student count:", error);
         setStudentCount(0);
+      }
+
+      try {
+        const allRiset = await getAllRiset();
+        setRisetCount(allRiset.length);
+      } catch (error) {
+        console.error("Failed to fetch riset count:", error);
+        setRisetCount(0);
       }
     };
 
@@ -220,40 +232,45 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Card Jumlah Berita */}
               <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
-                <div className="flex-shrink-0 bg-green-100 p-3 rounded-full">
-                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v10m-7-2l4 4m-4-4l-4 4" />
-                  </svg>
+                <div className="flex-shrink-0 bg-blue-100 p-3 rounded-full">
+                  <FontAwesomeIcon icon={faNewspaper} className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-gray-500 text-base">Total Berita</p>
+                  <p className="text-gray-600 text-base">Total Berita</p>
                   <p className="text-2xl font-bold text-gray-900">{beritaCount !== null ? beritaCount : '...'}</p>
                 </div>
               </div>
 
               {/* Card Jumlah Peneliti */}
               <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
-                <div className="flex-shrink-0 bg-blue-100 p-3 rounded-full">
-                  <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M7 10a6 6 0 1112 0v2H7v-2zm0 0a5.972 5.972 0 001.518 4.334m7.584 0a5.972 5.972 0 001.518-4.334" />
-                  </svg>
+                <div className="flex-shrink-0 bg-green-100 p-3 rounded-full">
+                  <FontAwesomeIcon icon={faUserTie} className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-gray-500 text-base">Total Peneliti</p>
+                  <p className="text-gray-600 text-base">Total Peneliti</p>
                   <p className="text-2xl font-bold text-gray-900">{facultyCount !== null ? facultyCount : '...'}</p>
                 </div>
               </div>
 
-              {/* Card Jumlah Student */}
+              {/* Card Jumlah Mahasiswa dan Postdoc */}
               <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
                 <div className="flex-shrink-0 bg-purple-100 p-3 rounded-full">
-                  <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 18.72a9.094 9.094 0 003.715-.423 2 2 0 01.685.165c.227.093.354.29.354.51v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2c0-.22.127-.417.354-.51a2 2 0 01.685-.165A9.094 9.094 0 0018 18.72zM10.5 11.25a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0z" />
-                  </svg>
+                  <FontAwesomeIcon icon={faUserGraduate} className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-gray-500 text-base">Total Student</p>
+                  <p className="text-gray-600 text-base">Total Mahasiswa/Postdoctoral</p>
                   <p className="text-2xl font-bold text-gray-900">{studentCount !== null ? studentCount : '...'}</p>
+                </div>
+              </div>
+
+              {/* Card Jumlah Riset */}
+              <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
+                <div className="flex-shrink-0 bg-yellow-100 p-3 rounded-full">
+                  <FontAwesomeIcon icon={faBook} className="h-6 w-6 text-yellow-600" />
+                </div>
+                <div>
+                  <p className="text-gray-600 text-base">Total Riset</p>
+                  <p className="text-2xl font-bold text-gray-900">{risetCount !== null ? risetCount : '...'}</p>
                 </div>
               </div>
             </div>
