@@ -113,8 +113,8 @@ export default function Register() {
               <div className="inline-block mb-2">
                 <img
                   className="h-16 w-16 mx-auto"
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ffffff'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-family='Arial' font-size='30' font-weight='bold' fill='%23059669'%3ESELEB%3C/text%3E%3C/svg%3E"
-                  alt="SELEB Logo"
+                  src="/logo sines.svg"
+                  alt="SINES Logo"
                 />
                 {/* <h2 className="text-lg font-semibold text-gray-700">SELEB Research Group</h2> */}
               </div>

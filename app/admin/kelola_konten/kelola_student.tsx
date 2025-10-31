@@ -160,8 +160,8 @@ export default function KelolaStudent() {
               <div className="flex items-center">
                 <img
                   className="h-8 w-8 mr-3"
-                  src="/SELEB Logo.svg"
-                  alt="SELEB Logo"
+                  src="/logo sines.svg"
+                  alt="SINES Logo"
                 />
                 <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
               </div>
