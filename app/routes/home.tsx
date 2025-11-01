@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import type { Berita } from "../data/data_berita";
 import { getAllBerita } from "../data/data_berita";
+import { getAllFacultyMembers } from "../data/facultyData";
+import { getAllRiset } from "../data/data_riset";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -15,6 +17,45 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [news, setNews] = useState<Berita[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [activeResearcherCount, setActiveResearcherCount] = useState<string | null>(null);
+  const [researchProjectCount, setResearchProjectCount] = useState<string | null>(null);
+  const [newsCount, setNewsCount] = useState<string | null>(null);
+  const [isLoadingCounts, setIsLoadingCounts] = useState(true);
+  const [errorCounts, setErrorCounts] = useState<string | null>(null);
+
+  const formatCount = (count: number | null): string => {
+    if (count === null) return '...';
+    if (count <= 50) return count.toString();
+    if (count > 50 && count <= 100) return '50+';
+    return '100+';
+  };
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      setIsLoadingCounts(true);
+      setErrorCounts(null);
+      try {
+        const [faculty, riset, berita] = await Promise.all([
+          getAllFacultyMembers(),
+          getAllRiset(),
+          getAllBerita(),
+        ]);
+        setActiveResearcherCount(formatCount(faculty.length));
+        setResearchProjectCount(formatCount(riset.length));
+        setNewsCount(formatCount(berita.length));
+      } catch (error) {
+        console.error("Failed to fetch counts:", error);
+        setErrorCounts("Gagal memuat data");
+        setActiveResearcherCount("...");
+        setResearchProjectCount("...");
+        setNewsCount("...");
+      } finally {
+        setIsLoadingCounts(false);
+      }
+    };
+    fetchCounts();
+  }, []);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -176,20 +217,22 @@ export default function Home() {
             <div className="bg-green-50 p-6 sm:p-8 rounded-2xl order-1 lg:order-2">
               <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">6</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
+                    {isLoadingCounts ? '...' : errorCounts ? 'Error' : activeResearcherCount}
+                  </div>
                   <div className="text-sm sm:text-base text-gray-700">Active Researcher</div>
                 </div>
-                {/* <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">20+</div>
-                  <div className="text-sm sm:text-base text-gray-700">Publication</div>
-                </div> */}
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">25+</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
+                    {isLoadingCounts ? '...' : errorCounts ? 'Error' : researchProjectCount}
+                  </div>
                   <div className="text-sm sm:text-base text-gray-700">Research Project</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">10+</div>
-                  <div className="text-sm sm:text-base text-gray-700">Partnership</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
+                    {isLoadingCounts ? '...' : errorCounts ? 'Error' : newsCount}
+                  </div>
+                  <div className="text-sm sm:text-base text-gray-700">News</div>
                 </div>
               </div>
             </div>
@@ -292,7 +335,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-12">
-            Berita Terbaru
+            Recent News
           </h2>
           {isLoading ? (
             <div className="text-center text-gray-600 text-lg">Memuat berita terbaru...</div>

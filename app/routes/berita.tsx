@@ -153,12 +153,15 @@ export default function News() {
                   </Link>
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <div className="text-sm text-green-600 font-medium mb-2">
+                  <div className="text-base text-green-600 font-medium mb-2">
                     {new Date(article.tanggal_berita).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',
                     })}
+                  </div>
+                  <div className="text-sm text-blue-600 font-medium mb-2">
+                    {article.reporter || 'Admin'}
                   </div>
                   <Link to={`/halaman_berita/detail_berita/${article.id}`}>
                     <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-green-600 transition-colors duration-300 cursor-pointer">
